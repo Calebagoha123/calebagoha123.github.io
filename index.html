@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caleb Agoha - Computational Social Scientist & ML Enthusiast</title>
     <style>
+        /* Default dark mode styles */
         body {
             font-family: monospace;
             background-color: #000;
@@ -14,49 +15,31 @@
             padding: 20px;
             line-height: 1.6;
         }
-        h1, h2, h3 {
-            border-bottom: 1px solid #fff;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        a {
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px dotted #fff;
-        }
-        a:hover {
-            border-bottom: 1px solid #fff;
-        }
-        .nav {
-            margin: 20px 0;
-        }
-        .nav a {
-            margin-right: 20px;
-        }
-        .project-card {
+        .top-section, .progress-bar, .project-card {
             border: 1px solid #fff;
-            padding: 20px;
-            margin-bottom: 30px;
         }
-        .code-block {
-            background-color: #222;
+        .light-mode {
+            background-color: #fff;
+            color: #000;
+        }
+        .light-mode .top-section, 
+        .light-mode .progress-bar, 
+        .light-mode .project-card {
+            border: 1px solid #000;
+        }
+        /* Additional Styles */
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
-            overflow-x: auto;
-            margin: 10px 0;
         }
-        .comment { color: #888; }
-        .keyword { color: #ff79c6; }
-        .string { color: #f1fa8c; }
-        .number { color: #bd93f9; }
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 0.8em;
+        .toggle-container {
+            margin: 20px 0;
         }
         .progress-bar {
             background-color: #555;
             height: 20px;
-            margin-top: 10px;
             position: relative;
             width: 100%;
         }
@@ -72,36 +55,33 @@
             transform: translateX(-50%);
             color: #000;
             font-weight: bold;
-            line-height: 20px;
-        }
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-right: 10px;
-        }
-        .logo-icon {
-            font-size: 1.5rem;
-            color: #00ff00;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <span class="logo-icon">⚙️</span> CA
+ <!-- Header Section -->
+    <div class="top-section">
+        <div class="title">Caleb Agoha</div>
+        <div class="version-info">
+            <p>Version: v1.0</p>
+            <p>Updated: 2024-09-08</p>
+            <p>License: MIT</p>
         </div>
-        <h1>Caleb Agoha</h1>
-        <p>Data Science Research Assistant | ML Enthusiast</p>
-    </header>
+    </div>
 
-    <nav class="nav">
-        <a href="#about">ABOUT</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
+    <!-- Light/Dark Mode Toggle -->
+    <div class="toggle-container">
+        <label for="theme-toggle">🌞 Light/Dark Mode: </label>
+        <input type="checkbox" id="theme-toggle">
+    </div>
 
-    <main>
+    <!-- Debug Mode Toggle -->
+    <div class="toggle-container">
+        <label for="debug-toggle">🐞 Debug Mode: </label>
+        <input type="checkbox" id="debug-toggle">
+    </div>
+
+    <!-- Content -->
         <section id="about">
             <h2>ABOUT</h2>
             <p>👋 I am a final year Computational Social Science student at the University of Amsterdam (UvA). 
@@ -195,11 +175,35 @@
             <h2>CONTACT</h2>
             <p>📧 If you'd like to get in touch, feel free to reach out via:</p>
             <p>
-                Email: caleb.agoha@student.uva.nl<br>
+                Email: <a href="mailto:calebagoha@example.com">caleb.agoha@student.uva.nl</a><br>
                 GitHub: <a href="https://github.com/Calebagoha123">github.com/Calebagoha123</a><br>
                 LinkedIn: <a href="www.linkedin.com/in/caleb-agoha-262b28266">linkedin.com/in/yourprofile</a>
             </p>
         </section>
+    
+    <script>
+        // Light/Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('change', function () {
+            if (themeToggle.checked) {
+                document.body.classList.add('light-mode');
+            } else {
+                document.body.classList.remove('light-mode');
+            }
+        });
+
+        // Debug Mode Toggle (Experimental)
+        const debugToggle = document.getElementById('debug-toggle');
+        debugToggle.addEventListener('change', function () {
+            if (debugToggle.checked) {
+                alert("Debug mode enabled! 🐞");
+                // Add more debug-specific functionality here
+            } else {
+                alert("Debug mode disabled.");
+            }
+        });
+    </script>
+
     </main>
 
     <footer class="footer">
