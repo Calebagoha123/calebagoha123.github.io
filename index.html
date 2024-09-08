@@ -244,16 +244,16 @@
                 <p>Starting with AlexNet.</p>
                 <div class="code-block">
                 self.layer_1 = nn.Sequential(<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;nn.Conv2d(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">Conv2d</span>(<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in_channels=in_channels,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out_channels=96,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kernel_size=11,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stride=4,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding=0<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out_channels=<span class="number">96</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kernel_size=<span class="number">11</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stride=<span class="number">4</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding=<span class="number">0</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;),<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;nn.ReLU(),<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;nn.LocalResponseNorm(5, alpha=10**-4, beta=0.75, k=2), # 'brightness normalization'<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;nn.MaxPool2d(kernel_size=3, stride=2) #overlapping pooling<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">ReLU</span>(),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">LocalResponseNorm</span>(<span class="number">5</span>, alpha=<span class="number">10</span>**<span class="number">-4</span>, beta=<span class="number">0.75</span>, k=<span class="number">2</span>), # 'brightness normalization'<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">MaxPool2d</span>(kernel_size=<span class="number">3</span>, stride=<span class="number">2</span>) <span class="comment">#overlapping pooling</span><br>
                 )
                 </div>
                 <div class="progress-bar">
