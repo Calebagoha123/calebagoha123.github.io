@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caleb Agoha</title>
+    <title>Caleb Agoha - Computational Social Scientist & ML Enthusiast</title>
     <style>
         body {
             font-family: monospace;
@@ -55,37 +55,84 @@
         }
         .progress-bar {
             background-color: #555;
-            border-radius: 5px;
-            overflow: hidden;
-            height: 10px;
+            height: 20px;
             margin-top: 10px;
+            position: relative;
+            width: 100%;
         }
         .progress {
             background-color: #00ff00;
             height: 100%;
             width: 0;
         }
+        .progress-bar span {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #000;
+            font-weight: bold;
+            line-height: 20px;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .logo-icon {
+            font-size: 1.5rem;
+            color: #00ff00;
+        }
     </style>
 </head>
 <body>
     <header>
+        <div class="logo">
+            <span class="logo-icon">⚙️</span> CA
+        </div>
         <h1>Caleb Agoha</h1>
-        <p>CSS Student@UvA | Data Science Research Assistant | ML Enthusiast</p>
+        <p>Data Science Research Assistant | ML Enthusiast</p>
     </header>
 
     <nav class="nav">
-        <a href="#projects">PROJECTS</a>
         <a href="#about">ABOUT</a>
+        <a href="#projects">PROJECTS</a>
         <a href="#contact">CONTACT</a>
     </nav>
 
     <main>
+        <section id="about">
+            <h2>ABOUT</h2>
+            <p>👋 I am a final year Computational Social Science student at the University of Amsterdam (UvA). 
+                Currently working as a Data Science Research Assistant, I am passionate about applying machine learning techniques to solve complex social problems. 
+                Building ML models 🚀</p>
+        </section>
+
         <section id="projects">
             <h2>PROJECTS</h2>
 
+             <div class="project-card">
+                <h3>🧪 Predicting Critical Temperature of Superconductors</h3>
+                <p>Utilized various tree-based algorithms to predict the critical temperature of superconductors. ⚡</p>
+                <div class="code-block">
+                    <span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor<br>
+                    <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split<br>
+                    <br>
+                    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>)<br>
+                    rf_model = RandomForestRegressor(n_estimators=<span class="number">100</span>)<br>
+                    rf_model.fit(X_train, y_train)<br>
+                    predictions = rf_model.predict(X_test)
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100%;"></div>
+                    <span>100%</span>
+                </div>
+            </div>
+
             <div class="project-card">
-                <h3>EDA of Stock Market Prices and Time Series Forecasting</h3>
-                <p>Conducted exploratory data analysis on stock market prices and implemented time series forecasting models.</p>
+                <h3>📊 EDA of Stock Market Prices and Time Series Forecasting</h3>
+                <p>Conducted exploratory data analysis on stock market prices and implemented time series forecasting models. 📈</p>
                 <div class="code-block">
                     <span class="comment"># ARIMA model for time series forecasting</span><br>
                     <span class="keyword">from</span> statsmodels.tsa.arima.model <span class="keyword">import</span> ARIMA<br>
@@ -98,12 +145,13 @@
                 </div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 80%;"></div>
+                    <span>80%</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>Holiday Movie Recommendation System</h3>
-                <p>Developed a movie recommendation system using k-means clustering, focusing on holiday-themed films.</p>
+                <h3>🎥 Holiday Movie Recommendation System</h3>
+                <p>Developed a movie recommendation system using k-means clustering, focusing on holiday-themed films. 🎅🎄</p>
                 <div class="code-block">
                     <span class="comment"># K-means clustering for movie recommendations</span><br>
                     <span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans<br>
@@ -115,13 +163,14 @@
                     <span class="comment"># Recommend movies from the same cluster</span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 60%;"></div>
+                    <div class="progress" style="width: 100%;"></div>
+                    <span>100%</span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>Neural Network from Scratch</h3>
-                <p>Implemented a neural network from the ground up, demonstrating deep understanding of the underlying principles.</p>
+                <h3>🤖 Neural Network from Scratch</h3>
+                <p>Implemented a neural network from the ground up, demonstrating deep understanding of the underlying principles. 💡</p>
                 <div class="code-block">
                     <span class="keyword">class</span> NeuralNetwork:<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> __init__(self, layers):<br>
@@ -134,83 +183,27 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">pass</span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 90%;"></div>
+                    <div class="progress" style="width: 43%;"></div>
+                    <span>43%</span>
                 </div>
             </div>
 
-            <div class="project-card">
-                <h3>Predicting Critical Temperature of Superconductors</h3>
-                <p>Utilized various tree-based algorithms to predict the critical temperature of superconductors.</p>
-                <div class="code-block">
-                    <span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor<br>
-                    <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split<br>
-                    <br>
-                    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>)<br>
-                    rf_model = RandomForestRegressor(n_estimators=<span class="number">100</span>)<br>
-                    rf_model.fit(X_train, y_train)<br>
-                    predictions = rf_model.predict(X_test)
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%;"></div>
-                </div>
-            </div>
 
-            <div class="project-card">
-                <h3>Replicating ML Papers</h3>
-                <p>Reproduced results from significant machine learning research papers, enhancing understanding of cutting-edge techniques.</p>
-                <div class="code-block">
-                    <span class="comment"># Implementing a technique from a recent paper</span><br>
-                    <span class="keyword">import</span> torch<br>
-                    <span class="keyword">import</span> torch.nn as nn<br>
-                    <br>
-                    <span class="keyword">class</span> NovelArchitecture(nn.Module):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> __init__(self):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__()<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Layers as described in the paper</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layer1 = nn.Linear(<span class="number">784</span>, <span class="number">256</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layer2 = nn.Linear(<span class="number">256</span>, <span class="number">10</span>)
-                </div>
-               
-            </div>
-
-            <div class="project-card">
-                <h3>Ride Sharing App</h3>
-                <p>Built a functional ride sharing application, integrating various technologies and algorithms.</p>
-                <div class="code-block">
-                    <span class="comment"># Matching algorithm for riders and drivers</span><br>
-                    <span class="keyword">def</span> match_rider_to_driver(riders, drivers):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;matches = []<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> rider <span class="keyword">in</span> riders:<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;best_driver = min(drivers, key=<span class="keyword">lambda</span> d: distance(rider, d))<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matches.append((rider, best_driver))<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> matches
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2>ABOUT</h2>
-            <p>
-                I am a final year Computational Social Science student at the University of Amsterdam (UvA). 
-                Currently working as a Data Science Research Assistant, I am passionate about applying 
-                machine learning techniques to solve complex social problems. My academic background, 
-                combined with hands-on project experience, has equipped me with a unique skill set at 
-                the intersection of social sciences and advanced data analytics.
-            </p>
         </section>
 
         <section id="contact">
             <h2>CONTACT</h2>
+            <p>📧 If you'd like to get in touch, feel free to reach out via:</p>
             <p>
-                Email: your.email@student.uva.nl<br>
-                GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a><br>
-                LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a>
+                Email: caleb.agoha@student.uva.nl<br>
+                GitHub: <a href="https://github.com/Calebagoha123">github.com/Calebagoha123</a><br>
+                LinkedIn: <a href="www.linkedin.com/in/caleb-agoha-262b28266">linkedin.com/in/yourprofile</a>
             </p>
         </section>
     </main>
 
     <footer class="footer">
-        © 2024 | Computational Social Scientist & ML Enthusiast
+        © 2024 | Caleb Agoha
     </footer>
 </body>
 </html>
