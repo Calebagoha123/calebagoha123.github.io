@@ -3,29 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caleb Agoha - Computational Social Scientist & ML Enthusiast</title>
+    <title>Caleb Agoha - Portfolio</title>
     <style>
-        /* Default dark mode styles */
+        body.light-mode {
+            background-color: #ffffff; /* White background for light mode */
+            color: #111111; /* Black text */
+        }
+
+        body.light-mode code {
+            background-color: #f8f8f8; /* Lighter grey for code blocks */
+            color: #333333; /* Darker text inside code blocks */
+        }
+
+        body.light-mode .project-card{
+            border: 1px solid #111;
+        }
+
+        body.light-mode .progress-bar{
+            background-color: #ddd;
+        }
+
+        body.light-mode .progress{
+            background-color: #4CAF50;
+        }
+
+        body.dark-mode {
+            background-color: #111111; /* Dark background for dark mode */
+            color: #ffffff; /* White text */
+        }
+
+        body.dark-mode code {
+            background-color: #2e2e2e; /* Dark grey for code blocks */
+            color: #cccccc; /* Lighter text inside code blocks */
+        }
+
+        /* Toggle Switch Styling */
+        .switch {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: relative;
+            display: inline-block;
+            background-color: #ccc;
+            height: 25px;
+            width: 50px;
+            border-radius: 12px;
+        }
+
+        .slider:before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: white;
+            top: 2.5px;
+            left: 2.5px;
+            transition: 0.3s;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Emoji Switch Styling */
+        .slider .emoji {
+            position: absolute;
+            top: -1px;
+            left: 25px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        input:checked + .slider .emoji {
+            content: '🌞';
+            left: 4px;
+        }
         body {
             font-family: monospace;
-            background-color: #000;
-            color: #fff;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
         }
+        h1, h2, h3 {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dotted #fff;
+        }
+        a:hover {
+            border-bottom: 1px solid #fff;
+        }
+        .nav {
+            margin: 20px 0;
+        }
+        .nav a {
+            margin-right: 20px;
+        }
+        .code-block {
+            background-color: #222;
+            padding: 10px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .comment { color: #888; }
+        .keyword { color: #ff79c6; }
+        .string { color: #f1fa8c; }
+        .number { color: #bd93f9; }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.8em;
+        }
         .top-section, .progress-bar, .project-card {
             border: 1px solid #fff;
         }
-        .light-mode {
-            background-color: #fff;
-            color: #000;
-        }
-        .light-mode .top-section, 
-        .light-mode .progress-bar, 
-        .light-mode .project-card {
-            border: 1px solid #000;
+        .project-card {
+            border: 1px solid #fff;
+            padding: 20px;
+            margin-bottom: 30px;
         }
         /* Additional Styles */
         .top-section {
@@ -40,6 +149,7 @@
         .progress-bar {
             background-color: #555;
             height: 20px;
+            margin-top: 10px;
             position: relative;
             width: 100%;
         }
@@ -55,31 +165,68 @@
             transform: translateX(-50%);
             color: #000;
             font-weight: bold;
+            line-height: 20px;
         }
+        
+        .header-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            border: 1px solid #ffffff;
+            margin-bottom: 20px;
+        }
+        .header-left {
+            padding: 10px;
+            border-right: 1px solid #ffffff;
+        }
+        
+        .header-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .header-right div {
+            padding: 5px;
+            border-bottom: 1px solid #ffffff;
+
+        }
+        .header-right div:nth-child(odd) {
+            border-right: 1px solid #ffffff;
+        }
+        .header-right div:nth-child(3), .header-right div:nth-child(4) {
+            border-bottom: none;
+
+        }
+        
+        h1, h2, p {
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
- <!-- Header Section -->
-    <div class="top-section">
-        <div class="title">Caleb Agoha</div>
-        <div class="version-info">
-            <p>Version: v1.0</p>
-            <p>Updated: 2024-09-08</p>
-            <p>License: MIT</p>
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <h1 style="border-bottom: 0px solid #fff; padding: 0px; margin: 0px;">CALEB AGOHA</h1>
+                <p>A minimalist portfolio page</p>
+            </div>
+            <div class="header-right">
+                <div><strong>Version</strong></div>
+                <div>v0.1.0</div>
+                <div><strong>Updated</strong></div>
+                <div>2024-09-08</div>
+            </div>
         </div>
-    </div>
-
+    </header>
     <!-- Light/Dark Mode Toggle -->
     <div class="toggle-container">
-        <label for="theme-toggle">🌞 Light/Dark Mode: </label>
-        <input type="checkbox" id="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle">
+            <span class="slider">
+                <span class="emoji">🌙</span>
+            </span>
+        </label>
     </div>
 
-    <!-- Debug Mode Toggle -->
-    <div class="toggle-container">
-        <label for="debug-toggle">🐞 Debug Mode: </label>
-        <input type="checkbox" id="debug-toggle">
-    </div>
 
     <!-- Content -->
         <section id="about">
@@ -90,28 +237,50 @@
         </section>
 
         <section id="projects">
-            <h2>PROJECTS</h2>
+            <h2 style="padding-top: 30px;">PROJECTS</h2>
+
+            <div class="project-card">
+                <h3>📄 Reimplementing ML Research Papers (repo)</h3>
+                <p>Starting with AlexNet.</p>
+                <div class="code-block">
+                self.layer_1 = nn.Sequential(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.Conv2d(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in_channels=in_channels,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out_channels=96,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kernel_size=11,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stride=4,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding=0<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.ReLU(),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.LocalResponseNorm(5, alpha=10**-4, beta=0.75, k=2), # 'brightness normalization'<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.MaxPool2d(kernel_size=3, stride=2) #overlapping pooling<br>
+                )
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 5%;"></div>
+                    <span>5% ⏳ </span>
+                </div>
+            </div>
 
              <div class="project-card">
-                <h3>🧪 Predicting Critical Temperature of Superconductors</h3>
+                <h3>🧪 Predicting Critical Temperature of Superconductors (repo)</h3>
                 <p>Utilized various tree-based algorithms to predict the critical temperature of superconductors. ⚡</p>
                 <div class="code-block">
-                    <span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor<br>
-                    <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split<br>
-                    <br>
-                    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>)<br>
-                    rf_model = RandomForestRegressor(n_estimators=<span class="number">100</span>)<br>
-                    rf_model.fit(X_train, y_train)<br>
-                    predictions = rf_model.predict(X_test)
+                    <span class="comment">#Function to find the optimal hyperparamter using gridsearch</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywowrd">def</span> optimal_hyperparam(model, param_grid, X_train, Y_train):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;param = list(param_grid.<span class="keyword">keys</span>())[0]<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_search = GridSearchCV(model, param_grid, cv=<span class="number">5</span>, scoring=<span class="string">'neg_mean_squared_error'</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_search.<span class="keyword">fit</span>(X_train, Y_train)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;best_max_depth = grid_search.<span class="keyword">_best_params</span>[f'{param}']<br>
                 </div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 100%;"></div>
-                    <span>100%</span>
+                    <span>100% ✅ </span>
                 </div>
             </div>
 
             <div class="project-card">
-                <h3>📊 EDA of Stock Market Prices and Time Series Forecasting</h3>
+                <h3>📊 EDA of Stock Market Prices and Time Series Forecasting (repo)</h3>
                 <p>Conducted exploratory data analysis on stock market prices and implemented time series forecasting models. 📈</p>
                 <div class="code-block">
                     <span class="comment"># ARIMA model for time series forecasting</span><br>
@@ -124,33 +293,31 @@
                     forecast = results.forecast(steps=<span class="number">30</span>)
                 </div>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 80%;"></div>
-                    <span>80%</span>
+                    <div class="progress" style="width: 80%; border-radius: 0;"></div>
+                    <span>80% ⏳</span>
                 </div>
             </div>
-
             <div class="project-card">
-                <h3>🎥 Holiday Movie Recommendation System</h3>
+                <h3>🎥 Holiday Movie Recommendation System (<a href="https://github.com/Calebagoha123/holiday_movie_recommender">repo</a>)</h3>
                 <p>Developed a movie recommendation system using k-means clustering, focusing on holiday-themed films. 🎅🎄</p>
                 <div class="code-block">
-                    <span class="comment"># K-means clustering for movie recommendations</span><br>
-                    <span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans<br>
-                    <span class="keyword">import</span> numpy as np<br>
+                    <span class="comment"># Calculate similarity based on Euclidean Distance</span><br>
+                    cluster_movies = df[df[<span class="string">'cluster'</span>] == input_cluster_label]<br>
+                    cluster_features = features[cluster_movies.<span class="keyword">index</span>]<br>
                     <br>
-                    features = np.array(movie_features)<br>
-                    kmeans = KMeans(n_clusters=<span class="number">5</span>, random_state=<span class="number">42</span>)<br>
-                    clusters = kmeans.fit_predict(features)<br>
-                    <span class="comment"># Recommend movies from the same cluster</span>
+                    similarities = np.<span class="keyword">sqrt</span>(np.<span class="keyword">sum</span>((cluster_features - input_features) ** <span class="number">2</span>, axis=<span class="number">1</span>))<br>
+                    top_similar_movies = df.<span class="keyword">loc</span>[similarities.argsort()[<span class="number">1</span>:<span class="number">4</span>]] <span class="comment">#to exclude the input movie</span><br>
+                    top_similar_movies = top_similar_movies[[<span class="string">'primaryTitle'</span>, <span class="string">'genres'</span>]]
                 </div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 100%;"></div>
-                    <span>100%</span>
+                    <span>100% ✅ </span>
                 </div>
             </div>
 
             <div class="project-card">
                 <h3>🤖 Neural Network from Scratch</h3>
-                <p>Implemented a neural network from the ground up, demonstrating deep understanding of the underlying principles. 💡</p>
+                <p>Implementing neural network architecture from the ground up (only numpy), demonstrating deep understanding of the underlying principles. 💡</p>
                 <div class="code-block">
                     <span class="keyword">class</span> NeuralNetwork:<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> __init__(self, layers):<br>
@@ -164,7 +331,7 @@
                 </div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 43%;"></div>
-                    <span>43%</span>
+                    <span>43% ⏳</span>
                 </div>
             </div>
 
@@ -183,12 +350,18 @@
     
     <script>
         // Light/Dark Mode Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('change', function () {
-            if (themeToggle.checked) {
-                document.body.classList.add('light-mode');
+        document.body.classList.toggle('dark-mode')
+        const toggleSwitch = document.getElementById('mode-toggle');
+        const emoji = document.querySelector('.slider .emoji');
+        
+        toggleSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+        
+            if (document.body.classList.contains('light-mode')) {
+                emoji.textContent = '🌞'; // Sun for light mode
             } else {
-                document.body.classList.remove('light-mode');
+                emoji.textContent = '🌙'; // Moon for dark mode
             }
         });
 
