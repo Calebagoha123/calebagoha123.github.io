@@ -320,18 +320,18 @@
                 <h3>📊 EDA of Stock Market Prices and Time Series Forecasting (<a href="https://github.com/Calebagoha123/big_tech_stock_eda">repo</a>)</h3>
                 <p>Conducted exploratory data analysis on stock market prices and implemented time series forecasting models. 📈</p>
                 <div class="code-block">
-                    <span class="comment"># ARIMA model for time series forecasting</span><br>
-                    <span class="keyword">from</span> statsmodels.tsa.arima.model <span class="keyword">import</span> ARIMA<br>
-                    <span class="keyword">import</span> pandas as pd<br>
+                    <span class="comment"># Rolling origin forecast<br></span>
+                    for t in range(len(series_test)):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Fit the SARIMA model on the history</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;model = SARIMAX(history, order=order, seasonal_order=seasonal_order)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; model_fit = model.<span class="keyword">fit</span>(disp=False)  <span class="comment"># Suppress fitting messages</span><br>
                     <br>
-                    data = pd.read_csv(<span class="string">'stock_prices.csv'</span>)<br>
-                    model = ARIMA(data[<span class="string">'Close'</span>], order=(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>))<br>
-                    results = model.fit()<br>
-                    forecast = results.forecast(steps=<span class="number">30</span>)
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Forecast the next point and get the 95% confidence interval</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;forecast_result = model_fit.<span class="keyword">get_forecast</span>(steps=<span class="number">1</span>)<br>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 80%; border-radius: 0;"></div>
-                    <span>80% ⏳</span>
+                    <div class="progress" style="width: 100%; border-radius: 0;"></div>
+                    <span>100% ✅</span>
                 </div>
             </div>
             <div class="project-card">
@@ -343,7 +343,7 @@
                     cluster_features = features[cluster_movies.<span class="keyword">index</span>]<br>
                     <br>
                     similarities = np.<span class="keyword">sqrt</span>(np.<span class="keyword">sum</span>((cluster_features - input_features) ** <span class="number">2</span>, axis=<span class="number">1</span>))<br>
-                    top_similar_movies = df.<span class="keyword">loc</span>[similarities.argsort()[<span class="number">1</span>:<span class="number">4</span>]] <span class="comment">#to exclude the input movie</span><br>
+                    top_similar_movies = df.<span class="keyword">loc</span>[similarities.<span class="keyword">argsort</span>()[<span class="number">1</span>:<span class="number">4</span>]] <span class="comment">#to exclude the input movie</span><br>
                     top_similar_movies = top_similar_movies[[<span class="string">'primaryTitle'</span>, <span class="string">'genres'</span>]]
                 </div>
                 <div class="progress-bar">
@@ -356,16 +356,16 @@
                 <h3>🤖 Neural Network from Scratch (<a href="https://github.com/Calebagoha123/neural_net_from_scratch">repo</a>)</h3>
                 <p>Implementing neural network architecture from the ground up (only numpy), demonstrating deep understanding of the underlying principles. 💡</p>
                 <div class="code-block">
-                    for b, w in zip(self.<span class="keyword">biases</span>, self.<span class="keyword">weights</span>):
-                    &nbsp;&nbsp;&nbsp;&nbsp;z = np.<span class="keyword">dot</span>(w, activation) + b
-                    &nbsp;&nbsp;&nbsp;&nbsp;zs.<span class="keyword">append</span>(z)
-                    &nbsp;&nbsp;&nbsp;&nbsp;activation = relu(z)
-                    &nbsp;&nbsp;&nbsp;&nbsp;activations.<span class="keyword">append</span>(activation)
-                    
-                    #backward pass
-                    delta = (self.<span class="keyword">cost</span>).<span class="keyword">delta</span>(zs[<span class="number">-1</span>], activations[<span class="number">-1</span>], Y)
-                    nabla_b[<span class="number">-1</span>] = np.<span class="keyword">sum</span>(delta, axis=<span class="number">1</span>, keepdims=True)
-                    nabla_w[<span class="number">-1</span>] = np.<span class="keyword">dot</span>(delta, activations[<span class="number">-2</span>].<span class="keyword">transpose</span>())
+                    for b, w in zip(self.<span class="keyword">biases</span>, self.<span class="keyword">weights</span>):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;z = np.<span class="keyword">dot</span>(w, activation) + b<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;zs.<span class="keyword">append</span>(z)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;activation = relu(z)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;activations.<span class="keyword">append</span>(activation)<br>
+                    <br>
+                    <span class="comment">#backward pass</span><br>
+                    delta = (self.<span class="keyword">cost</span>).<span class="keyword">delta</span>(zs[<span class="number">-1</span>], activations[<span class="number">-1</span>], Y)<br>
+                    nabla_b[<span class="number">-1</span>] = np.<span class="keyword">sum</span>(delta, axis=<span class="number">1</span>, keepdims=True)<br>
+                    nabla_w[<span class="number">-1</span>] = np.<span class="keyword">dot</span>(delta, activations[<span class="number">-2</span>].<span class="keyword">transpose</span>())<br>
                 </div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 43%;"></div>
