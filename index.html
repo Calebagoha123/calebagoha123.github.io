@@ -236,6 +236,16 @@
         h1, h2, p {
             margin: 0;
         }
+        .graph-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .responsive-graph {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
 
     </style>
 </head>
@@ -388,10 +398,10 @@
               <li>Our findings challenge common methods of measuring intersectional wage discrimination and highlight the importance of recognizing and addressing systemic privilege.</li>
             </ul>
           
-            <figure>
-              <img src="intersectionality_graph.png" alt="Graph showing privilege and intersectional penalty terms over time" />
+            <div class="graph-container">
+              <img src="intersectionality_graph.png" alt="Graph showing privilege and intersectional penalty terms over time" class="responsive-graph"/>
               <figcaption>Results for the privilege and intersectional penalty term for both reference groups. Data uses average wages in the US from the Economic Policy Institute.</figcaption>
-            </figure>
+            </div>
           
             <p>This research provides a novel tool for intersectionality studies and policy aimed at creating a more equitable society. It emphasizes the need for more refined metrics in capturing wage discrimination and the importance of considering excessive privilege in analyses of wage gaps.</p>
             <br>
