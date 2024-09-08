@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caleb Agoha</title>
+    <title>Computational Social Scientist & ML Enthusiast</title>
     <style>
         body {
             font-family: monospace;
@@ -53,12 +53,24 @@
             text-align: center;
             font-size: 0.8em;
         }
+        .progress-bar {
+            background-color: #555;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 10px;
+            margin-top: 10px;
+        }
+        .progress {
+            background-color: #00ff00;
+            height: 100%;
+            width: 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>COMPUTATIONAL SOCIAL SCIENTIST</h1>
-        <p>CSS Student @ UVA | Data Science Research Assistant | ML Enthusiast</p>
+        <p>Data Science Research Assistant | ML Enthusiast</p>
     </header>
 
     <nav class="nav">
@@ -84,6 +96,9 @@
                     results = model.fit()<br>
                     forecast = results.forecast(steps=<span class="number">30</span>)
                 </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;"></div>
+                </div>
             </div>
 
             <div class="project-card">
@@ -98,6 +113,9 @@
                     kmeans = KMeans(n_clusters=<span class="number">5</span>, random_state=<span class="number">42</span>)<br>
                     clusters = kmeans.fit_predict(features)<br>
                     <span class="comment"># Recommend movies from the same cluster</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%;"></div>
                 </div>
             </div>
 
@@ -115,6 +133,9 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Forward propagation implementation</span><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">pass</span>
                 </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;"></div>
+                </div>
             </div>
 
             <div class="project-card">
@@ -128,6 +149,9 @@
                     rf_model = RandomForestRegressor(n_estimators=<span class="number">100</span>)<br>
                     rf_model.fit(X_train, y_train)<br>
                     predictions = rf_model.predict(X_test)
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;"></div>
                 </div>
             </div>
 
@@ -146,6 +170,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layer1 = nn.Linear(<span class="number">784</span>, <span class="number">256</span>)<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layer2 = nn.Linear(<span class="number">256</span>, <span class="number">10</span>)
                 </div>
+               
             </div>
 
             <div class="project-card">
