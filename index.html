@@ -289,7 +289,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding=<span class="number">0</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;),<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">ReLU</span>(),<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">LocalResponseNorm</span>(<span class="number">5</span>, alpha=<span class="number">10</span>**<span class="number">-4</span>, beta=<span class="number">0.75</span>, k=<span class="number">2</span>), # 'brightness normalization'<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">LocalResponseNorm</span>(<span class="number">5</span>, alpha=<span class="number">10</span>**<span class="number">-4</span>, beta=<span class="number">0.75</span>, k=<span class="number">2</span>), <span class="comment"># 'brightness normalization'</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">MaxPool2d</span>(kernel_size=<span class="number">3</span>, stride=<span class="number">2</span>) <span class="comment">#overlapping pooling</span><br>
                 )
                 </div>
