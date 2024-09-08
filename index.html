@@ -365,15 +365,16 @@
                 <h3>🤖 Neural Network from Scratch</h3>
                 <p>Implementing neural network architecture from the ground up (only numpy), demonstrating deep understanding of the underlying principles. 💡</p>
                 <div class="code-block">
-                    <span class="keyword">class</span> NeuralNetwork:<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> __init__(self, layers):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layers = layers<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.weights = [np.random.randn(y, x)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> x, y <span class="keyword">in</span> zip(layers[:-<span class="number">1</span>], layers[<span class="number">1</span>:])]<br>
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> forward(self, x):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Forward propagation implementation</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">pass</span>
+                    for b, w in zip(self.<span class="keyword">biases</span>, self.<span class="keyword">weights</span>):
+                    &nbsp;&nbsp;&nbsp;&nbsp;z = np.<span class="keyword">dot</span>(w, activation) + b
+                    &nbsp;&nbsp;&nbsp;&nbsp;zs.<span class="keyword">append</span>(z)
+                    &nbsp;&nbsp;&nbsp;&nbsp;activation = relu(z)
+                    &nbsp;&nbsp;&nbsp;&nbsp;activations.<span class="keyword">append</span>(activation)
+                    
+                    #backward pass
+                    delta = (self.<span class="keyword">cost</span>).<span class="keyword">delta</span>(zs[<span class="number">-1</span>], activations[<span class="number">-1</span>], Y)
+                    nabla_b[<span class="number">-1</span>] = np.<span class="keyword">sum</span>(delta, axis=<span class="number">1</span>, keepdims=True)
+                    nabla_w[<span class="number">-1</span>] = np.<span class="keyword">dot</span>(delta, activations[<span class="number">-2</span>].<span class="keyword">transpose</span>())
                 </div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 43%;"></div>
