@@ -64,6 +64,11 @@
         body.light-mode a:hover {
             border-bottom: 1px solid #111;
         }
+        body.light-mode .number { color: #9249f8; }
+        body.light-mode .keyword { color: #fe46ae; }
+        body.light-mode .string { color: #f01313; }
+        body.light-mode .comment { color: #888; }
+
 
         /* Dark Mode */
 
@@ -191,7 +196,7 @@
             width: 100%;
         }
         .progress {
-            background-color: #00ff00;
+            background-color: #4CAF50;
             height: 100%;
             width: 0;
         }
@@ -259,7 +264,7 @@
         <div class="header-container">
             <div class="header-left">
                 <h1 style="border-bottom: 0px solid #fff; padding: 0px; margin: 0px;">CALEB AGOHA</h1>
-                <p>Hey, check out <a href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
+                <p>Hey, check out <a href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast" target="_blank">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
             </div>
             <div class="header-right">
                 <div><strong>Version</strong></div>
@@ -279,6 +284,13 @@
         </label>
     </div>
 
+    <nav class="py-4 mb-8" style="text-align: center;">
+        <a href="#about" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">ABOUT</a> | 
+        <a href="#projects" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">PROJECTS</a> | 
+        <a href="#research" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">RESEARCH</a> | 
+        <a href="#contact" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">CONTACT</a>
+    </nav>
+
 
     <!-- Content -->
         <section id="about">
@@ -292,8 +304,8 @@
             <h2 style="padding-top: 30px;">PROJECTS</h2>
 
             <div class="project-card">
-                <h3>📄 Reimplementing ML Research Papers (<a href="https://github.com/Calebagoha123/PaperTorch">repo</a>)</h3>
-                <p>Starting with AlexNet. 80.36% test accuracy on <a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10</a></p>
+                <h3>📄 Reimplementing ML Research Papers (<a href="https://github.com/Calebagoha123/PaperTorch" target="_blank">repo</a>)</h3>
+                <p>Starting with AlexNet. 80.36% test accuracy on <a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank">CIFAR-10</a></p>
                 <div class="code-block">
                 self.layer_1 = nn.Sequential(<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;nn.<span class="keyword">Conv2d</span>(<br>
@@ -315,7 +327,7 @@
             </div>
 
              <div class="project-card">
-                <h3>🧪 Predicting Critical Temperature of Superconductors (<a href="https://github.com/Calebagoha123/superconductor">repo</a>)</h3>
+                <h3>🧪 Predicting Critical Temperature of Superconductors (<a href="https://github.com/Calebagoha123/superconductor" target="_blank">repo</a>)</h3>
                 <p>Utilized various tree-based algorithms to predict the critical temperature of superconductors. ⚡</p>
                 <div class="code-block">
                     <span class="comment">#Function to find the optimal hyperparamter using gridsearch</span><br>
@@ -332,7 +344,7 @@
             </div>
 
             <div class="project-card">
-                <h3>📊 EDA of Stock Market Prices and Time Series Forecasting (<a href="https://github.com/Calebagoha123/big_tech_stock_eda">repo</a>)</h3>
+                <h3>📊 EDA of Stock Market Prices and Time Series Forecasting (<a href="https://github.com/Calebagoha123/big_tech_stock_eda" target="_blank">repo</a>)</h3>
                 <p>Conducted exploratory data analysis on stock market prices and implemented time series forecasting models. 📈</p>
                 <div class="code-block">
                     <span class="comment"># Rolling origin forecast<br></span>
@@ -350,7 +362,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <h3>🎥 Holiday Movie Recommendation System (<a href="https://github.com/Calebagoha123/holiday_movie_recommender">repo</a>)</h3>
+                <h3>🎥 Holiday Movie Recommendation System (<a href="https://github.com/Calebagoha123/holiday_movie_recommender" target="_blank">repo</a>)</h3>
                 <p>Developed a movie recommendation system using k-means clustering, focusing on holiday-themed films. 🎅🎄</p>
                 <div class="code-block">
                     <span class="comment"># Calculate similarity based on Euclidean Distance</span><br>
@@ -368,7 +380,7 @@
             </div>
 
             <div class="project-card">
-                <h3>🤖 Neural Network from Scratch (<a href="https://github.com/Calebagoha123/neural_net_from_scratch">repo</a>)</h3>
+                <h3>🤖 Neural Network from Scratch (<a href="https://github.com/Calebagoha123/neural_net_from_scratch" target="_blank">repo</a>)</h3>
                 <p>Implementing neural network architecture from the ground up (only numpy), demonstrating deep understanding of the underlying principles. 💡</p>
                 <div class="code-block">
                     for b, w in zip(self.<span class="keyword">biases</span>, self.<span class="keyword">weights</span>):<br>
@@ -392,14 +404,14 @@
         </section>
 
         <section id="research" class="section">
-            <h2>RESEARCH (<a href="https://www.uni-bamberg.de/fileadmin/uni/fakultaeten/sowi_faecher/vwl/BERG/BERG_194.pdf">link</a>)</h2>
+            <h2>RESEARCH (<a href="https://www.uni-bamberg.de/fileadmin/uni/fakultaeten/sowi_faecher/vwl/BERG/BERG_194.pdf" target="_blank">link</a>)</h2>
             <br>
             <p>The first paper I worked on as an RA focuses on intersectional wage discrimination and the concept of excessive privilege. We examined the effects of overlapping identities on wage gaps, particularly the intersectional effects of gender and race in the US labor market.</p>
             
             <p>Key findings from our research:</p>
             <ul>
-              <li>We discovered that White men (WM) experience unique privilege compared to all other groups, which we termed "excessive White male privilege".</li>
-              <li>Contrary to previous literature, we did not find evidence for a unique intersectional wage penalty for Black women (BW) compared to all others.</li>
+              <li>We discovered that White males (WM) experience unique privilege compared to all other groups, which we termed "excessive White male privilege".</li>
+              <li>Contrary to previous literature, we did not find evidence for a unique intersectional wage penalty for Black females (BF) compared to all others.</li>
               <li>Our findings challenge common methods of measuring intersectional wage discrimination and highlight the importance of recognizing and addressing systemic privilege.</li>
             </ul>
           
@@ -408,20 +420,21 @@
               <figcaption>Results for the privilege and intersectional penalty term for both reference groups. Data uses average wages in the US from the Economic Policy Institute.</figcaption>
             </div>
           
-            <p>This research provides a novel tool for intersectionality studies and policy aimed at creating a more equitable society. It emphasizes the need for more refined metrics in capturing wage discrimination and the importance of considering excessive privilege in analyses of wage gaps.</p>
+            <p>This research provides a novel tool for intersectionality studies and policy aimed at creating a more equitable society. It emphasizes the need for more refined metrics in capturing wage discrimination and the importance of considering excessive privilege in analyses of wage gaps.
+            </p>
             <br>
-            <p>More research coming soon...hopefully ML</p>
+            <p>More research coming soon...</p>
             <br>
             <br>
           </section>
 
         <section id="contact">
             <h2>CONTACT</h2>
-            <p style="padding-top: 20px;">📧 If you'd like to get in touch, feel free to reach out via:</p>
+            <p style="padding-top: 20px;">If you'd like to get in touch, feel free to reach out via:</p>
             <p style="padding-top: 20px;">
-                📬 Email: <a href="mailto:calebagoha@example.com">caleb.agoha@student.uva.nl</a><br>
-                👨‍💻 GitHub: <a href="https://github.com/Calebagoha123">github.com/Calebagoha123</a><br>
-                🔗 LinkedIn: <a href="www.linkedin.com/in/caleb-agoha-262b28266">linkedin.com/in/yourprofile</a>
+                📬 Email: <a href="mailto:caleb.agoha@student.uva.nl" target="_blank">caleb.agoha@student.uva.nl</a><br>
+                🔗 LinkedIn: <a href="https://www.linkedin.com/in/caleb-agoha-262b28266" target="_blank">linkedin.com/caleb-agoha</a><br>
+                👨‍💻 GitHub: <a href="https://github.com/Calebagoha123" target="_blank">github.com/Calebagoha123</a>
             </p>
         </section>
     
@@ -442,16 +455,19 @@
             }
         });
 
-        // Debug Mode Toggle (Experimental)
-        const debugToggle = document.getElementById('debug-toggle');
-        debugToggle.addEventListener('change', function () {
-            if (debugToggle.checked) {
-                alert("Debug mode enabled! 🐞");
-                // Add more debug-specific functionality here
-            } else {
-                alert("Debug mode disabled.");
-            }
-        });
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+              e.preventDefault();
+              const targetId = this.getAttribute('href').slice(1);
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                window.scrollTo({
+                  top: targetElement.offsetTop,
+                  behavior: 'smooth'
+                });
+              }
+            });
+          });
     </script>
 
     </main>
