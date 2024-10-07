@@ -337,11 +337,12 @@
                 <h3>📄 Reimplementing ML Research Papers (<a href="https://github.com/Calebagoha123/PaperTorch" target="_blank">repo</a>)</h3>
                 <p>Implemented ZFNet, which reverses convolutional filtering and pooling (deconvolution) to show what the model 'sees' when learning</p>
                 <div class="code-block">
-                x = nn.funtional.max_unpool2d(x, self.indices[i]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;kernel_size=self.features[i].kernel_size,(<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;stride=self.features[i].stride,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;padding=self.features[i].padding,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;output_size=self.outputs[i-1].size()),<br>
+                x = nn.funtional.max_unpool2d(x, self.indices[<span class="keyword">i</span>]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;kernel_size=self.features[<span class="keyword">i</span>].kernel_size,(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;stride=self.features[<span class="keyword">i</span>].stride,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;padding=self.features[<span class="keyword">i</span>].padding,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;output_size=self.outputs[<span class="keyword">i</span>-<span class="number">1</span>].size()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;)<br>
                 </div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 25%;"></div>
