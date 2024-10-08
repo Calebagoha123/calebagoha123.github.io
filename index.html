@@ -402,28 +402,6 @@
                 </div>
             </div>
 
-            <div class="project-card">
-                <h3>🤖 Neural Network from Scratch (<a href="https://github.com/Calebagoha123/neural_net_from_scratch" target="_blank">repo</a>)</h3>
-                <p>Implementing neural network architecture from the ground up (only numpy), demonstrating deep understanding of the underlying principles. 💡</p>
-                <div class="code-block">
-                    for b, w in zip(self.<span class="keyword">biases</span>, self.<span class="keyword">weights</span>):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;z = np.<span class="keyword">dot</span>(w, activation) + b<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;zs.<span class="keyword">append</span>(z)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;activation = relu(z)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;activations.<span class="keyword">append</span>(activation)<br>
-                    <br>
-                    <span class="comment">#backward pass</span><br>
-                    delta = (self.<span class="keyword">cost</span>).<span class="keyword">delta</span>(zs[<span class="number">-1</span>], activations[<span class="number">-1</span>], Y)<br>
-                    nabla_b[<span class="number">-1</span>] = np.<span class="keyword">sum</span>(delta, axis=<span class="number">1</span>, keepdims=True)<br>
-                    nabla_w[<span class="number">-1</span>] = np.<span class="keyword">dot</span>(delta, activations[<span class="number">-2</span>].<span class="keyword">transpose</span>())<br>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 43%;"></div>
-                    <span>43% ⏳</span>
-                </div>
-            </div>
-
-
         </section>
 
         <section id="contact">
