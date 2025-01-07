@@ -258,6 +258,158 @@
             font-style: italic;
             margin-top: 10px;
         }
+
+        /* New styles for embedded content */
+        .dashboard-embed {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .plotly-gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .plotly-gallery iframe {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .demo-container {
+            position: relative;
+            width: 100%;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .demo-gif {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .dashboard-embed iframe {
+                min-height: 300px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Loading state for embedded content */
+        .loading-text {
+            display: block;
+            content: 'Loading...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: monospace;
+            color: var(--text-color);
+        }
+
+        .dashboard-embed {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        
+        .plotly-gallery, .image-gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .plotly-gallery iframe, .image-gallery img {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            margin-top: -10px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .slide-indicator {
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .slide-indicator span {
+            cursor: pointer;
+            height: 10px;
+            width: 10px;
+            margin: 0 2px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active, .slide-indicator span:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
     </style>
 </head>
 <body>
@@ -271,7 +423,7 @@
                 <div><strong>Version</strong></div>
                 <div>v1.02</div>
                 <div><strong>Updated</strong></div>
-                <div>2024-08-10</div>
+                <div>07-01-2025</div>
             </div>
         </div>
     </header>
@@ -329,79 +481,165 @@
             <br>
           </section>
 
-    <section id="projects">
-            <h2 style="padding-top: 30px;">PROJECTS</h2>
-
-            <div class="project-card">
-                <h3>📄 Reimplementing ML Research Papers (<a href="https://github.com/Calebagoha123/PaperTorch" target="_blank">repo</a>)</h3>
-                <p>Implemented ZFNet, which reverses convolutional filtering and pooling (deconvolution) to show what the model 'sees' when learning. 👀</p>
-                <div class="code-block">
-                x = nn.funtional.max_unpool2d(x, self.indices[<span class="keyword">i</span>]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;kernel_size=self.features[<span class="keyword">i</span>].kernel_size,(<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;stride=self.features[<span class="keyword">i</span>].stride,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;padding=self.features[<span class="keyword">i</span>].padding,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;output_size=self.outputs[<span class="keyword">i</span>-<span class="number">1</span>].size()<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;)<br>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 25%;"></div>
-                    <span>25% ⏳ </span>
-                </div>
-            </div>
-
-             <div class="project-card">
-                <h3>🧪 Predicting Critical Temperature of Superconductors (<a href="https://github.com/Calebagoha123/superconductor" target="_blank">repo</a>)</h3>
-                <p>Utilized various tree-based algorithms to predict the critical temperature of superconductors. ⚡</p>
-                <div class="code-block">
-                    <span class="comment">#Function to find the optimal hyperparamter using gridsearch</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywowrd">def</span> optimal_hyperparam(model, param_grid, X_train, Y_train):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;param = list(param_grid.<span class="keyword">keys</span>())[0]<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_search = GridSearchCV(model, param_grid, cv=<span class="number">5</span>, scoring=<span class="string">'neg_mean_squared_error'</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_search.<span class="keyword">fit</span>(X_train, Y_train)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;best_max_depth = grid_search.<span class="keyword">_best_params</span>[f'{param}']<br>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 100%;"></div>
-                    <span>100% ✅ </span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>📊 EDA of Stock Market Prices and Time Series Forecasting (<a href="https://github.com/Calebagoha123/big_tech_stock_eda" target="_blank">repo</a>)</h3>
-                <p>Conducted exploratory data analysis on stock market prices and implemented time series forecasting models. 📈</p>
-                <div class="code-block">
-                    <span class="comment"># Rolling origin forecast<br></span>
-                    for t in range(len(series_test)):<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Fit the SARIMA model on the history</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;model = SARIMAX(history, order=order, seasonal_order=seasonal_order)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; model_fit = model.<span class="keyword">fit</span>(disp=False)  <span class="comment"># Suppress fitting messages</span><br>
+          <section id="projects">
+            <h2 style="padding-top: 30px;">FEATURED PROJECTS</h2>
+            
+            <div class="projects-grid">
+    
+                <!-- Project 1: Jonathan TA -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">
+                            <h3>📱 Jonathan Chatbot (<a href="https://jonathanai.streamlit.app/" target="_blank">Try It!</a>)</h3>
+                            <div class="project-tags">
+                                <span class="tag">RAG</span>
+                                <span class="tag">LLM</span>
+                                <span class="tag">Streamlit</span>
+                                <a href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" class="github-link" style="float: right;">
+                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Forecast the next point and get the 95% confidence interval</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;forecast_result = model_fit.<span class="keyword">get_forecast</span>(steps=<span class="number">1</span>)<br>
+                    <div class="project-content">
+                        <p>An open-source RAG-powered chatbot that helps students find information from course materials. Built using modern RAG (Retrieval Augmented Generation) techniques, this assistant can answer questions about assignments, course content, and other academic materials found on Canvas.</p>
+                        
+                        <!-- Demo Video/GIF -->
+                        <div class="demo-container">
+                            <!-- Replace src with your actual demo video/GIF -->
+                            <video class="demo-video" autoplay loop muted playsinline>
+                                <source src="demo.mov" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="loading-text">Loading...</div>
+                        </div>
+                        
+                        <div class="key-points">
+                            <p><strong>Technical Breakdown:</strong></p>
+                            <ul>
+                                <li>Handles PDF parsing and text extraction, creates semantic document chunks, tags content with metadata, and saves processed chunks.</li>
+                                <li>Uses ChromaDB for persistent vector storage, organizes embeddings by document type, and implements smart filtering for relevant content.</li>
+                                <li>Utilizes all-MiniLM-L6-v2 for embeddings, gpt-4o-mini for LLM, and efficient batch processing for document embedding.</li>
+                                <li>Built with Streamlit, provides a user-friendly chat interface, maintains conversation context, and formats and displays answers.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 100%; border-radius: 0;"></div>
-                    <span>100% ✅</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>🎥 Holiday Movie Recommendation System (<a href="https://github.com/Calebagoha123/holiday_movie_recommender" target="_blank">repo</a>)</h3>
-                <p>Developed a movie recommendation system using k-means clustering, focusing on holiday-themed films. 🎅🎄</p>
-                <div class="code-block">
-                    <span class="comment"># Calculate similarity based on Euclidean Distance</span><br>
-                    cluster_movies = df[df[<span class="string">'cluster'</span>] == input_cluster_label]<br>
-                    cluster_features = features[cluster_movies.<span class="keyword">index</span>]<br>
-                    <br>
-                    similarities = np.<span class="keyword">sqrt</span>(np.<span class="keyword">sum</span>((cluster_features - input_features) ** <span class="number">2</span>, axis=<span class="number">1</span>))<br>
-                    top_similar_movies = df.<span class="keyword">loc</span>[similarities.<span class="keyword">argsort</span>()[<span class="number">1</span>:<span class="number">4</span>]] <span class="comment">#to exclude the input movie</span><br>
-                    top_similar_movies = top_similar_movies[[<span class="string">'primaryTitle'</span>, <span class="string">'genres'</span>]]
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 100%;"></div>
-                    <span>100% ✅ </span>
-                </div>
-            </div>
 
+                <!-- Project 2: Stock Market Analysis -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">
+                            <h3>📊 Stock Market Time Series Analysis</h3>
+                            <div class="project-tags">
+                                <span class="tag">Time Series</span>
+                                <span class="tag">SARIMA</span>
+                                <span class="tag">Tableau</span>
+                                <a href="https://github.com/Calebagoha123/big_tech_stock_eda" target="_blank" class="github-link" style="float: right;">
+                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="project-content">
+                        <p>Advanced time series analysis and forecasting of tech stock prices with interactive visualization dashboard.</p>
+                        
+                        <!-- Plotly Embed -->
+                        <div class="dashboard-embed">
+                            <div class="plotly-gallery">
+                                <iframe src="graphs/stock_price_trend.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/average_adjusted_close_price.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/daily_stock_price_volatility.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/correlation_matrix.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/average_daily_trading_volume.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/distribution_AAPL.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/distribution_AMZN.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/distribution_GOOGL.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/distribution_TSLA.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/distribution_NVDA.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="graphs/distribution_ORCL.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <button class="prev" onclick="plusSlides(-1, 'plotly-gallery')">&#10094;</button>
+                            <button class="next" onclick="plusSlides(1, 'plotly-gallery')">&#10095;</button>
+                            <div class="slide-indicator plotly-gallery-indicator">
+                                <span class="active" onclick="currentSlide(0, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(1, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(2, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(3, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(4, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(5, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(6, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(7, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(8, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(8, 'plotly-gallery')"></span>
+                                <span onclick="currentSlide(10, 'plotly-gallery')"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="key-points">
+                            <ul>
+                                <li>Stock price trends over time</li>
+                                <li>Comparative performance of different stocks</li>
+                                <li>Daily stock price volatility</li>
+                                <li>Correlation analysis of stock prices</li>
+                                <li>Distribution of stock prices before and after significant events of 2022</li>
+                            </ul>
+                            <p>The interactive dashboards are built using Plotly, providing a user-friendly interface for exploring the data.</p>
+                        </div>
+                    </div>
+                </div>
+        
+        
+                <!-- Project 3: Superconductor Analysis -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">
+                            <h3>🔬 Superconductors</h3>
+                            <div class="project-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">scikit-learn</span>
+                                <span class="tag">Feature Engineering</span>
+                                <a href="https://github.com/Calebagoha123/superconductor" target="_blank" class="github-link" style="float: right;">
+                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="project-content">
+                        <p>Predicting the critical temperature of superconductors can help further our understanding of superconductivity and aid in designing and discovering new materials. It is also useful for the advancement of quantum computing technology, which heavily relies on superconductors.</p>          
+                        <br>
+                        <!-- Image Gallery Embed -->
+                        <div class="dashboard-embed">
+                            <div class="image-gallery">
+                                <img src="graphs/feature_importance.png" alt="Feature Importance for Random Forest" width="100%" height="100%">
+                                <img src="graphs/xgboost_performance.png" alt="Model Fit for XGBoost" width="100%" height="100%">
+                            </div>
+                            <button class="prev" onclick="plusSlides(-1, 'image-gallery')">&#10094;</button>
+                            <button class="next" onclick="plusSlides(1, 'image-gallery')">&#10095;</button>
+                            <div class="slide-indicator image-gallery-indicator">
+                                <span class="active" onclick="currentSlide(0, 'image-gallery')"></span>
+                                <span onclick="currentSlide(1, 'image-gallery')"></span>
+                            </div>
+                        </div>            
+                        <br>
+                        <p>In this project, I utilized a range of tree-based models to predict the critical temperature of superconductors. Random Forests and XGBoost were the best performing models. For interpretability, the Random Forest model is recommended. The feature importance analysis reveals which properties of the superconductors have the most predictive power in determining their critical temperature.</p>
+                        <!-- Key Findings -->
+                        <div class="key-points">
+                            <h4>Key Findings:</h4>
+                            <ul>
+                                <li>Random Forest and XGBoost models performed the best in predicting the critical temperature.</li>
+                                <li>Feature importance analysis shows that range_ThermalConductivity is the most significant feature.</li>
+                                <li>Increasing the number of estimators in ensemble models reduces variance and improves performance.</li>
+                            </ul>
+                        </div>
+                        <p>The dataset was sourced from the UCI machine learning repository.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         </section>
 
         <section id="contact">
@@ -444,12 +682,53 @@
               }
             });
           });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.querySelector('video');
+            var loadingText = document.querySelector('.loading-text');
+
+            video.addEventListener('canplay', function() {
+                loadingText.style.display = 'none';
+            });
+        });
+
+        let slideIndex = 0;
+
+        function showSlides(n, galleryClass) {
+            let slides = document.querySelectorAll(`.${galleryClass} img, .${galleryClass} iframe`);
+            let indicators = document.querySelectorAll(`.${galleryClass}-indicator span`);
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            let offset = -slideIndex * 100;
+            document.querySelector(`.${galleryClass}`).style.transform = `translateX(${offset}%)`;
+            indicators.forEach((indicator, index) => {
+                indicator.className = indicator.className.replace(" active", "");
+                if (index === slideIndex) {
+                    indicator.className += " active";
+                }
+            });
+        }
+
+        function plusSlides(n, galleryClass) {
+            showSlides(slideIndex += n, galleryClass);
+        }
+        
+        function currentSlide(n, galleryClass) {
+            showSlides(slideIndex = n, galleryClass);
+        }
+
+        // Ensure the slides start on the first slide
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlides(slideIndex, 'plotly-gallery');
+            showSlides(slideIndex, 'image-gallery');
+        });
     </script>
 
     </main>
 
     <footer class="footer">
-         2024 | Caleb Agoha
+         2025 | Caleb Agoha
     </footer>
 </body>
 </html>
