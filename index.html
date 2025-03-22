@@ -68,7 +68,21 @@
         body.light-mode .keyword { color: #fe46ae; }
         body.light-mode .string { color: #f01313; }
         body.light-mode .comment { color: #888; }
+        body.light-mode .tag {
+            text-decoration: none;
+            border-bottom: none;
+        }
 
+        .tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-bottom: none;
+        }
 
         /* Dark Mode */
 
@@ -410,325 +424,692 @@
         .active, .slide-indicator span:hover {
             background-color: rgba(0,0,0,0.8);
         }
+
+        /* New styles for collapsible research section */
+        .research-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .research-content.expanded {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .research-header {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .research-header:hover {
+            opacity: 0.8;
+        }
+
+        .research-header h2 {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 10px;
+            margin: 0;
+            flex: 1;
+        }
+
+        .research-summary {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .toggle-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        /* Enhanced project card styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-title {
+            margin-bottom: 1rem;
+        }
+
+        .project-title h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        .tag:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.02);
+            border-radius: 4px;
+        }
+
+        .feature-icon {
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .key-points {
+            margin-top: 1rem;
+        }
+
+        .key-points ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .key-points li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .key-points li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+
+        /* Remove typing effect styles */
+        .typing-text {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Enhanced navigation styles */
+        .menu-link {
+            position: relative;
+            padding: 5px 10px;
+        }
+
+        .menu-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            background-color: currentColor;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .menu-link:hover::after {
+            width: 100%;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #fff;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Landing page styles */
+        .landing-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .intro-container {
+            text-align: center;
+            color: #fff;
+            font-family: monospace;
+            font-size: 1.2em;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .status-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .status-text::before,
+        .status-text::after {
+            content: '"';
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.5;
+        }
+
+        .status-text::before {
+            left: -20px;
+            top: -10px;
+        }
+
+        .status-text::after {
+            right: -20px;
+            bottom: -10px;
+        }
+
+        .date-text {
+            margin-top: 1rem;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: #fff;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Tag styling */
+        .tag, a .tag {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="header-left">
-                <h1 style="border-bottom: 0px solid #fff; padding: 0px; margin: 0px;">CALEB AGOHA</h1>
-                <p>Hey, check out <a href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast" target="_blank">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
-            </div>
-            <div class="header-right">
-                <div><strong>Version</strong></div>
-                <div>v1.02</div>
-                <div><strong>Updated</strong></div>
-                <div>07-01-2025</div>
-            </div>
+    <!-- Landing Page -->
+    <div class="landing-page">
+        <div class="intro-container">
+            <div class="status-text"></div>
+            <div class="date-text"></div>
         </div>
-    </header>
-    <!-- Light/Dark Mode Toggle -->
-    <div class="toggle-container">
-        <label class="switch">
-            <input type="checkbox" id="mode-toggle">
-            <span class="slider">
-                <span class="emoji">🌙</span>
-            </span>
-        </label>
     </div>
 
-    <nav class="py-4 mb-8" style="text-align: center;">
-        <a href="#about" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">ABOUT</a> | 
-         <a href="#research" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">RESEARCH</a> | 
-        <a href="#projects" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">PROJECTS</a> | 
-        <a href="#contact" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">CONTACT</a>
-    </nav>
-
-
-    <!-- Content -->
-        <section id="about">
-            <h2>ABOUT</h2>
-            <p style="padding-top: 20px;">👋 I am a final year Computational Social Science student at the University of Amsterdam (UvA). 
-                Currently working as a Research Assistant, I am passionate about applying machine learning techniques to solve complex social problems. 
-                Building ML models 🚀</p>
-        </section>
-
-        <br>
-        <br>
-
-        <section id="research" class="section">
-            <h2>RESEARCH (<a href="https://www.uni-bamberg.de/fileadmin/uni/fakultaeten/sowi_faecher/vwl/BERG/BERG_194.pdf" target="_blank">link</a>)</h2>
-            <br>
-            <p>The first paper I worked on as an RA focuses on intersectional wage discrimination and the concept of excessive privilege. We examined the effects of overlapping identities on wage gaps, particularly the intersectional effects of gender and race in the US labor market.</p>
-            
-            <p>Key findings from our research:</p>
-            <ul>
-              <li>We discovered that White males (WM) experience unique privilege compared to all other groups, which we termed "excessive White male privilege".</li>
-              <li>Contrary to previous literature, we did not find evidence for a unique intersectional wage penalty for Black females (BF) compared to all others.</li>
-              <li>Our findings challenge common methods of measuring intersectional wage discrimination and highlight the importance of recognizing and addressing systemic privilege.</li>
-            </ul>
-          
-            <div class="graph-container">
-              <img src="intersectionality_graph.png" alt="Graph showing privilege and intersectional penalty terms over time" class="responsive-graph"/>
-              <figcaption>Results for the privilege and intersectional penalty term for both reference groups. Data uses average wages in the US from the Economic Policy Institute.</figcaption>
-            </div>
-          
-            <p>This research provides a novel tool for intersectionality studies and policy aimed at creating a more equitable society. It emphasizes the need for more refined metrics in capturing wage discrimination and the importance of considering excessive privilege in analyses of wage gaps.
-            </p>
-            <br>
-            <p>More research coming soon...</p>
-            <br>
-            <br>
-          </section>
-
-          <section id="projects">
-            <h2 style="padding-top: 30px;">FEATURED PROJECTS</h2>
-            
-            <div class="projects-grid">
-    
-                <!-- Project 1: Jonathan TA -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>📱 Jonathan Chatbot (<a href="https://jonathanai.streamlit.app/" target="_blank">Try It!</a>)</h3>
-                            <div class="project-tags">
-                                <span class="tag">RAG</span>
-                                <span class="tag">LLM</span>
-                                <span class="tag">Streamlit</span>
-                                <a href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" class="github-link" style="float: right;">
-                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="project-content">
-                        <p>An open-source RAG-powered chatbot that helps students find information from course materials. Built using modern RAG (Retrieval Augmented Generation) techniques, this assistant can answer questions about assignments, course content, and other academic materials found on Canvas.</p>
-                        
-                        <!-- Demo Video/GIF -->
-                        <div class="demo-container">
-                            <!-- Replace src with your actual demo video/GIF -->
-                            <video class="demo-video" autoplay loop muted playsinline>
-                                <source src="demo.mov" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="loading-text">Loading...</div>
-                        </div>
-                        
-                        <div class="key-points">
-                            <p><strong>Technical Breakdown:</strong></p>
-                            <ul>
-                                <li>Handles PDF parsing and text extraction, creates semantic document chunks, tags content with metadata, and saves processed chunks.</li>
-                                <li>Uses ChromaDB for persistent vector storage, organizes embeddings by document type, and implements smart filtering for relevant content.</li>
-                                <li>Utilizes all-MiniLM-L6-v2 for embeddings, gpt-4o-mini for LLM, and efficient batch processing for document embedding.</li>
-                                <li>Built with Streamlit, provides a user-friendly chat interface, maintains conversation context, and formats and displays answers.</li>
-                            </ul>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <div class="header-container">
+                <div class="header-left">
+                    <h1 style="border-bottom: 0px solid #fff; padding: 0px; margin: 0px;">CALEB AGOHA</h1>
+                    <p>Hey, check out <a href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast" target="_blank">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
                 </div>
-
-                <!-- Project 2: Stock Market Analysis -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>📊 Stock Market Time Series Analysis</h3>
-                            <div class="project-tags">
-                                <span class="tag">Time Series</span>
-                                <span class="tag">SARIMA</span>
-                                <span class="tag">Tableau</span>
-                                <a href="https://github.com/Calebagoha123/big_tech_stock_eda" target="_blank" class="github-link" style="float: right;">
-                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="project-content">
-                        <p>Advanced time series analysis and forecasting of tech stock prices with interactive visualization dashboard.</p>
-                        
-                        <!-- Plotly Embed -->
-                        <div class="dashboard-embed">
-                            <div class="plotly-gallery">
-                                <iframe src="graphs/stock_price_trend.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/average_adjusted_close_price.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/daily_stock_price_volatility.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/correlation_matrix.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/average_daily_trading_volume.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/distribution_AAPL.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/distribution_AMZN.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/distribution_GOOGL.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/distribution_TSLA.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/distribution_NVDA.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                                <iframe src="graphs/distribution_ORCL.html" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <button class="prev" onclick="plusSlides(-1, 'plotly-gallery')">&#10094;</button>
-                            <button class="next" onclick="plusSlides(1, 'plotly-gallery')">&#10095;</button>
-                            <div class="slide-indicator plotly-gallery-indicator">
-                                <span class="active" onclick="currentSlide(0, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(1, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(2, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(3, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(4, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(5, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(6, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(7, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(8, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(8, 'plotly-gallery')"></span>
-                                <span onclick="currentSlide(10, 'plotly-gallery')"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="key-points">
-                            <ul>
-                                <li>Stock price trends over time</li>
-                                <li>Comparative performance of different stocks</li>
-                                <li>Daily stock price volatility</li>
-                                <li>Correlation analysis of stock prices</li>
-                                <li>Distribution of stock prices before and after significant events of 2022</li>
-                            </ul>
-                            <p>The interactive dashboards are built using Plotly, providing a user-friendly interface for exploring the data.</p>
-                        </div>
-                    </div>
-                </div>
-        
-        
-                <!-- Project 3: Superconductor Analysis -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>🔬 Superconductors</h3>
-                            <div class="project-tags">
-                                <span class="tag">Machine Learning</span>
-                                <span class="tag">scikit-learn</span>
-                                <span class="tag">Feature Engineering</span>
-                                <a href="https://github.com/Calebagoha123/superconductor" target="_blank" class="github-link" style="float: right;">
-                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="project-content">
-                        <p>Predicting the critical temperature of superconductors can help further our understanding of superconductivity and aid in designing and discovering new materials. It is also useful for the advancement of quantum computing technology, which heavily relies on superconductors.</p>          
-                        <br>
-                        <!-- Image Gallery Embed -->
-                        <div class="dashboard-embed">
-                            <div class="image-gallery">
-                                <img src="graphs/feature_importance.png" alt="Feature Importance for Random Forest" width="100%" height="100%">
-                                <img src="graphs/xgboost_performance.png" alt="Model Fit for XGBoost" width="100%" height="100%">
-                            </div>
-                            <button class="prev" onclick="plusSlides(-1, 'image-gallery')">&#10094;</button>
-                            <button class="next" onclick="plusSlides(1, 'image-gallery')">&#10095;</button>
-                            <div class="slide-indicator image-gallery-indicator">
-                                <span class="active" onclick="currentSlide(0, 'image-gallery')"></span>
-                                <span onclick="currentSlide(1, 'image-gallery')"></span>
-                            </div>
-                        </div>            
-                        <br>
-                        <p>In this project, I utilized a range of tree-based models to predict the critical temperature of superconductors. Random Forests and XGBoost were the best performing models. For interpretability, the Random Forest model is recommended. The feature importance analysis reveals which properties of the superconductors have the most predictive power in determining their critical temperature.</p>
-                        <!-- Key Findings -->
-                        <div class="key-points">
-                            <h4>Key Findings:</h4>
-                            <ul>
-                                <li>Random Forest and XGBoost models performed the best in predicting the critical temperature.</li>
-                                <li>Feature importance analysis shows that range_ThermalConductivity is the most significant feature.</li>
-                                <li>Increasing the number of estimators in ensemble models reduces variance and improves performance.</li>
-                            </ul>
-                        </div>
-                        <p>The dataset was sourced from the UCI machine learning repository.</p>
-                    </div>
+                <div class="header-right">
+                    <div><strong>Version</strong></div>
+                    <div>v1.1</div>
+                    <div><strong>Updated</strong></div>
+                    <div>22-03-2025</div>
                 </div>
             </div>
-        </section>
-        </section>
+        </header>
+        <!-- Light/Dark Mode Toggle -->
+        <div class="toggle-container">
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider">
+                    <span class="emoji">🌙</span>
+                </span>
+            </label>
+        </div>
 
-        <section id="contact">
-            <h2>CONTACT</h2>
-            <p style="padding-top: 20px;">If you'd like to get in touch, feel free to reach out via:</p>
-            <p style="padding-top: 20px;">
-                📬 Email: <a href="mailto:caleb.agoha@student.uva.nl" target="_blank">caleb.agoha@student.uva.nl</a><br>
-                🔗 LinkedIn: <a href="https://www.linkedin.com/in/caleb-agoha-262b28266" target="_blank">linkedin.com/caleb-agoha</a><br>
-                👨‍💻 GitHub: <a href="https://github.com/Calebagoha123" target="_blank">github.com/Calebagoha123</a>
-            </p>
-        </section>
-    
-    <script>
-        // Light/Dark Mode Toggle
-        document.body.classList.toggle('dark-mode')
-        const toggleSwitch = document.getElementById('mode-toggle');
-        const emoji = document.querySelector('.slider .emoji');
+        <nav class="py-4 mb-8" style="text-align: center;">
+            <a href="#about" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">ABOUT</a> | 
+            <a href="#research" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">RESEARCH</a> | 
+            <a href="#projects" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">PROJECTS</a> | 
+            <a href="gallery.html" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">GALLERY</a> | 
+            <a href="#contact" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">CONTACT</a>
+        </nav>
+
+
+        <!-- Content -->
+            <section id="about">
+                <h2>ABOUT</h2>
+                <p style="padding-top: 20px;">👋 I am a final year Computational Social Science student at the University of Amsterdam (UvA). 
+                    Currently working as a Research Assistant, I am passionate about applying machine learning techniques to solve complex social problems. 
+                    Building ML models 🚀</p>
+                <p class="typing-text" style="padding-top: 10px;">> Ready to tackle new challenges...</p>
+            </section>
+
+            <br>
+            <br>
+
+            <section id="research" class="section">
+                <div class="research-header">
+                    <div>
+                        <h2>RESEARCH (<a href="https://www.uni-bamberg.de/fileadmin/uni/fakultaeten/sowi_faecher/vwl/BERG/BERG_194.pdf" target="_blank">link</a>)</h2>
+                        <div class="research-summary">Examining intersectional wage discrimination and the concept of excessive privilege in the US labor market.</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="research-content">
+                    <div style="padding: 1.5rem;">
+                        <p>The first paper I worked on as an RA focuses on intersectional wage discrimination and the concept of excessive privilege. We examined the effects of overlapping identities on wage gaps, particularly the intersectional effects of gender and race in the US labor market.</p>
+                        
+                        <p>Key findings from our research:</p>
+                        <ul>
+                          <li>We discovered that White males (WM) experience unique privilege compared to all other groups, which we termed "excessive White male privilege".</li>
+                          <li>Contrary to previous literature, we did not find evidence for a unique intersectional wage penalty for Black females (BF) compared to all others.</li>
+                          <li>Our findings challenge common methods of measuring intersectional wage discrimination and highlight the importance of recognizing and addressing systemic privilege.</li>
+                        </ul>
+                      
+                        <div class="graph-container">
+                          <img src="intersectionality_graph.png" alt="Graph showing privilege and intersectional penalty terms over time" class="responsive-graph"/>
+                          <figcaption>Results for the privilege and intersectional penalty term for both reference groups. Data uses average wages in the US from the Economic Policy Institute.</figcaption>
+                        </div>
+                      
+                        <p>This research provides a novel tool for intersectionality studies and policy aimed at creating a more equitable society. It emphasizes the need for more refined metrics in capturing wage discrimination and the importance of considering excessive privilege in analyses of wage gaps.
+                        </p>
+                        <br>
+                        <p>More research coming soon...</p>
+                    </div>
+                </div>
+            </section>
+
+              <section id="projects">
+                <h2 style="padding-top: 30px;">FEATURED PROJECTS</h2>
+                
+                <div class="projects-grid">
         
-        toggleSwitch.addEventListener('change', () => {
-            document.body.classList.toggle('dark-mode');
-            document.body.classList.toggle('light-mode');
+                    <!-- Project 1: Jonathan TA -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title">
+                                <h3>📱 Jonathan Chatbot (<a href="https://jonathanai.streamlit.app/" target="_blank">Try It!</a>)</h3>
+                                <div class="project-tags">
+                                    <span class="tag">RAG</span>
+                                    <span class="tag">LLM</span>
+                                    <span class="tag">Streamlit</span>
+                                    <a href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" class="github-link" style="float: right;">
+                                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                <p>An open-source RAG-powered chatbot that helps students find information from course materials. Built using modern RAG (Retrieval Augmented Generation) techniques, this assistant can answer questions about assignments, course content, and other academic materials found on Canvas.</p>
+                            </div>
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔍</span>
+                                    <span>PDF parsing and text extraction with semantic document chunks</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">💾</span>
+                                    <span>ChromaDB for persistent vector storage and smart filtering</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🤖</span>
+                                    <span>all-MiniLM-L6-v2 embeddings with gpt-4-mini LLM</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🎯</span>
+                                    <span>User-friendly Streamlit interface with context awareness</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Stock Market Analysis -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title">
+                                <h3>📊 Stock Market Time Series Analysis</h3>
+                                <div class="project-tags">
+                                    <span class="tag">Time Series</span>
+                                    <span class="tag">SARIMA</span>
+                                    <span class="tag">Tableau</span>
+                                    <a href="https://github.com/Calebagoha123/big_tech_stock_eda" target="_blank" class="github-link" style="float: right;">
+                                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                <p>Advanced time series analysis and forecasting of tech stock prices with interactive visualization dashboard.</p>
+                            </div>
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">📈</span>
+                                    <span>Stock price trends and comparative performance analysis</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📊</span>
+                                    <span>Daily volatility and correlation analysis</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔍</span>
+                                    <span>Distribution analysis of stock prices</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🎯</span>
+                                    <span>Interactive dashboards built with Plotly</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Project 3: Superconductor Analysis -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-title">
+                                <h3>🔬 Superconductors</h3>
+                                <div class="project-tags">
+                                    <span class="tag">Machine Learning</span>
+                                    <span class="tag">scikit-learn</span>
+                                    <span class="tag">Feature Engineering</span>
+                                    <a href="https://github.com/Calebagoha123/superconductor" target="_blank" class="github-link" style="float: right;">
+                                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                <p>Predicting the critical temperature of superconductors can help further our understanding of superconductivity and aid in designing and discovering new materials. It is also useful for the advancement of quantum computing technology, which heavily relies on superconductors.</p>
+                            </div>
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🌡️</span>
+                                    <span>Critical temperature prediction using tree-based models</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📊</span>
+                                    <span>Feature importance analysis for material properties</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span>Random Forest and XGBoost model comparison</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔍</span>
+                                    <span>Dataset sourced from UCI machine learning repository</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </section>
+
+            <section id="contact">
+                <h2>CONTACT</h2>
+                <p style="padding-top: 20px;">If you'd like to get in touch, feel free to reach out via:</p>
+                <p style="padding-top: 20px;">
+                    📬 Email: <a href="mailto:caleb.agoha@student.uva.nl" target="_blank">caleb.agoha@student.uva.nl</a><br>
+                    🔗 LinkedIn: <a href="https://www.linkedin.com/in/caleb-agoha-262b28266" target="_blank">linkedin.com/caleb-agoha</a><br>
+                    👨‍💻 GitHub: <a href="https://github.com/Calebagoha123" target="_blank">github.com/Calebagoha123</a>
+                </p>
+            </section>
         
-            if (document.body.classList.contains('light-mode')) {
-                emoji.textContent = '🌞'; // Sun for light mode
-            } else {
-                emoji.textContent = '🌙'; // Moon for dark mode
-            }
-        });
+        <button class="back-to-top" title="Back to top">↑</button>
 
-        document.querySelectorAll('.menu-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-              e.preventDefault();
-              const targetId = this.getAttribute('href').slice(1);
-              const targetElement = document.getElementById(targetId);
-              if (targetElement) {
-                window.scrollTo({
-                  top: targetElement.offsetTop,
-                  behavior: 'smooth'
-                });
-              }
-            });
-          });
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var video = document.querySelector('video');
-            var loadingText = document.querySelector('.loading-text');
-
-            video.addEventListener('canplay', function() {
-                loadingText.style.display = 'none';
-            });
-        });
-
-        let slideIndex = 0;
-
-        function showSlides(n, galleryClass) {
-            let slides = document.querySelectorAll(`.${galleryClass} img, .${galleryClass} iframe`);
-            let indicators = document.querySelectorAll(`.${galleryClass}-indicator span`);
-            if (n >= slides.length) { slideIndex = 0 }
-            if (n < 0) { slideIndex = slides.length - 1 }
-            let offset = -slideIndex * 100;
-            document.querySelector(`.${galleryClass}`).style.transform = `translateX(${offset}%)`;
-            indicators.forEach((indicator, index) => {
-                indicator.className = indicator.className.replace(" active", "");
-                if (index === slideIndex) {
-                    indicator.className += " active";
+        <script>
+            // Light/Dark Mode Toggle
+            document.body.classList.toggle('dark-mode')
+            const toggleSwitch = document.getElementById('mode-toggle');
+            const emoji = document.querySelector('.slider .emoji');
+            
+            toggleSwitch.addEventListener('change', () => {
+                document.body.classList.toggle('dark-mode');
+                document.body.classList.toggle('light-mode');
+            
+                if (document.body.classList.contains('light-mode')) {
+                    emoji.textContent = '🌞'; // Sun for light mode
+                } else {
+                    emoji.textContent = '🌙'; // Moon for dark mode
                 }
             });
-        }
 
-        function plusSlides(n, galleryClass) {
-            showSlides(slideIndex += n, galleryClass);
-        }
-        
-        function currentSlide(n, galleryClass) {
-            showSlides(slideIndex = n, galleryClass);
-        }
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const targetId = this.getAttribute('href').slice(1);
+                  const targetElement = document.getElementById(targetId);
+                  if (targetElement) {
+                    window.scrollTo({
+                      top: targetElement.offsetTop,
+                      behavior: 'smooth'
+                    });
+                  }
+                });
+              });
 
-        // Ensure the slides start on the first slide
-        document.addEventListener('DOMContentLoaded', function() {
-            showSlides(slideIndex, 'plotly-gallery');
-            showSlides(slideIndex, 'image-gallery');
-        });
-    </script>
 
-    </main>
+            document.addEventListener('DOMContentLoaded', function() {
+                var video = document.querySelector('video');
+                var loadingText = document.querySelector('.loading-text');
 
-    <footer class="footer">
-         2025 | Caleb Agoha
-    </footer>
+                video.addEventListener('canplay', function() {
+                    loadingText.style.display = 'none';
+                });
+            });
+
+            let slideIndex = 0;
+
+            function showSlides(n, galleryClass) {
+                let slides = document.querySelectorAll(`.${galleryClass} img, .${galleryClass} iframe`);
+                let indicators = document.querySelectorAll(`.${galleryClass}-indicator span`);
+                if (n >= slides.length) { slideIndex = 0 }
+                if (n < 0) { slideIndex = slides.length - 1 }
+                let offset = -slideIndex * 100;
+                document.querySelector(`.${galleryClass}`).style.transform = `translateX(${offset}%)`;
+                indicators.forEach((indicator, index) => {
+                    indicator.className = indicator.className.replace(" active", "");
+                    if (index === slideIndex) {
+                        indicator.className += " active";
+                    }
+                });
+            }
+
+            function plusSlides(n, galleryClass) {
+                showSlides(slideIndex += n, galleryClass);
+            }
+            
+            function currentSlide(n, galleryClass) {
+                showSlides(slideIndex = n, galleryClass);
+            }
+
+            // Ensure the slides start on the first slide
+            document.addEventListener('DOMContentLoaded', function() {
+                showSlides(slideIndex, 'plotly-gallery');
+                showSlides(slideIndex, 'image-gallery');
+            });
+
+            // Research section toggle
+            const researchHeader = document.querySelector('.research-header');
+            const researchContent = document.querySelector('.research-content');
+            const toggleIcon = document.querySelector('.toggle-icon');
+            const researchLink = document.querySelector('a[href="#research"]');
+
+            researchHeader.addEventListener('click', () => {
+                researchContent.classList.toggle('expanded');
+                toggleIcon.classList.toggle('expanded');
+            });
+
+            researchLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetElement = document.getElementById('research');
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                    // Open the research section after scrolling
+                    setTimeout(() => {
+                        researchContent.classList.add('expanded');
+                        toggleIcon.classList.add('expanded');
+                    }, 500);
+                }
+            });
+
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Landing page animation
+            document.addEventListener('DOMContentLoaded', function() {
+                const statusText = document.querySelector('.status-text');
+                const dateText = document.querySelector('.date-text');
+                const mainContent = document.querySelector('.main-content');
+                const landingPage = document.querySelector('.landing-page');
+                
+                // Hide main content initially
+                mainContent.style.opacity = '0';
+                
+                const message = "working on my bachelor thesis...";
+                const today = new Date().toLocaleDateString('en-US', { 
+                    month: '2-digit',
+                    day: '2-digit',
+                    year: 'numeric'
+                });
+                
+                let currentChar = 0;
+                const typingSpeed = 50; // milliseconds per character
+
+                function typeText() {
+                    if (currentChar < message.length) {
+                        statusText.textContent = message.substring(0, currentChar + 1);
+                        currentChar++;
+                        setTimeout(typeText, typingSpeed);
+                    } else {
+                        // Show date after message is typed
+                        dateText.textContent = today;
+                        
+                        // Transition to main content after a delay
+                        setTimeout(() => {
+                            landingPage.style.opacity = '0';
+                            mainContent.style.opacity = '1';
+                            
+                            setTimeout(() => {
+                                landingPage.style.display = 'none';
+                            }, 500);
+                        }, 1000);
+                    }
+                }
+
+                typeText();
+            });
+        </script>
+
+        </main>
+
+        <footer class="footer">
+             2025 | Caleb Agoha
+        </footer>
+    </div>
 </body>
 </html>
