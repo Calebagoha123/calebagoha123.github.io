@@ -1,0 +1,240 @@
+---
+layout: base
+---
+{% block pageStyles %}{% endblock %}
+
+<!-- Content -->
+<section id="about">
+    <h2>ABOUT</h2>
+    <p style="padding-top: 20px;">👋 I am a final year Computational Social Science student at the University of Amsterdam (UvA). 
+        Currently working as a Research Assistant, I am passionate about applying machine learning techniques to solve complex social problems. 
+        Building ML models 🚀</p>
+    <p class="typing-text" style="padding-top: 10px;">> Ready to tackle new challenges...</p>
+</section>
+
+<br>
+<br>
+
+<section id="research" class="section">
+    <div class="research-header">
+        <div>
+            <h2>RESEARCH (<a href="https://www.uni-bamberg.de/fileadmin/uni/fakultaeten/sowi_faecher/vwl/BERG/BERG_194.pdf" target="_blank">link</a>)</h2>
+            <div class="research-summary">Examining intersectional wage discrimination and the concept of excessive privilege in the US labor market.</div>
+        </div>
+        <span class="toggle-icon">▼</span>
+    </div>
+    <div class="research-content">
+        <div style="padding: 1.5rem;">
+            <p>The first paper I worked on as an RA focuses on intersectional wage discrimination and the concept of excessive privilege. We examined the effects of overlapping identities on wage gaps, particularly the intersectional effects of gender and race in the US labor market.</p>
+            
+            <p>Key findings from our research:</p>
+            <ul>
+              <li>We discovered that White males (WM) experience unique privilege compared to all other groups, which we termed "excessive White male privilege".</li>
+              <li>Contrary to previous literature, we did not find evidence for a unique intersectional wage penalty for Black females (BF) compared to all others.</li>
+              <li>Our findings challenge common methods of measuring intersectional wage discrimination and highlight the importance of recognizing and addressing systemic privilege.</li>
+            </ul>
+          
+            <div class="graph-container">
+              <img src="intersectionality_graph.png" alt="Graph showing privilege and intersectional penalty terms over time" class="responsive-graph"/>
+              <figcaption>Results for the privilege and intersectional penalty term for both reference groups. Data uses average wages in the US from the Economic Policy Institute.</figcaption>
+            </div>
+          
+            <p>This research provides a novel tool for intersectionality studies and policy aimed at creating a more equitable society. It emphasizes the need for more refined metrics in capturing wage discrimination and the importance of considering excessive privilege in analyses of wage gaps.
+            </p>
+            <br>
+            <p>More research coming soon...</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 style="padding-top: 30px;">FEATURED PROJECTS</h2>
+    
+    <div class="projects-grid">
+        <!-- Project 1: Jonathan TA -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">
+                    <h3>📱 Jonathan Chatbot (<a href="https://jonathanai.streamlit.app/" target="_blank">Try It!</a>)</h3>
+                    <div class="project-tags">
+                        <span class="tag">RAG</span>
+                        <span class="tag">LLM</span>
+                        <span class="tag">Streamlit</span>
+                        <a href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" class="github-link" style="float: right;">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-content">
+                <div class="project-description">
+                    <p>An open-source RAG-powered chatbot that helps students find information from course materials. Built using modern RAG (Retrieval Augmented Generation) techniques, this assistant can answer questions about assignments, course content, and other academic materials found on Canvas.</p>
+                </div>
+                <!-- Demo video added stylistically -->
+                <div class="demo-container">
+                    <video class="demo-video" controls autoplay muted loop>
+                        <source src="demo.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="project-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span>PDF parsing and text extraction with semantic document chunks</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💾</span>
+                        <span>ChromaDB for persistent vector storage and smart filtering</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🤖</span>
+                        <span>all-MiniLM-L6-v2 embeddings with gpt-4-mini LLM</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span>User-friendly Streamlit interface with context awareness</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: Stock Market Analysis -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">
+                    <h3>📊 Stock Market Time Series Analysis</h3>
+                    <div class="project-tags">
+                        <span class="tag">Time Series</span>
+                        <span class="tag">SARIMA</span>
+                        <span class="tag">Tableau</span>
+                        <a href="https://github.com/Calebagoha123/big_tech_stock_eda" target="_blank" class="github-link" style="float: right;">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-content">
+                <div class="project-description">
+                    <p>Advanced time series analysis and forecasting of tech stock prices with interactive visualization dashboard.</p>
+                </div>
+                <div class="project-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">📈</span>
+                        <span>Stock price trends and comparative performance analysis</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span>Daily volatility and correlation analysis</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span>Distribution analysis of stock prices</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span>Interactive dashboards built with Plotly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: Superconductor Analysis -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">
+                    <h3>🔬 Superconductors</h3>
+                    <div class="project-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">scikit-learn</span>
+                        <span class="tag">Feature Engineering</span>
+                        <a href="https://github.com/Calebagoha123/superconductor" target="_blank" class="github-link" style="float: right;">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-content">
+                <div class="project-description">
+                    <p>Predicting the critical temperature of superconductors can help further our understanding of superconductivity and aid in designing and discovering new materials. It is also useful for the advancement of quantum computing technology, which heavily relies on superconductors.</p>
+                </div>
+                <div class="project-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🌡️</span>
+                        <span>Critical temperature prediction using tree-based models</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span>Feature importance analysis for material properties</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span>Random Forest and XGBoost model comparison</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span>Dataset sourced from UCI machine learning repository</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>CONTACT</h2>
+    <p style="padding-top: 20px;">If you'd like to get in touch, feel free to reach out via:</p>
+    <p style="padding-top: 20px;">
+        📬 Email: <a href="mailto:caleb.agoha@student.uva.nl" target="_blank">caleb.agoha@student.uva.nl</a><br>
+        🔗 LinkedIn: <a href="https://www.linkedin.com/in/caleb-agoha-262b28266" target="_blank">linkedin.com/caleb-agoha</a><br>
+        👨‍💻 GitHub: <a href="https://github.com/Calebagoha123" target="_blank">github.com/Calebagoha123</a>
+    </p>
+</section>
+
+<button class="back-to-top" title="Back to top">↑</button>
+
+{% block pageScripts %}
+<script>
+    // Research section toggle
+    const researchHeader = document.querySelector('.research-header');
+    const researchContent = document.querySelector('.research-content');
+    const toggleIcon = document.querySelector('.toggle-icon');
+    const researchLink = document.querySelector('a[href="#research"]');
+
+    researchHeader.addEventListener('click', () => {
+        researchContent.classList.toggle('expanded');
+        toggleIcon.classList.toggle('expanded');
+    });
+
+    researchLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetElement = document.getElementById('research');
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+            // Open the research section after scrolling
+            setTimeout(() => {
+                researchContent.classList.add('expanded');
+                toggleIcon.classList.add('expanded');
+            }, 500);
+        }
+    });
+
+    // Back to top button visibility
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            document.querySelector('.back-to-top').classList.add('visible');
+        } else {
+            document.querySelector('.back-to-top').classList.remove('visible');
+        }
+    });
+
+    document.querySelector('.back-to-top').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+{% endblock %}

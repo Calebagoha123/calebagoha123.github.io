@@ -1,0 +1,20 @@
+{
+  "name": "calebagoha123.github.io",
+  "version": "1.0.0",
+  "description": "Personal portfolio and blog",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "keywords": [],
+  "author": "Caleb Agoha",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "luxon": "^3.6.1"
+  }
+}
