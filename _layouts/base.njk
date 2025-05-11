@@ -714,7 +714,7 @@
             border-bottom: none !important;
         }
     </style>
-    {% include pageStyles %}{% endblock %}
+    {% block pageStyles %}{% endblock %}
 </head>
 <body>
     <!-- Main Content -->
@@ -751,7 +751,7 @@
             <a href="/index#contact" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">CONTACT</a>
         </nav>
 
-        {% include "content" %}
+        {{ content | safe }}
     </div>
 
     <script>
