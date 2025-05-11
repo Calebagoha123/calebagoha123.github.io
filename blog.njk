@@ -53,12 +53,12 @@ title: Blog
     <h2>BLOG</h2>
     <!--
         <ul class="blog-list">
-    {%- for post in collections.posts | reverse -%}
+   {% for post in collections.posts reversed %}
         <li class="blog-item">
             <div class="blog-title-wrapper">
                 <a href="{{ post.url }}" class="blog-link">{{ post.data.title }}</a>
             </div>
-            <span class="blog-date">{{ post.date | formatDate("DD-MM-YY") }}</span>
+            <span class="blog-date">{{ post.date | date: "%d-%m-%y" }}</span>
         </li>
     {%- endfor -%}
     </ul>
