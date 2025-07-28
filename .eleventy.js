@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("*.png");
     eleventyConfig.addPassthroughCopy("*.mov");
     eleventyConfig.addPassthroughCopy("graphs");
+    eleventyConfig.addPassthroughCopy("thesis.pdf");
 
     return {
         dir: {

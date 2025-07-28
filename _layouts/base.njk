@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caleb Agoha - Portfolio</title>
     <style>
+        :root {
+            --svg-fill-color: #fff;
+        }
+        body.light-mode {
+            --svg-fill-color: #111;
+        }
+        body.dark-mode {
+            --svg-fill-color: #fff;
+        }
+
         /* Light Mode */
         body.light-mode {
             background-color: #ffffff; /* White background for light mode */
@@ -54,9 +64,7 @@
         body.light-mode h2 {
             border-bottom: 1px solid #111;
         }
-        body.light-mode h3 {
-            border-bottom: 1px solid #111;
-        }
+
         body.light-mode a {
             color: #111;
             border-bottom: 1px dotted #111;
@@ -91,7 +99,65 @@
             color: #ffffff; /* White text */
         }
 
-        
+        body.dark-mode .project-card{
+            border: 1px solid #fff;
+        }
+
+        body.dark-mode .progress-bar{
+            background-color: #333;
+        }
+
+        body.dark-mode .progress{
+            background-color: #4CAF50;
+        }
+
+        body.dark-mode .code-block {
+            background-color: #222; /* Dark grey for code blocks */
+            color: #fff; /* Lighter text inside code blocks */
+        }
+
+        body.dark-mode .header-container {
+            border: 1px solid #fff;
+        }
+        body.dark-mode .header-left {
+            border-right: 1px solid #fff;
+        }
+        body.dark-mode .header-right div {
+            border-bottom: 1px solid #fff;
+
+        }
+        body.dark-mode .header-right div:nth-child(odd) {
+            border-right: 1px solid #fff;
+        }
+
+        body.dark-mode .top-section, .progress-bar, .project-card {
+            border: 1px solid #fff;
+        }
+        body.dark-mode .project-card {
+            border: 1px solid #fff;
+        }
+        body.dark-mode h1{
+            border-bottom: 1px solid #fff;
+        }
+        body.dark-mode h2 {
+            border-bottom: 1px solid #fff;
+        }
+
+        body.dark-mode a {
+            color: #fff;
+            border-bottom: 1px dotted #fff;
+        }
+        body.dark-mode a:hover {
+            border-bottom: 1px solid #fff;
+        }
+        body.dark-mode .number { color: #9249f8; }
+        body.dark-mode .keyword { color: #fe46ae; }
+        body.dark-mode .string { color: #f01313; }
+        body.dark-mode .comment { color: #888; }
+        body.dark-mode .tag {
+            text-decoration: none;
+            border-bottom: none;
+        }
 
         /* Toggle Switch Styling */
         .switch {
@@ -150,10 +216,10 @@
             line-height: 1.6;
             font-size: 14px;
         }
-        h1, h2, h3 {
+        h1, h2 {
             border-bottom: 1px solid #fff;
-            padding-bottom: 10px;
-            margin-top: 30px;
+            padding: 0px;
+            margin: 0px;
         }
         a {
             color: #fff;
@@ -432,21 +498,14 @@
             transition: max-height 0.5s ease-out;
         }
         
-        .research-content.expanded {
-            max-height: 2000px;
-            transition: max-height 0.5s ease-in;
-        }
+
 
         .research-header {
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .research-header:hover {
-            opacity: 0.8;
-        }
 
         .research-header h2 {
             border-bottom: 1px solid #fff;
@@ -456,10 +515,14 @@
         }
 
         .research-summary {
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            color: rgb(255, 255, 255);
             margin-top: 0.5rem;
-            font-style: italic;
+        }
+
+        .resarch-summary h3 {
+            border-bottom: 0px;
+
         }
 
         .toggle-icon {
@@ -713,8 +776,95 @@
             text-decoration: none !important;
             border-bottom: none !important;
         }
+        body.light-mode svg {
+            fill: #111 !important;
+        }
+        body.dark-mode svg {
+            fill: #fff !important;
+        }
+        body.light-mode .research-summary,
+        body.light-mode .research-bullets,
+        body.light-mode .custom-bullet {
+            color: #111 !important;
+        }
+        body.dark-mode .research-summary,
+        body.dark-mode .research-bullets,
+        body.dark-mode .custom-bullet {
+            color: #fff !important;
+        }
     </style>
-    {% block pageStyles %}{% endblock %}
+    {% block pageStyles %}
+<style>
+    .research-summary ul {
+        .research-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .research-header h2 {
+            border-bottom: 1px solid #fff;
+        }
+
+        .research-summary {
+            color: #fff;
+            font-style: normal;
+        }
+
+        .research-item {
+            margin-bottom: 2rem;
+        }
+
+        .research-bullets, .research-bullets li {
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+        .research-bullets {
+            margin-left: 0;
+            margin-top: 0.5rem;
+            color: #fff;
+            font-style: normal;
+            position: relative;
+        }
+        .research-bullets li {
+            position: relative;
+            padding-left: 1.5em; /* More space for the ◘ */
+        }
+        /* Remove default bullet for custom bullet implementation */
+        .research-bullets li::before {
+            content: none;
+        }
+        .custom-bullet {
+            display: inline-block;
+            width: 1.2em;
+            color: #fff;
+            font-weight: bold;
+            margin-right: 0.2em;
+            vertical-align: middle;
+        }
+
+        .research-item {
+            margin-bottom: 2rem;
+            position: relative;
+            min-height: 48px; /* Ensure enough space for absolute links */
+        }
+        .research-links {
+            position: static;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .research-links svg {
+            height: 16px;
+            width: 16px;
+            vertical-align: middle;
+        }
+
+</style>
+{% endblock %}
 </head>
 <body>
     <!-- Main Content -->
@@ -727,9 +877,9 @@
                 </div>
                 <div class="header-right">
                     <div><strong>Version</strong></div>
-                    <div>v2.0</div>
+                    <div>v2.01</div>
                     <div><strong>Updated</strong></div>
-                    <div>11-05-2025</div>
+                    <div>28-07-2025</div>
                 </div>
             </div>
         </header>
@@ -771,6 +921,7 @@
             }
         });
 
+        // Ensure all menu links work for both modes
         document.querySelectorAll('.menu-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
