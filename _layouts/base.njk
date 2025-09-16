@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caleb Agoha - Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
     <style>
+    html { scroll-behavior: smooth; }
         :root {
             --svg-fill-color: #fff;
         }
@@ -654,26 +656,58 @@
             overflow: hidden;
         }
 
-        /* Enhanced navigation styles */
+        /* Menu Palette Styling */
+        .menu-palette {
+            padding: 0.5rem 0;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .menu-row {
+            display: flex;
+            justify-content: center;
+            gap: 0; /* no gap between items */
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            height: 40px;
+        }
+
+        .menu-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none !important; /* force no underline */
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            flex: 1.06; /* subtle expand */
+            filter: brightness(1.06);
+        }
+
+        /* Menu colors using the same palette as industry section */
+        .menu-item.color-1 { background: #e7b530; }
+        .menu-item.color-2 { background: #a64e2b; }
+        .menu-item.color-3 { background: #a72434; }
+        .menu-item.color-4 { background: #8e2466; }
+        .menu-item.color-5 { background: #573690; }
+
         .menu-link {
             position: relative;
             padding: 5px 10px;
+            text-decoration: none !important; /* ensure no underline */
+            color: inherit;
         }
 
+        /* hide legacy underline pseudo-element (not used for palette) */
         .menu-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: 0;
-            left: 50%;
-            background-color: currentColor;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .menu-link:hover::after {
-            width: 100%;
+            display: none !important;
         }
 
         /* Back to top button */
@@ -873,13 +907,13 @@
             <div class="header-container">
                 <div class="header-left">
                     <h1 style="border-bottom: 0px solid #fff; padding: 0px; margin: 0px;">CALEB AGOHA</h1>
-                    <p>Hey, check out <a href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast" target="_blank">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
+                    <p>Hey, check out <a href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast" target="_blank" style="color: #EF4444;">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
                 </div>
                 <div class="header-right">
                     <div><strong>Version</strong></div>
-                    <div>v2.01</div>
+                    <div>v2.2</div>
                     <div><strong>Updated</strong></div>
-                    <div>28-07-2025</div>
+                    <div>16-09-2025</div>
                 </div>
             </div>
         </header>
@@ -893,13 +927,15 @@
             </label>
         </div>
 
-        <nav class="py-4 mb-8" style="text-align: center;">
-            <a href="/index" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">ABOUT</a> | 
-            <a href="/index#research" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">RESEARCH</a> | 
-            <a href="/index#projects" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">PROJECTS</a> |
-            <a href="/blog" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">BLOG</a> |  
-            <a href="/index#contact" class="menu-link text-gray-800 hover:text-gray-600 transition-colors duration-200 text-sm font-medium cursor-pointer">CONTACT</a>
-        </nav>
+        <nav class="menu-palette py-4 mb-8">
+                        <div class="menu-row">
+                <a href="/index" class="menu-item color-1">ABOUT</a>
+                <a href="/index#research" class="menu-item color-2">EXPERIENCE</a>
+                <a href="/index#projects" class="menu-item color-3">PROJECTS</a>
+                <a href="/blog" class="menu-item color-4">BLOG</a>
+                <a href="/index#contact" class="menu-item color-5">CONTACT</a>
+            </div>
+    </nav>
 
         {{ content | safe }}
     </div>
