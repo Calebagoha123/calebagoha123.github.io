@@ -564,6 +564,32 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Prevent overflow in flex/grid children on small screens */
+        .project-card, .project-header, .project-title, .project-tags, .header-left, .header-right {
+            box-sizing: border-box;
+        }
+
+        .project-title, .header-left {
+            min-width: 0; /* allow flex children to shrink properly */
+        }
+
+        /* Stack header columns and reduce paddings on mobile */
+        @media (max-width: 640px) {
+            .header-container {
+                display: block;
+            }
+            .header-left {
+                padding-bottom: 8px;
+            }
+            .header-right {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+            .project-card { padding: 12px; }
+            .project-header { padding: 12px; }
+        }
+
         .project-header {
             padding: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -689,6 +715,8 @@
             font-weight: 500;
             letter-spacing: 0.05em;
             transition: all 0.2s ease;
+            padding: 0 8px;
+            box-sizing: border-box;
         }
 
         .menu-item:hover {
@@ -702,6 +730,24 @@
         .menu-item.color-3 { background: #a72434; }
         .menu-item.color-4 { background: #8e2466; }
         .menu-item.color-5 { background: #573690; }
+
+        /* Mobile: stack menu items vertically and reduce height */
+        @media (max-width: 640px) {
+            .menu-row {
+                flex-direction: column;
+                gap: 8px;
+                height: auto;
+                padding: 8px 12px;
+                align-items: stretch;
+            }
+            .menu-item {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 10px 12px;
+                border-radius: 6px;
+                font-size: 0.95rem;
+            }
+        }
 
         .menu-link {
             position: relative;

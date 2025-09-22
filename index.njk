@@ -89,31 +89,33 @@ layout: base
     
     <div class="projects-grid">
         <!-- Project 1: Jonathan TA -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title">
-                    <h3>📱 Jonathan Chatbot (<a href="https://jonathanai.streamlit.app/" target="_blank">Try It!</a>)</h3>
-                    <div class="project-tags">
-                        <span class="tag">RAG</span>
-                        <span class="tag">LLM</span>
-                        <span class="tag">Streamlit</span>
-                        <a href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" class="github-link" style="float: right;">
-                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; height: 20px;">
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title" style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <h3 style="margin:0; font-size:1.05rem; line-height:1.2; flex:1; min-width:0;">📱 Jonathan Chatbot (<a href="https://jonathanai.streamlit.app/" target="_blank">Try It!</a>)</h3>
+            <a href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" class="github-link" style="flex:0 0 auto; margin-left:8px;">
+              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 22px; height: 22px; display:block;">
+            </a>
+          </div>
+          <div class="project-tags" style="display:flex; flex-wrap:wrap; gap:6px;">
+            <span class="tag">RAG</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Streamlit</span>
+          </div>
+        </div>
+      </div>
             <div class="project-content">
                 <div class="project-description">
                     <p>An open-source RAG-powered chatbot that helps students find information from course materials. Built using modern RAG (Retrieval Augmented Generation) techniques, this assistant can answer questions about assignments, course content, and other academic materials found on Canvas.</p>
                 </div>
                 <!-- Demo video added stylistically -->
-                <div class="demo-container">
-                    <video class="demo-video" controls autoplay muted loop>
-                        <source src="demo.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+        <div class="demo-container">
+          <video class="demo-video" controls autoplay muted loop style="max-width:100%; height:auto; display:block;">
+            <source src="demo.mov" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
                 <div class="project-features">
                     <div class="feature-item">
                         <span class="feature-icon">🔍</span>
@@ -307,6 +309,33 @@ layout: base
     left: -7px;
     top: 0.35rem;
     margin: 0;
+  }
+}
+
+/* Project card responsive tweaks */
+.project-card {
+  box-sizing: border-box;
+}
+.project-header .project-title h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .project-header .project-title h3 {
+    white-space: normal; /* allow wrapping on small screens */
+    font-size: 1rem;
+  }
+  .project-header .project-tags {
+    gap: 6px;
+    justify-content: flex-start;
+  }
+  .project-card {
+    padding: 12px;
+  }
+  .project-features {
+    grid-template-columns: 1fr;
   }
 }
 </style>
