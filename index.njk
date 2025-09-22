@@ -152,29 +152,33 @@ layout: base
 
 <!-- pageScripts placeholder (removed Nunjucks block for Jekyll) -->
 <script>
-    // Research section toggle
+  // Research section toggle (guarded)
+  (function() {
     const researchHeader = document.querySelector('.research-header');
     const researchContent = document.querySelector('.research-content');
     const toggleIcon = document.querySelector('.toggle-icon');
-    const researchLink = document.querySelector('a[href="#research"]');
+    // match '#research' or '/index#research' etc.
+    const researchLink = document.querySelector('a[href*="#research"]');
 
-// Remove dropdown functionality since it's no longer needed
+    // Only attach handler if the element exists
+    if (!researchLink) return;
 
     researchLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetElement = document.getElementById('research');
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
-            // Open the research section after scrolling
-            setTimeout(() => {
-                researchContent.classList.add('expanded');
-                toggleIcon.classList.add('expanded');
-            }, 500);
-        }
+      e.preventDefault();
+      const targetElement = document.getElementById('research');
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth'
+        });
+        // Open the research section after scrolling
+        setTimeout(() => {
+          if (researchContent) researchContent.classList.add('expanded');
+          if (toggleIcon) toggleIcon.classList.add('expanded');
+        }, 500);
+      }
     });
+  })();
 
     // Back to top button visibility
     window.addEventListener('scroll', () => {
@@ -297,18 +301,21 @@ layout: base
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-    padding-left: 1.25rem;
+    padding-left: 2.2rem; /* increased to give dot more room */
     border-left: 2px solid rgba(239,68,68,0.15);
   }
   .timeline-item {
     text-align: left;
     width: 100%;
+    padding-left: 0.6rem; /* extra spacing so text doesn't sit on top of dot */
   }
   .timeline-dot {
     position: absolute;
-    left: -7px;
-    top: 0.35rem;
+    left: -14px; /* move dot further left */
+    top: 0.45rem; /* slight vertical adjust */
     margin: 0;
+    width: 12px; /* slightly larger for touch */
+    height: 12px;
   }
 }
 

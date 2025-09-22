@@ -1002,21 +1002,45 @@
     </div>
 
     <script>
-        // Light/Dark Mode Toggle
-        document.body.classList.toggle('dark-mode')
-        const toggleSwitch = document.getElementById('mode-toggle');
-        const emoji = document.querySelector('.slider .emoji');
-        
-        toggleSwitch.addEventListener('change', () => {
-            document.body.classList.toggle('dark-mode');
-            document.body.classList.toggle('light-mode');
-        
-            if (document.body.classList.contains('light-mode')) {
-                emoji.textContent = '🌞'; // Sun for light mode
-            } else {
-                emoji.textContent = '🌙'; // Moon for dark mode
+        // Light/Dark Mode Toggle (guarded)
+        (function() {
+            // default to dark mode for consistent look; only toggle if switch present
+            if (!document.body.classList.contains('dark-mode') && !document.body.classList.contains('light-mode')) {
+                document.body.classList.add('dark-mode');
             }
-        });
+
+            const toggleSwitch = document.getElementById('mode-toggle');
+            const emoji = document.querySelector('.slider .emoji');
+
+            if (toggleSwitch && toggleSwitch.addEventListener) {
+                // set initial state of checkbox from body class
+                toggleSwitch.checked = document.body.classList.contains('light-mode');
+
+                toggleSwitch.addEventListener('change', () => {
+                    document.body.classList.toggle('dark-mode');
+                    document.body.classList.toggle('light-mode');
+
+                    if (emoji) {
+                        if (document.body.classList.contains('light-mode')) {
+                            emoji.textContent = '🌞'; // Sun for light mode
+                        } else {
+                            emoji.textContent = '🌙'; // Moon for dark mode
+                        }
+                    }
+                });
+            }
+
+            // Ensure any landing overlay is hidden after load (GitHub Pages sometimes serves the built HTML without client-side removal)
+            window.addEventListener('DOMContentLoaded', () => {
+                const landing = document.querySelector('.landing-page');
+                if (landing) {
+                    // fade out and remove
+                    landing.style.opacity = '0';
+                    landing.style.pointerEvents = 'none';
+                    setTimeout(() => landing.remove(), 600);
+                }
+            });
+        })();
 
         // Ensure all menu links work for both modes
         document.querySelectorAll('.menu-link').forEach(link => {
