@@ -15,77 +15,8 @@
         :root {
             --svg-fill-color: #fff;
         }
-        body.light-mode {
-            --svg-fill-color: #111;
-        }
         body.dark-mode {
             --svg-fill-color: #fff;
-        }
-
-        /* Light Mode */
-        body.light-mode {
-            background-color: #ffffff; /* White background for light mode */
-            color: #111111; /* Black text */
-        }
-
-        body.light-mode .project-card{
-            border: 1px solid #111;
-        }
-
-        body.light-mode .progress-bar{
-            background-color: #ddd;
-        }
-
-        body.light-mode .progress{
-            background-color: #4CAF50;
-        }
-
-        body.light-mode .code-block {
-            background-color: #e7e4e4; /* Dark grey for code blocks */
-            color: #111; /* Lighter text inside code blocks */
-        }
-
-        body.light-mode .header-container {
-            border: 1px solid #111;
-        }
-        body.light-mode .header-left {
-            border-right: 1px solid #111;
-        }
-        body.light-mode .header-right div {
-            border-bottom: 1px solid #111;
-
-        }
-        body.light-mode .header-right div:nth-child(odd) {
-            border-right: 1px solid #111;
-        }
-
-        body.light-mode .top-section, .progress-bar, .project-card {
-            border: 1px solid #111;
-        }
-        body.light-mode .project-card {
-            border: 1px solid #111;
-        }
-        body.light-mode h1{
-            border-bottom: 1px solid #111;
-        }
-        body.light-mode h2 {
-            border-bottom: 1px solid #111;
-        }
-
-        body.light-mode a {
-            color: #111;
-    <!-- pageStyles placeholder (removed Nunjucks block for Jekyll) -->
-        }
-        body.light-mode a:hover {
-            border-bottom: 1px solid #111;
-        }
-        body.light-mode .number { color: #9249f8; }
-        body.light-mode .keyword { color: #fe46ae; }
-        body.light-mode .string { color: #f01313; }
-        body.light-mode .comment { color: #888; }
-        body.light-mode .tag {
-            text-decoration: none;
-            border-bottom: none;
         }
 
         .tag {
@@ -166,55 +97,7 @@
             border-bottom: none;
         }
 
-        /* Toggle Switch Styling */
-        .switch {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-        }
-
-        .switch input {
-            display: none;
-        }
-
-        .slider {
-            position: relative;
-            display: inline-block;
-            background-color: #ccc;
-            height: 25px;
-            width: 50px;
-            border-radius: 12px;
-        }
-
-        .slider:before {
-            content: '';
-            position: absolute;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            background-color: white;
-            top: 2.5px;
-            left: 2.5px;
-            transition: 0.3s;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(24px);
-        }
-
-        /* Emoji Switch Styling */
-        .slider .emoji {
-            position: absolute;
-            top: -1px;
-            left: 25px;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        input:checked + .slider .emoji {
-            content: '🌞';
-            left: 4px;
-        }
+        /* Toggle removed: site is dark-mode only */
         body {
             font-family: monospace;
             max-width: 800px;
@@ -737,15 +620,20 @@
                 flex-direction: column;
                 gap: 8px;
                 height: auto;
-                padding: 8px 12px;
+                /* give symmetric horizontal padding (not edge-to-edge) */
+                padding: 8px 16px;
                 align-items: stretch;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
             .menu-item {
                 width: 100%;
                 justify-content: flex-start;
-                padding: 10px 12px;
+                padding: 10px 16px; /* symmetric left/right padding */
                 border-radius: 6px;
                 font-size: 0.95rem;
+                box-sizing: border-box;
             }
         }
 
@@ -861,22 +749,10 @@
             text-decoration: none !important;
             border-bottom: none !important;
         }
-        body.light-mode svg {
-            fill: #111 !important;
-        }
         body.dark-mode svg {
             fill: #fff !important;
         }
-        body.light-mode .research-summary,
-        body.light-mode .research-bullets,
-        body.light-mode .custom-bullet {
-            color: #111 !important;
-        }
-        body.dark-mode .research-summary,
-        body.dark-mode .research-bullets,
-        body.dark-mode .custom-bullet {
-            color: #fff !important;
-        }
+        /* Light-mode styles removed; site uses dark-mode colors only */
     </style>
     <!-- pageStyles placeholder removed (Nunjucks block removed for Jekyll) -->
         <script type="application/ld+json">
@@ -972,26 +848,18 @@
                 </div>
                 <div class="header-right">
                     <div><strong>Version</strong></div>
-                    <div>v2.2</div>
+                    <div>v2.3</div>
                     <div><strong>Updated</strong></div>
-                    <div>16-09-2025</div>
+                    <div>13-10-2025</div>
                 </div>
             </div>
         </header>
-        <!-- Light/Dark Mode Toggle -->
-        <div class="toggle-container">
-            <label class="switch">
-                <input type="checkbox" id="mode-toggle">
-                <span class="slider">
-                    <span class="emoji">🌙</span>
-                </span>
-            </label>
-        </div>
+        <!-- Dark mode only (toggle removed) -->
 
         <nav class="menu-palette py-4 mb-8">
                         <div class="menu-row">
                 <a href="/index" class="menu-item color-1">ABOUT</a>
-                <a href="/index#research" class="menu-item color-2">EXPERIENCE</a>
+                <a href="/index#experience" class="menu-item color-2">EXPERIENCE</a>
                 <a href="/index#projects" class="menu-item color-3">PROJECTS</a>
                 <a href="/blog" class="menu-item color-4">BLOG</a>
                 <a href="/index#contact" class="menu-item color-5">CONTACT</a>
@@ -1002,32 +870,11 @@
     </div>
 
     <script>
-        // Light/Dark Mode Toggle (guarded)
+        // Landing overlay removal; site is dark-mode only
         (function() {
-            // default to dark mode for consistent look; only toggle if switch present
-            if (!document.body.classList.contains('dark-mode') && !document.body.classList.contains('light-mode')) {
+            // Ensure 'dark-mode' class is present for consistent styling
+            if (!document.body.classList.contains('dark-mode')) {
                 document.body.classList.add('dark-mode');
-            }
-
-            const toggleSwitch = document.getElementById('mode-toggle');
-            const emoji = document.querySelector('.slider .emoji');
-
-            if (toggleSwitch && toggleSwitch.addEventListener) {
-                // set initial state of checkbox from body class
-                toggleSwitch.checked = document.body.classList.contains('light-mode');
-
-                toggleSwitch.addEventListener('change', () => {
-                    document.body.classList.toggle('dark-mode');
-                    document.body.classList.toggle('light-mode');
-
-                    if (emoji) {
-                        if (document.body.classList.contains('light-mode')) {
-                            emoji.textContent = '🌞'; // Sun for light mode
-                        } else {
-                            emoji.textContent = '🌙'; // Moon for dark mode
-                        }
-                    }
-                });
             }
 
             // Ensure any landing overlay is hidden after load (GitHub Pages sometimes serves the built HTML without client-side removal)
@@ -1042,26 +889,53 @@
             });
         })();
 
-        // Ensure all menu links work for both modes
-        document.querySelectorAll('.menu-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
+        // Robust delegation for menu anchors with hashes: handles .menu-item and .menu-link
+        (function() {
+            document.addEventListener('click', function(e) {
+                const anchor = e.target.closest && e.target.closest('.menu-item, .menu-link');
+                if (!anchor) return;
+                const href = anchor.getAttribute('href') || '';
                 const hashIndex = href.indexOf('#');
-                if (hashIndex !== -1) {
-                    // if not on the index page, force navigation to the index page with anchor
-                    if (window.location.pathname !== '/index' && window.location.pathname !== '/') {
-                        window.location.href = href;
-                        return;
-                    }
-                    e.preventDefault();
-                    const targetId = href.substring(hashIndex + 1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
+                if (hashIndex === -1) return; // no hash -> nothing to do
+
+                // Resolve the URL relative to current origin to normalize pathnames
+                let url;
+                try {
+                    url = new URL(href, window.location.origin);
+                } catch (err) {
+                    // malformed href, let default behavior occur
+                    return;
+                }
+
+                const targetId = href.substring(hashIndex + 1);
+                const targetPath = url.pathname || '/';
+                const isTargetIndex = targetPath === '/' || targetPath === '/index';
+                const onIndex = window.location.pathname === '/' || window.location.pathname === '/index';
+
+                // If the link targets another page entirely, allow normal navigation
+                if (!isTargetIndex && targetPath !== window.location.pathname) {
+                    return; // normal navigation
+                }
+
+                // If the link points to the index but we're currently not on it, navigate so the anchor resolves
+                if (isTargetIndex && !onIndex) {
+                    window.location.href = href;
+                    return;
+                }
+
+                // Same-page anchor: smooth scroll
+                e.preventDefault();
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // If there's a fixed header overlapping sections, consider adjusting scroll by an offset
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    try { history.replaceState(null, '', '#' + targetId); } catch (err) { /* ignore */ }
+                } else {
+                    // Fallback: navigate
+                    window.location.href = href;
                 }
             });
-        });
+        })();
     </script>
 
     <!-- pageScripts placeholder removed (Nunjucks block removed for Jekyll) -->

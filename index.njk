@@ -84,60 +84,7 @@ layout: base
     </section>
 </section>
 
-<section id="projects">
-    <h2 style="padding-top: 30px;">FEATURED PROJECTS</h2>
-    
-    <div class="projects-grid">
-        <!-- Project 1: Jonathan TA -->
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-title" style="display:flex; flex-direction:column; gap:8px;">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-            <h3 style="margin:0; font-size:1.05rem; line-height:1.2; flex:1; min-width:0;">📱 Jonathan Chatbot (<a href="https://jonathanai.streamlit.app/" target="_blank">Try It!</a>)</h3>
-            <a href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" class="github-link" style="flex:0 0 auto; margin-left:8px;">
-              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 22px; height: 22px; display:block;">
-            </a>
-          </div>
-          <div class="project-tags" style="display:flex; flex-wrap:wrap; gap:6px;">
-            <span class="tag">RAG</span>
-            <span class="tag">LLM</span>
-            <span class="tag">Streamlit</span>
-          </div>
-        </div>
-      </div>
-            <div class="project-content">
-                <div class="project-description">
-                    <p>An open-source RAG-powered chatbot that helps students find information from course materials. Built using modern RAG (Retrieval Augmented Generation) techniques, this assistant can answer questions about assignments, course content, and other academic materials found on Canvas.</p>
-                </div>
-                <!-- Demo video added stylistically -->
-        <div class="demo-container">
-          <video class="demo-video" controls autoplay muted loop style="max-width:100%; height:auto; display:block;">
-            <source src="demo.mov" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-                <div class="project-features">
-                    <div class="feature-item">
-                        <span class="feature-icon">🔍</span>
-                        <span>PDF parsing and text extraction with semantic document chunks</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">💾</span>
-                        <span>ChromaDB for persistent vector storage and smart filtering</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🤖</span>
-                        <span>text-embedding-3-small embeddings with gpt-4-mini LLM</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎯</span>
-                        <span>User-friendly Streamlit interface with context awareness</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{% include "_includes/featured-projects.njk" %}
 
 <section id="contact">
     <h2>CONTACT</h2>
@@ -152,28 +99,28 @@ layout: base
 
 <!-- pageScripts placeholder (removed Nunjucks block for Jekyll) -->
 <script>
-  // Research section toggle (guarded)
+  // Experience section toggle (guarded)
   (function() {
-    const researchHeader = document.querySelector('.research-header');
-    const researchContent = document.querySelector('.research-content');
+    const experienceHeader = document.querySelector('.research-header');
+    const experienceContent = document.querySelector('.research-content');
     const toggleIcon = document.querySelector('.toggle-icon');
-    // match '#research' or '/index#research' etc.
-    const researchLink = document.querySelector('a[href*="#research"]');
+    // match '#experience' or '/index#experience' etc.
+    const experienceLink = document.querySelector('a[href*="#experience"]');
 
     // Only attach handler if the element exists
-    if (!researchLink) return;
+    if (!experienceLink) return;
 
-    researchLink.addEventListener('click', (e) => {
+    experienceLink.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetElement = document.getElementById('research');
+      const targetElement = document.getElementById('experience');
       if (targetElement) {
         window.scrollTo({
           top: targetElement.offsetTop,
           behavior: 'smooth'
         });
-        // Open the research section after scrolling
+        // Open the research/experience section after scrolling
         setTimeout(() => {
-          if (researchContent) researchContent.classList.add('expanded');
+          if (experienceContent) experienceContent.classList.add('expanded');
           if (toggleIcon) toggleIcon.classList.add('expanded');
         }, 500);
       }
@@ -344,5 +291,34 @@ layout: base
   .project-features {
     grid-template-columns: 1fr;
   }
+}
+
+/* Featured projects list styling */
+.featured-projects-list .tag {
+  display: inline-block;
+  background: rgba(239,68,68,0.08);
+  color: #EF4444;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+/* Tag color variants mapped to the menu palette colors */
+.tag.color-1 { background: #e7b530; color: #111; border-color: rgba(0,0,0,0.06); }
+.tag.color-2 { background: #a64e2b; color: #fff; border-color: rgba(0,0,0,0.06); }
+.tag.color-3 { background: #a72434; color: #fff; border-color: rgba(0,0,0,0.06); }
+.tag.color-4 { background: #8e2466; color: #fff; border-color: rgba(0,0,0,0.06); }
+.tag.color-5 { background: #573690; color: #fff; border-color: rgba(0,0,0,0.06); }
+
+.jonathan-inline .demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .jonathan-inline { flex-direction: column; }
+  .jonathan-inline > div[style*="flex:0 0 240px"] { max-width: 100%; flex: 0 0 auto; }
 }
 </style>

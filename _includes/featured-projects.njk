@@ -1,0 +1,167 @@
+<section id="projects" class="featured-card-grid">
+  <h2 style="padding-top: 30px;">FEATURED PROJECTS</h2>
+
+  <style>
+  /* Scoped featured projects card grid */
+  .featured-card-grid {
+    --bg: #0b0b0b;
+    --panel: #0f0f10;
+    --text: #e8e8e8;
+    --muted: #9a9a9a;
+  --accent: #EF4444;
+    --border: rgba(255,255,255,0.06);
+    margin-bottom: 1.25rem;
+  }
+
+  .featured-card-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 0.6rem;
+  }
+
+  .featured-card-grid .card {
+    /* permanent subtle red outline so cards don't imply clickability */
+    border: 1px solid rgba(239,68,68,0.18);
+    border-radius: 10px;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    /* only animate border/background so hover doesn't imply clickability */
+    transition: border-color 0.18s ease, background 0.18s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 150px;
+    box-sizing: border-box;
+    cursor: default; /* not clickable as a whole card */
+  }
+
+  .featured-card-grid .card:hover {
+    /* no visual movement or color change on hover; border is already red */
+  }
+
+  /* Disable tag hover interactions inside this scoped section so hashtags don't imply interactivity */
+  .featured-card-grid .tag {
+    cursor: default;
+  }
+
+  .featured-card-grid .tag:hover,
+  .featured-card-grid .tag:active,
+  .featured-card-grid .tag:focus {
+    background: transparent !important;
+    color: var(--muted) !important;
+    transform: none !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+
+  .featured-card-grid .card h3 {
+    font-size: 16px;
+    margin: 0;
+    color: var(--text);
+  }
+
+  .featured-card-grid .card p {
+    color: var(--muted);
+    font-size: 13px;
+    flex: 1;
+    margin: 0;
+  }
+
+  .featured-card-grid .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .featured-card-grid .tag {
+    border: 1px dashed rgba(255,255,255,0.08);
+    border-radius: 999px;
+    font-size: 11px;
+    padding: 4px 8px;
+    color: var(--muted);
+  }
+
+  .featured-card-grid .links {
+    display: flex;
+    gap: 8px;
+  }
+
+  .featured-card-grid .link-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--muted);
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .featured-card-grid .link-btn:hover {
+    color: var(--accent);
+    border-color: rgba(239,68,68,0.28);
+  }
+
+  @media (max-width: 600px) {
+    .featured-card-grid h2 { font-size: 22px; }
+  }
+  </style>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Jonathan Chatbot</h3>
+      <p>An open-source RAG-powered assistant for course materials.</p>
+      <div class="tags">
+        <span class="tag">#RAG</span>
+        <span class="tag">#NLP</span>
+        <span class="tag">#OpenSource</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://jonathanai.streamlit.app/" target="_blank" rel="noopener">Demo</a>
+        <a class="link-btn" href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>AutoSentiment Analysis</h3>
+      <p>An AI-powered app for text and PDF sentiment analysis.</p>
+      <div class="tags">
+        <span class="tag">#NLP</span>
+        <span class="tag">#Sentiment</span>
+        <span class="tag">#HuggingFace</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://politicalsentimentanalysis.streamlit.app" target="_blank" rel="noopener">Demo</a>
+        <a class="link-btn" href="https://github.com/Calebagoha123/auto_sentiment.git" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Big Tech Stock EDA</h3>
+      <p>Interactive data exploration and forecasting tool for major tech stocks.</p>
+      <div class="tags">
+        <span class="tag">#EDA</span>
+        <span class="tag">#Finance</span>
+        <span class="tag">#Visualization</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://github.com/Calebagoha123/big_tech_stock_eda.git" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Holiday Movie Recommender</h3>
+      <p>A clustering-based recommender for holiday movies.</p>
+      <div class="tags">
+        <span class="tag">#Recommender</span>
+        <span class="tag">#Clustering</span>
+        <span class="tag">#Python</span>
+      </div>
+      <div class="links">
+        <a class="link-btn" href="https://github.com/Calebagoha123/holiday_movie_recommender.git" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
