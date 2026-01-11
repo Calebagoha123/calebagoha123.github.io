@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mockup — Caleb Agoha (sample)</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#0a1a3a;
+    --muted:#6d7a96;
+    --accent:#0b2b66;
+    --card-border:#0b2b66;
+    --card-gap:24px;
+    --content-width:1100px;
+  }
+
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter, "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;line-height:1.45}
+  .wrap{max-width:var(--content-width);margin:36px auto;padding:0 20px;box-sizing:border-box;display:block}
+
+  header.site-header{display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
+  .brand{display:flex;align-items:center;gap:18px}
+  .brand h1{font-size:20px;margin:0;color:var(--accent);letter-spacing:0.02em}
+  .brand p{margin:0;color:var(--muted);font-size:0.95rem}
+
+  /* two column layout */
+  .layout{display:grid;grid-template-columns: 1fr 340px;gap: var(--card-gap);align-items:start;}
+  /* left column */
+  .main {padding-right:10px}
+  h2.section-title{font-size:28px;margin:0 0 12px 0;color:var(--accent);font-weight:700}
+  p.lead{color:var(--muted);margin:0 0 18px 0;max-width:65ch}
+  .entry {margin-bottom:28px}
+  .entry h3{margin:0 0 10px 0;font-size:20px;color:var(--text)}
+  .entry p{margin:0 0 10px 0;color:var(--muted)}
+  .date {font-weight:700;color:var(--accent);margin:18px 0}
+
+  /* right column cards */
+  .sidebar {display:flex;flex-direction:column;gap:18px}
+  .card {border:2px solid var(--card-border);padding:18px;border-radius:4px;background:transparent}
+  .card h4{margin:0 0 10px 0;display:flex;align-items:center;gap:12px;font-size:16px;color:var(--accent);font-weight:800}
+  /* thin horizontal rule after the heading */
+  .card h4::after{content:"";display:block;height:2px;background:var(--card-border);flex:1;margin-left:10px;align-self:center}
+  .card ul{list-style:none;padding:0;margin:8px 0 0 0}
+  .card li{padding:8px 0;border-bottom:1px dashed rgba(11,43,102,0.06);color:var(--muted)}
+  .card li:last-child{border-bottom:none}
+  .card a{color:var(--accent);text-decoration:none}
+  .card a:hover{text-decoration:underline}
+
+  /* small typographic helpers */
+  .muted{color:var(--muted)}
+  .small{font-size:0.92rem}
+
+  /* responsive: stack columns on narrow screens */
+  @media (max-width:920px){
+    .layout{grid-template-columns:1fr 300px}
+  }
+  @media (max-width:760px){
+    .layout{grid-template-columns:1fr; }
+    .sidebar{order:2}
+  }
+
+  /* subtle visual rhythm for the left column to mimic screenshot spacing */
+  .main .section-block{padding:10px 0;border-bottom:1px solid rgba(11,43,102,0.04);margin-bottom:18px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <div class="brand">
+        <h1>CALEB AGOHA</h1>
+        <p class="muted">Portfolio • Projects • Notes</p>
+      </div>
+
+      <!-- small header info row -->
+      <div style="display:flex;gap:14px;align-items:center;">
+        <div class="muted small">Version v2.3</div>
+        <div class="muted small">Updated 13-10-2025</div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- LEFT: main content -->
+      <main class="main" role="main">
+        <section class="section-block">
+          <h2 class="section-title">November, 2025</h2>
+          <p class="lead">You’re looking at version 4.5 of this site. It included a redesign of the Writing page, a new chat format, and a few other refinements. Below are recent posts and notes.</p>
+        </section>
+
+        <article class="entry">
+          <h3>Scattered Notes on Design Systems</h3>
+          <p class="muted">A short explanation of why I prefer smaller tooling surfaces and simple defaults. Includes notes on grid systems and rhythm.</p>
+          <div class="date">Nov 10, 2025</div>
+        </article>
+
+        <article class="entry">
+          <h3>Unveiling The Hidden Impact Of Shipping</h3>
+          <p class="muted">Summary of the BSc thesis — modelling scrubbers and pollution relocation.</p>
+          <div class="date">Oct 24, 2025</div>
+        </article>
+
+        <article class="entry">
+          <h3>Prototype: Scatterpad v0.5</h3>
+          <p class="muted">A mini-doc editor for multi-media notes. Short demo and how I used cards for layout decisions.</p>
+          <div class="date">Sep 8, 2025</div>
+        </article>
+
+        <section class="section-block">
+          <h3 style="margin-top:0">About this site</h3>
+          <p class="muted">This site acts as a public notepad and project index. It is intentionally minimal and optimised for fast reading.</p>
+        </section>
+      </main>
+
+      <!-- RIGHT: sidebar with boxed lists -->
+      <aside class="sidebar" role="complementary" aria-label="Sidebar — reading and links">
+        <div class="card">
+          <h4>READING</h4>
+          <ul>
+            <li><a href="#">Psychokinetics</a></li>
+            <li><a href="#">But They'll Have To Do</a></li>
+            <li><a href="#">At Least You Can Read It</a></li>
+            <li><a href="#">Reflections on Trusting Trust</a></li>
+            <li><a href="#">Thoughts on the Office</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>ELSEWHERE</h4>
+          <ul>
+            <li><a href="#">GitHub — calebagoha123</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="mailto:caleb.agoha@oii.ox.ac.uk">Email</a></li>
+            <li><a href="#">Streams</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>BLOG (RECENT)</h4>
+          <ul>
+            <li><a href="#">Scattered Notes on Design Systems</a></li>
+            <li><a href="#">Unveiling The Hidden Impact Of Shipping</a></li>
+            <li><a href="#">Prototype: Scatterpad v0.5</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div> <!-- /.layout -->
+  </div> <!-- /.wrap -->
+</body>
+</html>

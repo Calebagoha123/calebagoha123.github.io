@@ -1,0 +1,108 @@
+<section id="projects" class="featured-projects">
+  <h2 style="padding-top: 30px;">FEATURED PROJECTS</h2>
+
+  <style>
+  /* Featured projects cards-row style */
+  .featured-projects {
+    margin-bottom: 2rem;
+  }
+
+  .featured-projects .cards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .featured-projects .card-header {
+    padding: 18px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+  }
+
+  .featured-projects .card-header.color-1 { background: #e7b530; color: #111; }
+  .featured-projects .card-header.color-2 { background: #a64e2b; }
+  .featured-projects .card-header.color-3 { background: #a72434; }
+  .featured-projects .card-header.color-4 { background: #8e2466; }
+  .featured-projects .card-header.color-5 { background: #573690; }
+
+  .featured-projects .card-body {
+    border: 0;
+    border-left: 3px solid #fff;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    background: #111;
+    padding: 16px;
+    min-height: 120px;
+  }
+
+  .featured-projects .item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 6px;
+  }
+
+  .featured-projects .item:hover {
+    border-bottom: 1px solid #fff;
+  }
+
+  .featured-projects .item-desc {
+    margin: 0 0 12px 0;
+    color: #9a9a9a;
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    .featured-projects h2 { font-size: 22px; }
+    .featured-projects .cards-row {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  </style>
+
+  <div class="cards-row">
+    <div>
+      <div class="card-header color-1">Jonathan Chatbot</div>
+      <div class="card-body">
+        <p class="item-desc">A RAG-powered assistant for Canvas course materials.</p>
+        <p class="item-desc" style="margin-top: 8px; margin-bottom: 8px;">• Built with Streamlit and LangChain<br>• Supports PDF and text uploads<br>• Uses embeddings for semantic search</p>
+        <a class="item" href="https://jonathanai.streamlit.app/" target="_blank" rel="noopener">Demo</a>
+        <a class="item" href="https://github.com/Calebagoha123/jonathan_TA" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-header color-2">AutoSentiment Analysis</div>
+      <div class="card-body">
+        <p class="item-desc">An app for text and PDF sentiment analysis.</p>
+        <p class="item-desc" style="margin-top: 8px; margin-bottom: 8px;">• Utilizes HuggingFace transformers<br>• Batch processing support<br>• Detailed sentiment breakdowns</p>
+        <a class="item" href="https://politicalsentimentanalysis.streamlit.app" target="_blank" rel="noopener">Demo</a>
+        <a class="item" href="https://github.com/Calebagoha123/auto_sentiment.git" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-header color-3">Big Tech Stock EDA</div>
+      <div class="card-body">
+        <p class="item-desc">Interactive data exploration and forecasting tool for major tech stocks.</p>
+        <p class="item-desc" style="margin-top: 8px; margin-bottom: 8px;">• Time series analysis and visualization<br>• ARIMA and Prophet forecasting<br>• Interactive Plotly dashboards</p>
+        <a class="item" href="https://github.com/Calebagoha123/big_tech_stock_eda.git" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-header color-4">Holiday Movie Recommender</div>
+      <div class="card-body">
+        <p class="item-desc">A clustering-based recommender for holiday movies.</p>
+        <p class="item-desc" style="margin-top: 8px; margin-bottom: 8px;">• K-means clustering on movie features<br>• Collaborative filtering approach<br>• Seasonal recommendations</p>
+        <a class="item" href="https://github.com/Calebagoha123/holiday_movie_recommender.git" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>

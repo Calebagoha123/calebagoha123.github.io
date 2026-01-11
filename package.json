@@ -5,7 +5,7 @@
   "main": ".eleventy.js",
   "scripts": {
     "build": "eleventy",
-    "dev": "eleventy --serve",
+    "dev": "eleventy --serve --quiet",
     "clean": "rm -rf _site"
   },
   "keywords": [],

@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caleb Agoha</title>
+    <meta name="description" content="Caleb Agoha . Digital Home Addresss." />
+    <meta property="og:title" content="Caleb Agoha" />
+    <meta property="og:description" content="Portfolio, projects, and contact information for Caleb Agoha." />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://calebagoha123.github.io/" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
+    <style>
+    html { scroll-behavior: smooth; }
+        :root {
+            --svg-fill-color: #fff;
+        }
+        body.dark-mode {
+            --svg-fill-color: #fff;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        /* Dark Mode */
+
+        body.dark-mode {
+            background-color: #111111; /* Dark background for dark mode */
+            color: #ffffff; /* White text */
+        }
+
+        body.dark-mode .project-card{
+            border: 1px solid #fff;
+        }
+
+        body.dark-mode .progress-bar{
+            background-color: #333;
+        }
+
+        body.dark-mode .progress{
+            background-color: #4CAF50;
+        }
+
+        body.dark-mode .code-block {
+            background-color: #222; /* Dark grey for code blocks */
+            color: #fff; /* Lighter text inside code blocks */
+        }
+
+        body.dark-mode .header-container {
+            border: 1px solid #fff;
+            border-bottom: none;
+
+        }
+        body.dark-mode .header-left {
+            border-right: 1px solid #fff;
+        }
+        body.dark-mode .header-right div {
+            border-bottom: 1px solid #fff;
+
+        }
+        body.dark-mode .header-right div:nth-child(odd) {
+            border-right: 1px solid #fff;
+        }
+
+        body.dark-mode .top-section, .progress-bar, .project-card {
+            border: 1px solid #fff;
+        }
+        body.dark-mode .project-card {
+            border: 1px solid #fff;
+        }
+        body.dark-mode h1{
+            border-bottom: 1px solid #fff;
+        }
+        body.dark-mode h2 {
+            border-bottom: 1px solid #fff;
+        }
+
+        body.dark-mode a {
+            color: #fff;
+            border-bottom: 1px dotted #fff;
+        }
+        body.dark-mode a:hover {
+            border-bottom: 1px solid #fff;
+        }
+        body.dark-mode .number { color: #9249f8; }
+        body.dark-mode .keyword { color: #fe46ae; }
+        body.dark-mode .string { color: #f01313; }
+        body.dark-mode .comment { color: #888; }
+        body.dark-mode .tag {
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        /* Toggle removed: site is dark-mode only */
+        body {
+            font-family: monospace;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        h1, h2 {
+            border-bottom: 1px solid #fff;
+            padding: 0px;
+            margin: 0px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dotted #fff;
+        }
+        a:hover {
+            border-bottom: 1px solid #fff;
+        }
+        .nav {
+            margin: 20px 0;
+        }
+        .nav a {
+            margin-right: 20px;
+        }
+        .code-block {
+            background-color: #222;
+            padding: 10px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .comment { color: #888; }
+        .keyword { color: #ff79c6; }
+        .string { color: #f1fa8c; }
+        .number { color: #bd93f9; }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+        .top-section, .progress-bar, .project-card {
+            border: 1px solid #fff;
+        }
+        .project-card {
+            border: 1px solid #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        /* Additional Styles */
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .toggle-container {
+            margin: 20px 0;
+        }
+        .progress-bar {
+            background-color: #555;
+            height: 20px;
+            margin-top: 10px;
+            position: relative;
+            width: 100%;
+        }
+        .progress {
+            background-color: #4CAF50;
+            height: 100%;
+            width: 0;
+        }
+        .progress-bar span {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #000;
+            font-weight: bold;
+            line-height: 20px;
+        }
+        
+        .header-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-bottom: 4px solid #ffffff;
+            margin-bottom: 0;
+            border-bottom: none;
+
+
+        }
+        .header-left {
+            padding: 10px;
+            border-right: 1px solid #ffffff;
+        }
+        
+        .header-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .header-right div {
+            padding: 5px;
+            border-bottom: 1px solid #ffffff;
+
+        }
+        .header-right div:nth-child(odd) {
+            border-right: 1px solid #ffffff;
+        }
+        .header-right div:nth-child(3), .header-right div:nth-child(4) {
+            border-bottom: none;
+
+        }
+        
+        .header-podcast {
+            border: 1px solid #ffffff;
+            border-top: none;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-top: 1px solid #fff;
+
+        }
+        .header-podcast h3 {
+            margin: 0 0 8px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .header-podcast .podcast-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: 0;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            font-size: inherit;
+            font-weight: 600;
+        }
+        .header-podcast .podcast-toggle .arrow {
+            display: inline-block;
+            transition: transform 0.18s ease;
+            font-size: 0.85rem;
+            line-height: 1;
+        }
+        .header-podcast.expanded .podcast-toggle .arrow {
+            transform: rotate(180deg);
+        }
+        .podcast-panel {
+            display: none;
+        }
+        .header-podcast.expanded .podcast-panel {
+            display: block;
+        }
+        .header-podcast .podcast-episode {
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        .header-podcast audio {
+            display: none;
+        }
+        .podcast-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .podcast-play-btn {
+            background: none;
+            border: 1px solid #fff;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            font-size: 14px;
+            padding: 0;
+            flex-shrink: 0;
+            transition: background 0.2s ease;
+        }
+        .podcast-play-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .podcast-progress-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .podcast-progress-bar {
+            flex: 1;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            position: relative;
+        }
+        .podcast-progress-fill {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        .podcast-time {
+            font-size: 0.75rem;
+            color: #fff;
+            font-family: monospace;
+            min-width: 60px;
+            text-align: right;
+        }
+        body.dark-mode .header-podcast {
+            border: 1px solid #fff;
+        }
+        body.dark-mode .header-container {
+            border-bottom: none;
+        }
+        
+        h1, h2, p {
+            margin: 0;
+        }
+        .graph-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .responsive-graph {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+        }
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* New styles for embedded content */
+        .dashboard-embed {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .plotly-gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .plotly-gallery iframe {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .demo-container {
+            position: relative;
+            width: 100%;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .demo-gif {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .dashboard-embed iframe {
+                min-height: 300px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Loading state for embedded content */
+        .loading-text {
+            display: block;
+            content: 'Loading...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: monospace;
+            color: var(--text-color);
+        }
+
+        .dashboard-embed {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        
+        .plotly-gallery, .image-gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .plotly-gallery iframe, .image-gallery img {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            margin-top: -10px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .slide-indicator {
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .slide-indicator span {
+            cursor: pointer;
+            height: 10px;
+            width: 10px;
+            margin: 0 2px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active, .slide-indicator span:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* New styles for collapsible research section */
+        .research-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+
+
+        .research-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .research-header h2 {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 10px;
+            margin: 0;
+            flex: 1;
+        }
+
+        .research-summary {
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            margin-top: 0.5rem;
+        }
+
+        .resarch-summary h3 {
+            border-bottom: 0px;
+
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .toggle-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        /* Enhanced project card styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Prevent overflow in flex/grid children on small screens */
+        .project-card, .project-header, .project-title, .project-tags, .header-left, .header-right {
+            box-sizing: border-box;
+        }
+
+        .project-title, .header-left {
+            min-width: 0; /* allow flex children to shrink properly */
+        }
+
+        /* Stack header columns and reduce paddings on mobile */
+        @media (max-width: 640px) {
+        /* Reset header borders for stacked layout */
+        .header-container {
+            border-bottom: 1px solid #fff;
+        }
+
+        .header-left {
+            border-right: none;
+            border-bottom: 1px solid #fff;
+        }
+
+        .header-right {
+            border-top: none;
+        }
+
+        .header-right div {
+            border-right: none;
+            border-bottom: 1px solid #fff;
+        }
+
+        .header-right div:last-child {
+            border-bottom: none;
+        }
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-title {
+            margin-bottom: 1rem;
+        }
+
+        .project-title h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        .tag:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.02);
+            border-radius: 4px;
+        }
+
+        .feature-icon {
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .key-points {
+            margin-top: 1rem;
+        }
+
+        .key-points ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .key-points li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .key-points li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+
+        /* Remove typing effect styles */
+        .typing-text {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Menu Palette Styling */
+        .menu-palette {
+            padding: 0.5rem 0;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .menu-row {
+            display: flex;
+            justify-content: center;
+            gap: 0; /* no gap between items */
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            height: 40px;
+        }
+
+        .menu-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none !important; /* force no underline */
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+            padding: 0 8px;
+            box-sizing: border-box;
+        }
+
+        .menu-item:hover {
+            flex: 1.06; /* subtle expand */
+            filter: brightness(1.06);
+        }
+
+        /* Menu colors using the same palette as industry section */
+        .menu-item.color-1 { background: #e7b530; }
+        .menu-item.color-2 { background: #a64e2b; }
+        .menu-item.color-3 { background: #a72434; }
+        .menu-item.color-4 { background: #8e2466; }
+        .menu-item.color-5 { background: #573690; }
+
+        /* Mobile: stack menu items vertically and reduce height */
+        @media (max-width: 640px) {
+            .menu-palette {
+                display: none;
+            }
+            }
+
+        .menu-link {
+            position: relative;
+            padding: 5px 10px;
+            text-decoration: none !important; /* ensure no underline */
+            color: inherit;
+        }
+
+        /* hide legacy underline pseudo-element (not used for palette) */
+        .menu-link::after {
+            display: none !important;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #fff;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Landing page styles */
+        .landing-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .intro-container {
+            text-align: center;
+            color: #fff;
+            font-family: monospace;
+            font-size: 1.2em;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .status-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .status-text::before,
+        .status-text::after {
+            content: '"';
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.5;
+        }
+
+        .status-text::before {
+            left: -20px;
+            top: -10px;
+        }
+
+        .status-text::after {
+            right: -20px;
+            bottom: -10px;
+        }
+
+        .date-text {
+            margin-top: 1rem;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+         .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: #fff;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Tag styling */
+        .tag, a .tag {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+        body.dark-mode svg {
+            fill: #fff !important;
+        }
+        /* Light-mode styles removed; site uses dark-mode colors only */
+    </style>
+    <!-- pageStyles placeholder removed (Nunjucks block removed for Jekyll) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Caleb Agoha",
+            "url": "https://calebagoha123.github.io/",
+            "sameAs": [
+                "https://github.com/Calebagoha123"
+            ],
+        }
+        </script>
+<style>
+    .research-summary ul {
+        .research-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .research-header h2 {
+            border-bottom: 1px solid #fff;
+        }
+
+        .research-summary {
+            color: #fff;
+            font-style: normal;
+        }
+
+        .research-item {
+            margin-bottom: 2rem;
+        }
+
+        .research-bullets, .research-bullets li {
+            list-style: none !important;
+            padding-left: 0 !important;
+        }
+        .research-bullets {
+            margin-left: 0;
+            margin-top: 0.5rem;
+            color: #fff;
+            font-style: normal;
+            position: relative;
+        }
+        .research-bullets li {
+            position: relative;
+            padding-left: 1.5em; /* More space for the ◘ */
+        }
+        /* Remove default bullet for custom bullet implementation */
+        .research-bullets li::before {
+            content: none;
+        }
+        .custom-bullet {
+            display: inline-block;
+            width: 1.2em;
+            color: #fff;
+            font-weight: bold;
+            margin-right: 0.2em;
+            vertical-align: middle;
+        }
+
+        .research-item {
+            margin-bottom: 2rem;
+            position: relative;
+            min-height: 48px; /* Ensure enough space for absolute links */
+        }
+        .research-links {
+            position: static;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .research-links svg {
+            height: 16px;
+            width: 16px;
+            vertical-align: middle;
+        }
+
+</style>
+</head>
+<body class="dark-mode">
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <div class="header-container">
+                <div class="header-left">
+                    <h1 style="border-bottom: 0px solid #fff; padding: 0px; margin: 0px;">CALEB AGOHA</h1>
+                    <p>Hey, check out <a href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast" target="_blank" style="color: #EF4444;">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
+                </div>
+                <div class="header-right">
+                    <div><strong>Version</strong></div>
+                    <div>v2.3</div>
+                    <div><strong>Updated</strong></div>
+                    <div>13-10-2025</div>
+                </div>
+            </div>
+            <div class="header-podcast" id="header-podcast">
+                <h3>
+                    <button class="podcast-toggle" id="podcast-toggle" aria-expanded="false" aria-controls="podcast-panel">
+                        LATEST EPISODE <span class="arrow">▾</span>
+                    </button>
+                </h3>
+                <div class="podcast-panel" id="podcast-panel">
+                    <div class="podcast-episode">
+                        <strong id="podcast-title">Loading...</strong> <span id="podcast-duration"></span>
+                    </div>
+                    <audio id="podcast-audio">
+                        <source src="" type="audio/mpeg">
+                    </audio>
+                    <div class="podcast-controls">
+                        <button class="podcast-play-btn" id="podcast-play-btn">▶</button>
+                        <div class="podcast-progress-container">
+                            <div class="podcast-progress-bar" id="podcast-progress-bar">
+                                <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+                            </div>
+                            <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Dark mode only (toggle removed) -->
+
+        <nav class="menu-palette py-4 mb-8">
+                        <div class="menu-row">
+                <a href="/" class="menu-item color-1">ABOUT</a>
+                <a href="/#bookshelf" class="menu-item color-2">BOOKSHELF</a>
+                <a href="/#experience" class="menu-item color-3">EXPERIENCE</a>
+                <a href="/#projects" class="menu-item color-4">PROJECTS</a>
+                <a href="/#contact" class="menu-item color-5">CONTACT</a>
+            </div>
+    </nav>
+
+        {{ content | safe }}
+    </div>
+
+    <script>
+        // Podcast player with RSS feed
+        (function() {
+            const RSS_FEED_URL = 'https://anchor.fm/s/f6f3f68c/podcast/rss';
+            
+            async function fetchLatestEpisode() {
+                try {
+                    // Try direct fetch first
+                    let response;
+                    let xmlText;
+                    try {
+                        response = await fetch(RSS_FEED_URL);
+                        xmlText = await response.text();
+                    } catch (e) {
+                        // Fallback to CORS proxy
+                        response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(RSS_FEED_URL)}`);
+                        const data = await response.json();
+                        xmlText = data.contents;
+                    }
+                    
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                    
+                    const item = xmlDoc.querySelector('item');
+                    if (!item) throw new Error('No item found');
+                    
+                    const title = item.querySelector('title')?.textContent || 'Latest Episode';
+                    const enclosure = item.querySelector('enclosure');
+                    const duration = item.querySelector('itunes\\:duration')?.textContent || item.querySelector('duration')?.textContent || '';
+                    const audioUrl = enclosure?.getAttribute('url');
+                    
+                    if (audioUrl) {
+                        document.getElementById('podcast-title').textContent = title;
+                        document.getElementById('podcast-duration').textContent = duration ? `(${duration})` : '';
+                        const audio = document.getElementById('podcast-audio');
+                        const source = audio.querySelector('source');
+                        source.src = audioUrl;
+                        audio.load();
+                    } else {
+                        throw new Error('No audio URL found');
+                    }
+                } catch (error) {
+                    console.error('Error fetching podcast:', error);
+                    // Fallback to static content
+                    document.getElementById('podcast-title').textContent = 'Ep. 44 2026...7';
+                    document.getElementById('podcast-duration').textContent = '(01:01:22)';
+                    const audio = document.getElementById('podcast-audio');
+                    const source = audio.querySelector('source');
+                    source.src = 'https://anchor.fm/s/f6f3f68c/podcast/play/113353899/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-0-1%2F17e51835-11b1-090c-e5f1-ec78537265d7.mp3';
+                    audio.load();
+                }
+            }
+            
+            function formatTime(seconds) {
+                if (!isFinite(seconds)) return '0:00';
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+            
+            function initPodcastPlayer() {
+                const audio = document.getElementById('podcast-audio');
+                const playBtn = document.getElementById('podcast-play-btn');
+                const progressBar = document.getElementById('podcast-progress-bar');
+                const progressFill = document.getElementById('podcast-progress-fill');
+                const timeDisplay = document.getElementById('podcast-time');
+                
+                function updateProgress() {
+                    if (!audio.duration) return;
+                    const percent = (audio.currentTime / audio.duration) * 100;
+                    progressFill.style.width = percent + '%';
+                    timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+                }
+                
+                function togglePlay() {
+                    if (audio.paused) {
+                        audio.play();
+                        playBtn.textContent = '⏸';
+                    } else {
+                        audio.pause();
+                        playBtn.textContent = '▶';
+                    }
+                }
+                
+                playBtn.addEventListener('click', togglePlay);
+                
+                audio.addEventListener('timeupdate', updateProgress);
+                audio.addEventListener('loadedmetadata', updateProgress);
+                audio.addEventListener('ended', () => {
+                    playBtn.textContent = '▶';
+                    progressFill.style.width = '0%';
+                });
+                
+                progressBar.addEventListener('click', (e) => {
+                    if (!audio.duration) return;
+                    const rect = progressBar.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width;
+                    audio.currentTime = percent * audio.duration;
+                });
+            }
+            
+            fetchLatestEpisode();
+            initPodcastPlayer();
+
+            // Podcast toggle (accordion) wiring
+            (function() {
+                const toggle = document.getElementById('podcast-toggle');
+                const header = document.getElementById('header-podcast');
+                const panel = document.getElementById('podcast-panel');
+                if (!toggle || !header || !panel) return;
+
+                // start collapsed (user clicks to open)
+                header.classList.remove('expanded');
+                toggle.setAttribute('aria-expanded', 'false');
+
+                toggle.addEventListener('click', () => {
+                    const expanded = header.classList.toggle('expanded');
+                    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                });
+            })();
+        })();
+        
+        // Landing overlay removal; site is dark-mode only
+        (function() {
+            // Ensure 'dark-mode' class is present for consistent styling
+            if (!document.body.classList.contains('dark-mode')) {
+                document.body.classList.add('dark-mode');
+            }
+
+            // Ensure any landing overlay is hidden after load (GitHub Pages sometimes serves the built HTML without client-side removal)
+            window.addEventListener('DOMContentLoaded', () => {
+                const landing = document.querySelector('.landing-page');
+                if (landing) {
+                    // fade out and remove
+                    landing.style.opacity = '0';
+                    landing.style.pointerEvents = 'none';
+                    setTimeout(() => landing.remove(), 600);
+                }
+            });
+        })();
+
+        // Robust delegation for menu anchors with hashes: handles .menu-item and .menu-link
+        (function() {
+            document.addEventListener('click', function(e) {
+                const anchor = e.target.closest && e.target.closest('.menu-item, .menu-link');
+                if (!anchor) return;
+                const href = anchor.getAttribute('href') || '';
+                const hashIndex = href.indexOf('#');
+                if (hashIndex === -1) return; // no hash -> nothing to do
+
+                // Resolve the URL relative to current origin to normalize pathnames
+                let url;
+                try {
+                    url = new URL(href, window.location.origin);
+                } catch (err) {
+                    // malformed href, let default behavior occur
+                    return;
+                }
+
+                const targetId = href.substring(hashIndex + 1);
+                const targetPath = url.pathname || '/';
+                const isTargetIndex = targetPath === '/' || targetPath === '/index';
+                const onIndex = window.location.pathname === '/' || window.location.pathname === '/index';
+
+                // If the link targets another page entirely, allow normal navigation
+                if (!isTargetIndex && targetPath !== window.location.pathname) {
+                    return; // normal navigation
+                }
+
+                // If the link points to the index but we're currently not on it, navigate so the anchor resolves
+                if (isTargetIndex && !onIndex) {
+                    window.location.href = href;
+                    return;
+                }
+
+                // Same-page anchor: smooth scroll
+                e.preventDefault();
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // If there's a fixed header overlapping sections, consider adjusting scroll by an offset
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    try { history.replaceState(null, '', '#' + targetId); } catch (err) { /* ignore */ }
+                } else {
+                    // Fallback: navigate
+                    window.location.href = href;
+                }
+            });
+        })();
+    </script>
+
+    <!-- pageScripts placeholder removed (Nunjucks block removed for Jekyll) -->
+</body>
+</html>

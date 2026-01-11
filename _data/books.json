@@ -1,0 +1,26 @@
+[
+  {
+    "id": "the-beginning-of-infinity",
+    "title": "The Beginning of Infinity",
+    "author": "David Deutsch",
+    "color": "#5078B0",
+    "cover": null,
+    "review": "the-beginning-of-infinity.md"
+  },
+  {
+    "id": "a-field-guide-to-getting-lost",
+    "title": "A Field Guide to Getting Lost",
+    "author": "Rebecca Solnit",
+    "color": "#8C664E",
+    "cover": null,
+    "review": "a-field-guide-to-getting-lost.md"
+  },
+  {
+    "id": "the-art-of-doing-science-and-engineering",
+    "title": "The Art of Doing Science and Engineering",
+    "author": "Richard W. Hamming",
+    "color": "#6AA06E",
+    "cover": null,
+    "review": "the-art-of-doing-science-and-engineering.md"
+  }
+]
