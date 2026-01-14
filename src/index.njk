@@ -164,6 +164,9 @@ layout: base
     white-space: pre-wrap;
     line-height: 1.45;
     color: #fff;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
   }
 
   .bookshelf-section .cover img {
@@ -171,8 +174,7 @@ layout: base
   transition: filter 0.35s ease, transform 0.35s ease;
 }
 
-  .bookshelf-section .tile:hover .cover img,
-  .bookshelf-section .tile:focus .cover img {
+  .bookshelf-section .tile:hover .cover img {
     filter: none;
     transform: scale(1.03);
   }
@@ -180,20 +182,21 @@ layout: base
 @media (max-width: 640px) {
   .bookshelf-section .bookshelf {
     display: flex;
-    flex-wrap: wrap;        /* wrap instead of scroll */
+    flex-wrap: nowrap;       /* no wrapping - horizontal scroll */
     justify-content: flex-start;
-    gap: 20px;
-    overflow-x: visible;   /* no sideways scrolling */
+    gap: 15px;
+    overflow-x: auto;       /* enable horizontal scrolling */
+    padding-bottom: 10px;   /* space for scrollbar */
   }
 
   .bookshelf-section .tile {
-    flex: 0 0 calc(33.333% - 10px); /* 3 per row when possible */
-    max-width: 120px;               /* NEVER grow bigger than desktop */
-    min-width: 90px;
+    flex: 0 0 120px;        /* fixed width for consistent scrolling */
+    max-width: 120px;
+    min-width: 120px;
   }
 
   .bookshelf-section .cover {
-    height: 200px; /* slightly shorter than desktop */
+    height: 180px; /* slightly shorter for mobile */
   }
 }
   </style>
