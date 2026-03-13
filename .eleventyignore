@@ -1,0 +1,14 @@
+_site/
+node_modules/
+package-lock.json
+package.json
+.git/
+.vscode/
+.idea/
+*.log
+.DS_Store
+googlef*.html
+robots.txt
+sitemap.xml
+.github/**
+
