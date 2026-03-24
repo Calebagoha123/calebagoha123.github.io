@@ -12,7 +12,7 @@
   "author": "Caleb Agoha",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.1.5"
   },
   "dependencies": {
     "luxon": "^3.6.1"

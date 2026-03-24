@@ -11,6 +11,30 @@
     <link rel="canonical" href="https://calebagoha123.github.io/" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
     <style>
+    @font-face {
+        font-family: 'Berkeley Mono';
+        src: url('/assets/fonts/BerkeleyMono-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Berkeley Mono';
+        src: url('/assets/fonts/BerkeleyMono-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Berkeley Mono';
+        src: url('/assets/fonts/BerkeleyMono-Oblique.otf') format('opentype');
+        font-weight: 400;
+        font-style: oblique;
+    }
+    @font-face {
+        font-family: 'Berkeley Mono';
+        src: url('/assets/fonts/BerkeleyMono-Bold-Oblique.otf') format('opentype');
+        font-weight: 700;
+        font-style: oblique;
+    }
     html { scroll-behavior: smooth; }
         :root {
             --svg-fill-color: #fff;
@@ -101,7 +125,7 @@
 
         /* Toggle removed: site is dark-mode only */
         body {
-            font-family: monospace;
+            font-family: 'Berkeley Mono', monospace;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
@@ -300,7 +324,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: monospace;
+            font-family: 'Berkeley Mono', monospace;
             font-size: 14px;
             padding: 0;
             flex-shrink: 0;
@@ -331,7 +355,7 @@
         .podcast-time {
             font-size: 0.75rem;
             color: #fff;
-            font-family: monospace;
+            font-family: 'Berkeley Mono', monospace;
             min-width: 60px;
             text-align: right;
         }
@@ -439,7 +463,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: monospace;
+            font-family: 'Berkeley Mono', monospace;
             color: var(--text-color);
         }
 
@@ -821,7 +845,7 @@
         .intro-container {
             text-align: center;
             color: #fff;
-            font-family: monospace;
+            font-family: 'Berkeley Mono', monospace;
             font-size: 1.2em;
             max-width: 600px;
             padding: 0 20px;
