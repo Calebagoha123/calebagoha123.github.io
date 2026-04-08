@@ -30,11 +30,6 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({"src/sitemap.xml": "sitemap.xml"});
     eleventyConfig.addPassthroughCopy({"src/robots.txt": "robots.txt"});
 
-    // Configure blog post collection - only process markdown files in blog directory
-    eleventyConfig.addCollection("posts", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("blog/**/*.md");
-    });
-
     // Pass through static assets - copied without template processing
     // Note: Prefer placing passthrough assets inside `src/` and reference them from there.
 
