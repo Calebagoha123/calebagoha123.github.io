@@ -25,8 +25,10 @@ module.exports = function(eleventyConfig) {
     // Passthrough for static assets placed inside `src/assets`
     eleventyConfig.addPassthroughCopy({"src/assets": "assets"});
 
-    // Passthrough Google Search Console verification file verbatim
+    // Passthrough static root files verbatim
     eleventyConfig.addPassthroughCopy({"src/googlef23264493ffa8463.html": "googlef23264493ffa8463.html"});
+    eleventyConfig.addPassthroughCopy({"src/sitemap.xml": "sitemap.xml"});
+    eleventyConfig.addPassthroughCopy({"src/robots.txt": "robots.txt"});
 
     // Configure blog post collection - only process markdown files in blog directory
     eleventyConfig.addCollection("posts", function(collectionApi) {
