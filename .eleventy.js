@@ -6,9 +6,8 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.ignores.add("node_modules/**");
     eleventyConfig.ignores.add("package-lock.json");
     eleventyConfig.ignores.add("package.json");
-    eleventyConfig.ignores.add("googlef*.html");
 
-    
+
     // Add date filter
     eleventyConfig.addFilter("formatDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj).toFormat("dd-MM-yy");
