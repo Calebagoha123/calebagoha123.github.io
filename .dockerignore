@@ -1,0 +1,8 @@
+node_modules
+_site
+.git
+.claude
+.github
+thesis.pdf
+*.log
+.DS_Store

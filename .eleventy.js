@@ -22,6 +22,13 @@ module.exports = function(eleventyConfig) {
         }
     });
 
+    // Dev server: bind to all interfaces so Docker port-forwarding works.
+    eleventyConfig.setServerOptions({
+        port: 8080,
+        domDiff: false,
+        showAllHosts: true
+    });
+
     // Passthrough for static assets placed inside `src/assets`
     eleventyConfig.addPassthroughCopy({"src/assets": "assets"});
 
