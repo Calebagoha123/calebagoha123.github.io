@@ -157,17 +157,14 @@ layout: base
         </div>
         <div class="experience-block">
             <h3 style="margin: 0; padding: 8px 0 0 0; border-bottom: none;">Industry</h3>
-            <div class="research-summary industry-list">
-                <div class="research-item">
-                    <p style="margin: 0;"><span style="color: #EF4444;">↠</span> Stichting De Noordzee — Modelling and Simulation (Thesis Co-op) (Feb — May 2025)</p>
-                </div>
-                <div class="research-item">
-                    <p style="margin: 0;"><span style="color: #EF4444;">↠</span> Sigra — Data Science Co-op (Sep — Dec 2023)</p>
-                </div>
-                <div class="research-item">
-                    <p style="margin: 0;"><span style="color: #EF4444;">↠</span> Ride with Me — Data Science Co-op (Feb — May 2023)</p>
-                </div>
-            </div>
+            <p class="industry-paragraph">
+                <img src="/assets/logos/stichting-de-noordzee.png" alt="Stichting De Noordzee" class="industry-logo" />
+                Modelling and Simulation (Thesis Co-op) (Feb — May 2025)
+                <img src="/assets/logos/sigra.jpg" alt="Sigra" class="industry-logo" />
+                Data Science Co-op (Sep — Dec 2023)
+                <img src="/assets/logos/ride-with-me.png" alt="Ride with Me" class="industry-logo industry-logo--ridewithme" />
+                Data Science Co-op (Feb — May 2023)
+            </p>
         </div>
     </div>
 </section>
@@ -246,7 +243,7 @@ layout: base
       if (!live.length) return;
 
       let working = chars.slice();
-      const swapsPerTick = Math.max(8, Math.floor(live.length * 0.012));
+      const swapsPerTick = Math.max(20, Math.floor(live.length * 0.05));
 
       function tick() {
         for (let n = 0; n < swapsPerTick; n++) {
@@ -254,8 +251,8 @@ layout: base
           const orig = chars[idx];
           const bucket = bucketOf(orig);
           if (!bucket) continue;
-          // 70% noise, 30% restore — keeps the silhouette mostly stable.
-          if (Math.random() < 0.7) {
+          // 88% noise, 12% restore — silhouette still readable but much more active.
+          if (Math.random() < 0.88) {
             working[idx] = bucket[Math.floor(Math.random() * bucket.length)];
           } else {
             working[idx] = orig;
@@ -266,7 +263,7 @@ layout: base
 
       // Pause when off-screen to save cycles.
       let timer = null;
-      function start() { if (!timer) timer = setInterval(tick, 90); }
+      function start() { if (!timer) timer = setInterval(tick, 50); }
       function stop()  { if (timer) { clearInterval(timer); timer = null; } }
 
       if ('IntersectionObserver' in window) {
@@ -299,14 +296,25 @@ layout: base
   margin-bottom: 30px;
 }
 
-.industry-list .research-item {
+/* Industry section: continuous paragraph with inline logos on dark tiles */
+.industry-paragraph {
   margin: 0;
-  min-height: 0;
-  padding: 0;
-  line-height: 1.45;
+  line-height: 1.55;
+  text-align: justify;
 }
-.industry-list .research-item + .research-item {
-  margin-top: 2px;
+.industry-logo {
+  display: inline-block;
+  vertical-align: middle;
+  height: 24px;
+  width: auto;
+  background: #111;
+  padding: 2px 5px;
+  margin: 0 6px 0 0;
+  box-sizing: content-box;
+  object-fit: contain;
+}
+.industry-logo--ridewithme {
+  height: 18px;
 }
 
 .experience-block {
