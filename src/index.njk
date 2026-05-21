@@ -13,11 +13,13 @@ layout: base
           <span class="num">01</span>
           <span class="heading">BSc</span>
           <span class="sub">UvA · Comp Soc Sci</span>
+          <span class="supervisor supervisor--nowrap">Supervisor: <a href="https://www.uva.nl/en/profile/m/a/d.m.mayerhoffer/d.m.mayerhoffer.html" target="_blank" rel="noopener">Daniel Mayerhoffer</a></span>
         </div>
         <div class="callout">
           <span class="num">02</span>
           <span class="heading">MSc</span>
-          <span class="sub">Oxford · OII</span>
+          <span class="sub sub--nowrap">Oxford · Social Data Science</span>
+          <span class="supervisor">Supervisor: <a href="https://paulrottger.com" target="_blank" rel="noopener">Paul Rottger</a></span>
         </div>
       </aside>
 
@@ -108,6 +110,26 @@ layout: base
     font-size: 0.72rem;
     line-height: 1.2;
     margin-top: 2px;
+  }
+  .callout .sub--nowrap {
+    white-space: nowrap;
+  }
+  .callout .supervisor {
+    color: #8a8a8a;
+    font-size: 0.68rem;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+  .callout .supervisor a {
+    color: inherit;
+    text-decoration-color: var(--holo-accent);
+    text-underline-offset: 2px;
+  }
+  .callout .supervisor a:hover {
+    color: #fff;
+  }
+  .callout .supervisor--nowrap {
+    white-space: nowrap;
   }
 
   @media (max-width: 760px) {
