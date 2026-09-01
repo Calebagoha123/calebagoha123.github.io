@@ -1,0 +1,110 @@
+<section id="about">
+  <h2>ABOUT</h2>
+
+  <p class="about-intro">I’m an MSc Social Data Science candidate at the University of Oxford, with a deep interest in AI alignment, evaluations and interpretability. I have experience across research, data science and software engineering.</p>
+
+  <div class="hologram">
+    <div class="portrait-stage">
+      <pre class="ascii-portrait" aria-hidden="true" id="ascii-portrait">{% include "ascii-portrait.txt" %}</pre>
+    </div>
+  </div>
+
+  <div class="about-stickers" aria-label="Moveable interests and university logos">
+    <div class="holo-sticker holo-sticker--oxford" role="group" tabindex="0" aria-label="University of Oxford education details. Drag to move." title="Drag me">
+      <img src="/assets/logos/oxford-mark.png" alt="" draggable="false">
+      <div class="education-popover">
+        <strong>MSc Social Data Science</strong>
+        <span>University of Oxford</span>
+        <span>Supervisor: <a href="https://paulrottger.com" target="_blank" rel="noopener">Paul Röttger</a></span>
+      </div>
+    </div>
+
+    <div class="holo-sticker holo-sticker--uva" role="group" tabindex="0" aria-label="University of Amsterdam education details. Drag to move." title="Drag me">
+      <img src="/assets/logos/uva-mark.png" alt="" draggable="false">
+      <div class="education-popover">
+        <strong>BSc Computational Social Science</strong>
+        <span>University of Amsterdam</span>
+        <span>Supervisor: <a href="https://www.uva.nl/en/profile/m/a/d.m.mayerhoffer/d.m.mayerhoffer.html" target="_blank" rel="noopener">Daniel Mayerhoffer</a></span>
+      </div>
+    </div>
+
+    <div class="personality-token personality-token--hello" tabindex="0" aria-label="Hello, my name is Caleb sticker. Drag to move." title="Drag me">
+      <img src="/assets/stickers/hello-my-name.png" alt="Hello, my name is Caleb" draggable="false">
+    </div>
+
+    <div class="personality-token personality-token--homegoing taste-token" tabindex="0" aria-label="Homegoing, rated four out of five. Drag to move." title="Drag me">
+      <img src="/assets/books/homegoing.jpg" alt="Homegoing book cover" draggable="false">
+      <span class="personality-popover">Homegoing · <span class="rating-stars" aria-label="4 out of 5 stars">★★★★☆</span></span>
+    </div>
+
+    <div class="personality-token personality-token--hamming taste-token" tabindex="0" aria-label="The Art of Doing Science and Engineering, rated four out of five. Drag to move." title="Drag me">
+      <img src="/assets/books/hamming.jpg" alt="The Art of Doing Science and Engineering book cover" draggable="false">
+      <span class="personality-popover">The Art of Doing Science and Engineering · <span class="rating-stars" aria-label="4 out of 5 stars">★★★★☆</span></span>
+    </div>
+
+    {% for film in letterboxd %}
+    <div class="personality-token personality-token--letterboxd-{{ loop.index }} taste-token" tabindex="0" aria-label="Recent Letterboxd watch: {{ film.title }}, rated {{ film.rating or 'unrated' }} out of five. Drag to move." title="Drag me">
+      <img src="{{ film.poster }}" alt="{{ film.title }} poster" draggable="false" referrerpolicy="no-referrer">
+      <span class="personality-popover">{{ film.title }} · <span class="rating-stars" aria-label="{{ film.rating or 'Unrated' }} out of 5 stars">{{ film.ratingLabel }}</span></span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="about-contact">
+  <p class="about-links">
+    <span>Links:</span>
+    <a href="https://www.linkedin.com/in/caleb-agoha-262b28266" target="_blank" rel="noopener">LinkedIn</a>
+    <span aria-hidden="true">·</span>
+    <a href="https://github.com/Calebagoha123" target="_blank" rel="noopener">GitHub</a>
+    <span aria-hidden="true">·</span>
+    <span class="cv-placeholder" title="CV coming soon">CV</span>
+  </p>
+  <p class="about-mail">mail: calebagoha[at]gmail[dot]com</p>
+</div>
+
+<section id="experience">
+  <div class="experience-header">
+    <h2>EXPERIENCE</h2>
+  </div>
+
+  <div class="experience-stacked">
+    <div class="experience-block">
+      <h3>Research</h3>
+      <div class="research-summary">
+        <div class="research-highlight">
+          <img src="/assets/logos/hss-comms.svg" alt="Humanities &amp; Social Sciences Communications" class="journal-logo">
+          <div class="research-title-wrap">
+            <a href="https://www.nature.com/articles/s41599-026-06822-y" target="_blank" rel="noopener">Excessive WM Privilege Biases the Measurement of Intersectional Wage Discrimination</a>
+          </div>
+        </div>
+
+        <div class="research-project">
+          <span class="research-project-type">AI Safety Research Project</span>
+          <div class="research-project-details">
+            <a href="https://github.com/Calebagoha123/em-probing" target="_blank" rel="noopener">Residual-Stream Monitoring of Emergent Misalignment</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience-block">
+      <h3>Industry</h3>
+      <p class="industry-paragraph">
+        <img src="/assets/logos/ja-worldwide.webp" alt="JA Worldwide" class="industry-logo industry-logo--ja">
+        <img src="/assets/logos/uva-logo-tag.jpg" alt="University of Amsterdam" class="industry-logo industry-logo--uva">
+        Software Engineer (Contract)
+        <img src="/assets/logos/stichting-de-noordzee.png" alt="Stichting De Noordzee" class="industry-logo">
+        Modelling and Simulation (Thesis Co-op) (Feb — May 2025)
+        <img src="/assets/logos/sigra.jpg" alt="Sigra" class="industry-logo">
+        Data Science Co-op (Sep — Dec 2023)
+        <img src="/assets/logos/ride-with-me.png" alt="Ride with Me" class="industry-logo industry-logo--ridewithme">
+        Data Science Co-op (Feb — May 2023)
+      </p>
+    </div>
+  </div>
+</section>
+
+{% include "project-windows.njk" %}
+
+<button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>

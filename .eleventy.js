@@ -1,55 +1,23 @@
-const { DateTime } = require("luxon");
-
 module.exports = function(eleventyConfig) {
-    // Ignore directories and files that shouldn't be processed as templates
-    eleventyConfig.ignores.add("_site/**");
-    eleventyConfig.ignores.add("node_modules/**");
-    eleventyConfig.ignores.add("package-lock.json");
-    eleventyConfig.ignores.add("package.json");
+  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/googlef23264493ffa8463.html": "googlef23264493ffa8463.html" });
+  eleventyConfig.addPassthroughCopy({ "src/sitemap.xml": "sitemap.xml" });
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
 
+  eleventyConfig.setServerOptions({
+    port: 8080,
+    domDiff: false,
+    showAllHosts: true
+  });
 
-    // Add date filter
-    eleventyConfig.addFilter("formatDate", (dateObj) => {
-        return DateTime.fromJSDate(dateObj).toFormat("dd-MM-yy");
-    });
-
-    // Add a `jsonify` filter so templates can safely inline JSON (Nunjucks doesn't provide this by default)
-    eleventyConfig.addFilter("jsonify", (obj) => {
-        try {
-            return JSON.stringify(obj);
-        } catch (e) {
-            return null;
-        }
-    });
-
-    // Dev server: bind to all interfaces so Docker port-forwarding works.
-    eleventyConfig.setServerOptions({
-        port: 8080,
-        domDiff: false,
-        showAllHosts: true
-    });
-
-    // Passthrough for static assets placed inside `src/assets`
-    eleventyConfig.addPassthroughCopy({"src/assets": "assets"});
-
-    // Passthrough static root files verbatim
-    eleventyConfig.addPassthroughCopy({"src/googlef23264493ffa8463.html": "googlef23264493ffa8463.html"});
-    eleventyConfig.addPassthroughCopy({"src/sitemap.xml": "sitemap.xml"});
-    eleventyConfig.addPassthroughCopy({"src/robots.txt": "robots.txt"});
-
-    // Pass through static assets - copied without template processing
-    // Note: Prefer placing passthrough assets inside `src/` and reference them from there.
-
-    return {
-        dir: {
-            input: "src",
-            output: "_site",
-            includes: "_includes",
-            layouts: "_layouts"
-        },
-        // Specify template formats to avoid processing unnecessary files
-        templateFormats: ["njk", "md", "html"],
-        htmlTemplateEngine: "njk",
-        markdownTemplateEngine: "njk"
-    };
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      layouts: "_layouts"
+    },
+    templateFormats: ["njk"],
+    htmlTemplateEngine: "njk"
+  };
 };

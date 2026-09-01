@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or "Caleb Agoha" }}</title>
+  <meta name="description" content="Caleb Agoha is an MSc Social Data Science candidate at the University of Oxford, working across AI safety, data science and software engineering.">
+  <meta name="author" content="Caleb Agoha">
+  <meta property="og:title" content="Caleb Agoha — MSc Social Data Science, Oxford">
+  <meta property="og:description" content="AI safety research, data science and software engineering by Caleb Agoha.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calebagoha123.github.io/">
+  <link rel="canonical" href="https://calebagoha123.github.io/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  {% for stylesheet in pageStyles %}<link rel="stylesheet" href="{{ stylesheet }}">{% endfor %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Caleb Agoha",
+    "url": "https://calebagoha123.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/caleb-agoha-262b28266",
+      "https://github.com/Calebagoha123",
+      "https://www.oii.ox.ac.uk/people/profiles/caleb-agoha/"
+    ],
+    "jobTitle": "MSc Social Data Science Candidate",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Amsterdam" },
+    "memberOf": { "@type": "CollegeOrUniversity", "name": "University of Oxford, Oxford Internet Institute" },
+    "knowsAbout": ["AI Safety", "AI Evaluation", "Mechanistic Interpretability", "Computational Social Science", "Social Data Science"]
+  }
+  </script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="header-grid">
+        <div class="header-intro">
+          <h1>CALEB AGOHA</h1>
+          <p>Hey, check out <a class="podcast-link" href="https://podcasters.spotify.com/pod/show/the-unoriginal-podcast" target="_blank" rel="noopener">'The Unoriginal Podcast'</a> on Spotify/Apple Podcasts</p>
+        </div>
+        <dl class="release-meta">
+          <dt>Version</dt><dd>v3.1</dd>
+          <dt>Updated</dt><dd>01-09-2026</dd>
+        </dl>
+      </div>
+
+      <div class="podcast-player" id="podcast-player">
+        <h2>
+          <button class="podcast-toggle" id="podcast-toggle" type="button" aria-expanded="false" aria-controls="podcast-panel">
+            LATEST EPISODE <span class="podcast-arrow" aria-hidden="true">▾</span>
+          </button>
+        </h2>
+        <div class="podcast-panel" id="podcast-panel">
+          <p class="podcast-episode"><strong id="podcast-title">Loading…</strong> <span id="podcast-duration"></span></p>
+          <audio id="podcast-audio" preload="metadata"><source src="" type="audio/mpeg"></audio>
+          <div class="podcast-controls">
+            <button class="podcast-play" id="podcast-play" type="button" aria-label="Play latest podcast episode">▶</button>
+            <button class="podcast-progress" id="podcast-progress" type="button" aria-label="Seek through latest podcast episode">
+              <span class="podcast-progress-fill" id="podcast-progress-fill"></span>
+            </button>
+            <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Primary navigation">
+      <a class="section-nav__item section-nav__item--about" href="/">ABOUT</a>
+      <a class="section-nav__item section-nav__item--experience" href="/#experience">EXPERIENCE</a>
+      <a class="section-nav__item section-nav__item--projects" href="/#projects">SIDE PROJECTS</a>
+    </nav>
+
+    <main>{{ content | safe }}</main>
+  </div>
+
+  <script src="/assets/js/site.js" defer></script>
+  {% for script in pageScripts %}<script src="{{ script }}" defer></script>{% endfor %}
+</body>
+</html>

@@ -1,20 +1,19 @@
 {
   "name": "calebagoha123.github.io",
   "version": "1.0.0",
-  "description": "Personal portfolio and blog",
+  "description": "Caleb Agoha's personal portfolio",
   "main": ".eleventy.js",
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve --quiet",
-    "clean": "rm -rf _site"
+    "test": "node --test",
+    "refresh:letterboxd": "node scripts/update-letterboxd.mjs",
+    "check": "npm test && npm run refresh:letterboxd && npm run build"
   },
   "keywords": [],
   "author": "Caleb Agoha",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5"
-  },
-  "dependencies": {
-    "luxon": "^3.6.1"
+    "@11ty/eleventy": "^3.1.6"
   }
 }
