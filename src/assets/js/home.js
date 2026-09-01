@@ -29,8 +29,7 @@
         original: character,
         bucket: bucketFor(character),
         x: 0,
-        y: 0,
-        displaced: false
+        y: 0
       });
     }
 
@@ -40,11 +39,20 @@
     let metricsDirty = true;
     let pointer = null;
     let animationFrame = null;
+    let spatialGrid = new Map();
+    const activeGlyphs = new Set();
+    const gridCellSize = 64;
 
     const measureGlyphs = () => {
+      spatialGrid = new Map();
       glyphs.forEach((glyph) => {
         glyph.x = glyph.element.offsetLeft + glyph.element.offsetWidth / 2;
         glyph.y = glyph.element.offsetTop + glyph.element.offsetHeight / 2;
+
+        const key = `${Math.floor(glyph.x / gridCellSize)}:${Math.floor(glyph.y / gridCellSize)}`;
+        const cell = spatialGrid.get(key) || [];
+        cell.push(glyph);
+        spatialGrid.set(key, cell);
       });
       metricsDirty = false;
     };
@@ -59,30 +67,45 @@
       const scaleY = bounds.height / portrait.offsetHeight || scaleX;
       const pointerX = (pointer.x - bounds.left) / scaleX;
       const pointerY = (pointer.y - bounds.top) / scaleY;
-      const radius = pointer.radius || 74;
-      const maximumTravel = 28;
+      const radius = pointer.radius || 86;
+      const radiusSquared = radius * radius;
+      const maximumTravel = 34;
+      const candidates = [];
+      const nextActiveGlyphs = new Set();
+      const minimumColumn = Math.floor((pointerX - radius) / gridCellSize);
+      const maximumColumn = Math.floor((pointerX + radius) / gridCellSize);
+      const minimumRow = Math.floor((pointerY - radius) / gridCellSize);
+      const maximumRow = Math.floor((pointerY + radius) / gridCellSize);
 
-      glyphs.forEach((glyph) => {
+      for (let column = minimumColumn; column <= maximumColumn; column += 1) {
+        for (let row = minimumRow; row <= maximumRow; row += 1) {
+          const cell = spatialGrid.get(`${column}:${row}`);
+          if (cell) candidates.push(...cell);
+        }
+      }
+
+      candidates.forEach((glyph) => {
         const deltaX = glyph.x - pointerX;
         const deltaY = glyph.y - pointerY;
-        const distance = Math.hypot(deltaX, deltaY);
+        const distanceSquared = deltaX * deltaX + deltaY * deltaY;
 
-        if (distance >= radius) {
-          if (glyph.displaced) {
-            glyph.element.style.transform = "";
-            glyph.displaced = false;
-          }
-          return;
-        }
+        if (distanceSquared >= radiusSquared) return;
 
+        const distance = Math.sqrt(distanceSquared);
         const safeDistance = Math.max(distance, 0.5);
         const force = Math.pow(1 - distance / radius, 1.35);
         const travel = maximumTravel * force;
         const x = (deltaX / safeDistance) * travel;
         const y = (deltaY / safeDistance) * travel;
-        glyph.element.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0)`;
-        glyph.displaced = true;
+        glyph.element.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+        nextActiveGlyphs.add(glyph);
       });
+
+      activeGlyphs.forEach((glyph) => {
+        if (!nextActiveGlyphs.has(glyph)) glyph.element.style.transform = "";
+      });
+      activeGlyphs.clear();
+      nextActiveGlyphs.forEach((glyph) => activeGlyphs.add(glyph));
     };
 
     const scheduleDispersion = () => {
@@ -91,11 +114,11 @@
 
     const clearDispersion = () => {
       pointer = null;
-      glyphs.forEach((glyph) => {
-        if (!glyph.displaced) return;
+      portrait.classList.remove("is-dispersing");
+      activeGlyphs.forEach((glyph) => {
         glyph.element.style.transform = "";
-        glyph.displaced = false;
       });
+      activeGlyphs.clear();
     };
 
     if ("ResizeObserver" in window) {
@@ -106,18 +129,22 @@
 
     portrait.addEventListener("pointermove", (event) => {
       if (event.pointerType === "touch") return;
+      portrait.classList.add("is-dispersing");
       pointer = { x: event.clientX, y: event.clientY };
       scheduleDispersion();
     });
     portrait.addEventListener("pointerleave", clearDispersion);
     window.addEventListener(DISPERSER_MOVE, (event) => {
+      portrait.classList.add("is-dispersing");
       pointer = event.detail;
       scheduleDispersion();
     });
     window.addEventListener(DISPERSER_CLEAR, clearDispersion);
 
     const swappable = glyphs.filter((glyph) => glyph.bucket);
-    const swapsPerTick = Math.max(20, Math.floor(swappable.length * 0.05));
+    // A restrained shimmer keeps the portrait alive without forcing hundreds
+    // of text updates per second on browsers with slower layout engines.
+    const swapsPerTick = Math.max(12, Math.floor(swappable.length * 0.012));
     const shimmer = () => {
       for (let index = 0; index < swapsPerTick; index += 1) {
         const glyph = swappable[Math.floor(Math.random() * swappable.length)];
@@ -129,7 +156,7 @@
 
     let shimmerTimer = null;
     const startShimmer = () => {
-      if (!shimmerTimer) shimmerTimer = window.setInterval(shimmer, 50);
+      if (!shimmerTimer) shimmerTimer = window.setInterval(shimmer, 120);
     };
     const stopShimmer = () => {
       if (!shimmerTimer) return;
@@ -194,8 +221,8 @@
 
       const positions = {
         "holo-sticker--oxford": [
-          fromPortraitLeft - (compact ? 185 : 115),
-          fromPortraitTop + portraitBounds.height * (compact ? 0.72 : 0.412)
+          compact ? fromPortraitLeft + 27 : fromPortraitLeft - 115,
+          fromPortraitTop + portraitBounds.height * (compact ? 0.28 : 0.412)
         ],
         "holo-sticker--uva": [
           fromPortraitLeft - (compact ? 180 : 51),
