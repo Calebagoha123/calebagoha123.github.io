@@ -1,3 +1,3 @@
 # Caleb Agoha — portfolio
 
-Personal portfolio built with [Eleventy](https://www.11ty.dev/).
+Personal portfolio for [calebagoha.com](https://calebagoha.com), built with [Eleventy](https://www.11ty.dev/).
