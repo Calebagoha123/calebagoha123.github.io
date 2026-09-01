@@ -108,15 +108,6 @@
   transition: max-height 220ms ease, opacity 150ms ease, border-color 150ms ease;
 }
 
-.project-window__screen::before {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  background: repeating-linear-gradient(to bottom, transparent 0, transparent 5px, rgba(255, 255, 255, 0.035) 6px);
-  content: "";
-  pointer-events: none;
-}
-
 .project-window__media {
   position: relative;
   z-index: 1;
