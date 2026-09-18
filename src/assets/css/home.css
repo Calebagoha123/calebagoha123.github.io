@@ -3,7 +3,9 @@
 }
 
 .about-intro {
+  display: grid;
   max-width: 700px;
+  gap: 12px;
   margin-top: 18px;
   color: #fff;
   font-size: 0.86rem;
@@ -58,11 +60,16 @@
 .holo-sticker,
 .personality-token {
   position: absolute;
+  border-bottom: 0;
   cursor: grab;
   pointer-events: auto;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.personality-token:hover {
+  border-bottom: 0;
 }
 
 .holo-sticker {
@@ -111,7 +118,13 @@
 .holo-sticker--oxford { width: 65px; }
 .holo-sticker--uva { width: 42px; }
 .personality-token--hello { width: 92px; }
+.personality-token--strava { width: 76px; }
 .taste-token { width: 42px; }
+
+.personality-token--strava > img {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+}
 
 .taste-token > img {
   aspect-ratio: 2 / 3;
@@ -120,7 +133,9 @@
 }
 
 .taste-token:hover > img,
-.taste-token:focus-visible > img {
+.taste-token:focus-visible > img,
+.personality-token--strava:hover > img,
+.personality-token--strava:focus-visible > img {
   transform: translateY(-2px) scale(1.07);
 }
 
@@ -157,10 +172,7 @@
   font-weight: 600;
 }
 
-.education-popover a {
-  color: var(--blue);
-  text-underline-offset: 2px;
-}
+.education-popover a { text-underline-offset: 2px; }
 
 .holo-sticker:hover,
 .holo-sticker:focus-within {
@@ -345,12 +357,6 @@
   padding-right: 2px;
   padding-left: 0;
   background: transparent;
-}
-
-.industry-logo--uva {
-  height: 28px;
-  padding: 0;
-  background: #fff;
 }
 
 @media (max-width: 760px) {

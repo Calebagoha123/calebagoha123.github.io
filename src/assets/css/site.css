@@ -36,10 +36,10 @@
   --foreground: #fff;
   --muted: #9a9a9a;
   --border: #fff;
-  --yellow: #e7b530;
-  --rust: #a64e2b;
-  --red: #a72434;
-  --purple: #573690;
+  --yellow: #dfb84d;
+  --rust: #9b5234;
+  --red: #9a3038;
+  --purple: #52378a;
   --blue: #4ba6e8;
 }
 
@@ -72,6 +72,10 @@ a {
 
 a:hover {
   border-bottom-style: solid;
+}
+
+.palette-link {
+  color: var(--link-accent);
 }
 
 a:focus-visible,
@@ -112,10 +116,6 @@ h2 {
 
 .header-intro h1 {
   border: 0;
-}
-
-.podcast-link {
-  color: #ef4444;
 }
 
 .release-meta {

@@ -8,6 +8,28 @@
     audioUrl: "https://anchor.fm/s/f6f3f68c/podcast/play/113353899/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-0-1%2F17e51835-11b1-090c-e5f1-ec78537265d7.mp3"
   };
 
+  const LINK_ACCENTS = [
+    "#dfb84d",
+    "#9b5234",
+    "#9a3038",
+    "#812d62",
+    "#52378a",
+    "#344991",
+    "#417862",
+    "#778c4c",
+    "#4ba6e8",
+    "#fcef5a",
+    "#b82683"
+  ];
+
+  function initialiseLinkPalette() {
+    const links = document.querySelectorAll("a:not(.section-nav__item):not(.personality-token)");
+    links.forEach((link, index) => {
+      link.classList.add("palette-link");
+      link.style.setProperty("--link-accent", LINK_ACCENTS[index % LINK_ACCENTS.length]);
+    });
+  }
+
   const formatTime = (seconds) => {
     if (!Number.isFinite(seconds)) return "0:00";
     const minutes = Math.floor(seconds / 60);
@@ -129,6 +151,7 @@
     updateVisibility();
   }
 
+  initialiseLinkPalette();
   initialisePodcast();
   initialiseBackToTop();
 })();

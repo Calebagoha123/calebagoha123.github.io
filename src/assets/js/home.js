@@ -193,7 +193,16 @@
     };
 
     const place = (sticker, left, top) => {
-      const maximumLeft = Math.max(0, layer.offsetWidth - sticker.offsetWidth);
+      const layerBounds = layer.getBoundingClientRect();
+      const scaleX = layerBounds.width / layer.offsetWidth || 1;
+      const containedMaximumLeft = Math.max(0, layer.offsetWidth - sticker.offsetWidth);
+      const viewportMaximumLeft = Math.max(
+        containedMaximumLeft,
+        (window.innerWidth - layerBounds.left) / scaleX - sticker.offsetWidth - 20
+      );
+      const maximumLeft = sticker.classList.contains("personality-token--strava") && layer.offsetWidth >= 500
+        ? viewportMaximumLeft
+        : containedMaximumLeft;
       const maximumTop = Math.max(0, layer.offsetHeight - sticker.offsetHeight);
       sticker.style.right = "auto";
       sticker.style.bottom = "auto";
@@ -247,6 +256,12 @@
         "personality-token--letterboxd-2": [
           portraitBounds.right - layerBounds.left + (compact ? 34 : -9),
           fromPortraitTop + (compact ? 34 : 8)
+        ],
+        "personality-token--strava": [
+          compact
+            ? fromPortraitLeft + portraitBounds.width * 0.69
+            : portraitBounds.right - layerBounds.left + 120,
+          fromPortraitTop + portraitBounds.height * (compact ? 0.66 : 0.63)
         ]
       };
 
@@ -259,13 +274,17 @@
 
     draggables.forEach((sticker) => {
       sticker.addEventListener("pointerdown", (event) => {
-        if (event.button !== 0 || event.target.closest("a")) return;
+        const selectedLink = event.target.closest("a");
+        if (event.button !== 0 || (selectedLink && selectedLink !== sticker)) return;
 
         const layerGeometry = geometry();
         const stickerBounds = sticker.getBoundingClientRect();
         active = {
           sticker,
           pointerId: event.pointerId,
+          startX: event.clientX,
+          startY: event.clientY,
+          didDrag: false,
           grabX: (event.clientX - stickerBounds.left) / layerGeometry.scaleX,
           grabY: (event.clientY - stickerBounds.top) / layerGeometry.scaleY
         };
@@ -274,11 +293,14 @@
           (stickerBounds.left - layerGeometry.bounds.left) / layerGeometry.scaleX,
           (stickerBounds.top - layerGeometry.bounds.top) / layerGeometry.scaleY
         );
-        sticker.dataset.moved = "true";
         sticker.style.zIndex = String(++topLayer);
-        sticker.classList.add("is-dragging");
         sticker.setPointerCapture(event.pointerId);
+      });
+
+      sticker.addEventListener("click", (event) => {
+        if (sticker.dataset.suppressClick !== "true") return;
         event.preventDefault();
+        delete sticker.dataset.suppressClick;
       });
 
       sticker.addEventListener("keydown", (event) => {
@@ -300,6 +322,14 @@
 
     const moveActive = (event) => {
       if (!active) return;
+      if (!active.didDrag) {
+        const distance = Math.hypot(event.clientX - active.startX, event.clientY - active.startY);
+        if (distance < 4) return;
+        active.didDrag = true;
+        active.sticker.dataset.moved = "true";
+        active.sticker.classList.add("is-dragging");
+      }
+
       const layerGeometry = geometry();
       place(
         active.sticker,
@@ -307,15 +337,20 @@
         (event.clientY - layerGeometry.bounds.top) / layerGeometry.scaleY - active.grabY
       );
       disperseWith(active.sticker);
+      if (event.cancelable) event.preventDefault();
     };
 
     const releaseActive = (event) => {
       if (!active || event.pointerId !== active.pointerId) return;
       moveActive(event);
 
-      const { sticker, pointerId } = active;
+      const { sticker, pointerId, didDrag } = active;
       sticker.classList.remove("is-dragging");
       if (sticker.hasPointerCapture(pointerId)) sticker.releasePointerCapture(pointerId);
+      if (didDrag) {
+        sticker.dataset.suppressClick = "true";
+        window.setTimeout(() => { delete sticker.dataset.suppressClick; }, 0);
+      }
       active = null;
       window.dispatchEvent(new CustomEvent(DISPERSER_CLEAR));
     };

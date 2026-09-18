@@ -27,7 +27,7 @@
 
 .project-window__bar {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 10px;
   min-height: 34px;
@@ -87,12 +87,6 @@
   font-size: 0.7rem;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.project-window__index {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
 }
 
 .project-window__screen {
@@ -194,7 +188,6 @@
 }
 
 .project-window__links a {
-  color: #fff;
   font-size: 0.7rem;
   text-underline-offset: 3px;
 }
@@ -212,10 +205,6 @@
 .project-window.is-minimized .project-window__title {
   font-size: 1rem;
   font-weight: 700;
-}
-
-.project-window.is-minimized .project-window__index {
-  display: none;
 }
 
 .project-window.is-minimized .project-window__screen {

@@ -1,7 +1,9 @@
 <section id="about">
   <h2>ABOUT</h2>
 
-  <p class="about-intro">I’m an MSc Social Data Science candidate at the University of Oxford, with a deep interest in AI alignment, evaluations and interpretability. I have experience across research, data science and software engineering.</p>
+  <div class="about-intro">
+    <p>My current research interests follow AI safety and societal impacts. On the former, I’m currently a SPAR AI Research Fellow, working on <a href="https://www.sparai.org/projects/f26/reczVs5EOjiyFWw1B/" target="_blank" rel="noopener">scalable ways to evaluate LLM self-explanations</a>. On the latter, my MSc thesis studied the effects of user demographic information stored in memory on AI writing assistance in political contexts. Outside research, I like to build things end to end. I’m currently developing an internal tool for <a href="https://www.jaworldwide.org/" target="_blank" rel="noopener">JA Worldwide</a>.</p>
+  </div>
 
   <div class="hologram">
     <div class="portrait-stage">
@@ -32,22 +34,27 @@
       <img src="/assets/stickers/hello-my-name.png" alt="Hello, my name is Caleb" draggable="false">
     </div>
 
-    <div class="personality-token personality-token--homegoing taste-token" tabindex="0" aria-label="Homegoing, rated four out of five. Drag to move." title="Drag me">
+    <a class="personality-token personality-token--homegoing taste-token" href="https://www.goodreads.com/book/show/30306735-homegoing" target="_blank" rel="noopener" aria-label="Homegoing, rated four out of five. Open on Goodreads or drag to move." title="Open on Goodreads or drag to move">
       <img src="/assets/books/homegoing.jpg" alt="Homegoing book cover" draggable="false">
       <span class="personality-popover">Homegoing · <span class="rating-stars" aria-label="4 out of 5 stars">★★★★☆</span></span>
-    </div>
+    </a>
 
-    <div class="personality-token personality-token--hamming taste-token" tabindex="0" aria-label="The Art of Doing Science and Engineering, rated four out of five. Drag to move." title="Drag me">
+    <a class="personality-token personality-token--hamming taste-token" href="https://www.goodreads.com/book/show/53503835-the-art-of-doing-science-and-engineering" target="_blank" rel="noopener" aria-label="The Art of Doing Science and Engineering, rated four out of five. Open on Goodreads or drag to move." title="Open on Goodreads or drag to move">
       <img src="/assets/books/hamming.jpg" alt="The Art of Doing Science and Engineering book cover" draggable="false">
       <span class="personality-popover">The Art of Doing Science and Engineering · <span class="rating-stars" aria-label="4 out of 5 stars">★★★★☆</span></span>
-    </div>
+    </a>
 
     {% for film in letterboxd %}
-    <div class="personality-token personality-token--letterboxd-{{ loop.index }} taste-token" tabindex="0" aria-label="Recent Letterboxd watch: {{ film.title }}, rated {{ film.rating or 'unrated' }} out of five. Drag to move." title="Drag me">
+    <a class="personality-token personality-token--letterboxd-{{ loop.index }} taste-token" href="{{ film.link }}" target="_blank" rel="noopener" aria-label="Recent Letterboxd watch: {{ film.title }}, rated {{ film.rating or 'unrated' }} out of five. Open review on Letterboxd or drag to move." title="Open review on Letterboxd or drag to move">
       <img src="{{ film.poster }}" alt="{{ film.title }} poster" draggable="false" referrerpolicy="no-referrer">
       <span class="personality-popover">{{ film.title }} · <span class="rating-stars" aria-label="{{ film.rating or 'Unrated' }} out of 5 stars">{{ film.ratingLabel }}</span></span>
-    </div>
+    </a>
     {% endfor %}
+
+    <a class="personality-token personality-token--strava" href="https://strava.app.link/FR8Tjeckx6b" target="_blank" rel="noopener" aria-label="Caleb’s 5 kilometre personal best: 24 minutes 23 seconds. Open on Strava or drag to move." title="Open on Strava or drag to move">
+      <img src="/assets/strava/sub-25-5k-pb.webp" alt="Strava activity showing Caleb’s 5 kilometre personal best of 24 minutes 23 seconds" draggable="false">
+      <span class="personality-popover">5K PB · 24:23</span>
+    </a>
   </div>
 </section>
 
@@ -92,8 +99,7 @@
       <h3>Industry</h3>
       <p class="industry-paragraph">
         <img src="/assets/logos/ja-worldwide.webp" alt="JA Worldwide" class="industry-logo industry-logo--ja">
-        <img src="/assets/logos/uva-logo-tag.jpg" alt="University of Amsterdam" class="industry-logo industry-logo--uva">
-        Software Engineer (Contract)
+        Software/Product Engineer (Contract) (Present)
         <img src="/assets/logos/stichting-de-noordzee.png" alt="Stichting De Noordzee" class="industry-logo">
         Modelling and Simulation (Thesis Co-op) (Feb — May 2025)
         <img src="/assets/logos/sigra.jpg" alt="Sigra" class="industry-logo">
