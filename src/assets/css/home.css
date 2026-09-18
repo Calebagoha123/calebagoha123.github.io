@@ -4,7 +4,6 @@
 
 .about-intro {
   display: grid;
-  max-width: 700px;
   gap: 12px;
   margin-top: 18px;
   color: #fff;
