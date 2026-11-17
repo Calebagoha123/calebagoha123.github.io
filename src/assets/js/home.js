@@ -230,7 +230,7 @@
 
       const positions = {
         "holo-sticker--oxford": [
-          compact ? fromPortraitLeft + 27 : fromPortraitLeft - 115,
+          portraitBounds.right - layerBounds.left + (compact ? -20 : 25),
           fromPortraitTop + portraitBounds.height * (compact ? 0.28 : 0.412)
         ],
         "holo-sticker--uva": [

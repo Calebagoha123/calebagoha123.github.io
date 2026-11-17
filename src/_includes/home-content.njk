@@ -2,13 +2,10 @@
   <h2>ABOUT</h2>
 
   <div class="about-intro">
-    <p>My current research interests follow AI safety and societal impacts.</p>
-    <p>On the former, I’m currently a SPAR AI Research Fellow, working on
-      <a href="https://www.sparai.org/projects/f26/reczVs5EOjiyFWw1B/" target="_blank" rel="noopener">scalable ways to evaluate LLM self-explanations</a>.
-      On the latter, my MSc thesis studied the effects of user demographic information stored in memory on AI writing assistance in political contexts.
-    </p>
-    <p>Outside research, I like to build things end to end. I’m currently developing an internal tool for
-      <a href="https://www.jaworldwide.org/" target="_blank" rel="noopener">JA Worldwide</a>.
+    <p>I'm currently a SPAR AI Research Fellow and a Predoctoral Researcher at the Hasso Plattner Institute.
+      My current research interests follow AI safety and societal impacts, working on
+      scalable ways to evaluate LLM self-explanations
+      and personalised political bias in LLMs, respectively.
     </p>
   </div>
 
@@ -41,27 +38,6 @@
       <img src="/assets/stickers/hello-my-name.png" alt="Hello, my name is Caleb" draggable="false">
     </div>
 
-    <a class="personality-token personality-token--homegoing taste-token" href="https://www.goodreads.com/book/show/30306735-homegoing" target="_blank" rel="noopener" aria-label="Homegoing, rated four out of five. Open on Goodreads or drag to move." title="Open on Goodreads or drag to move">
-      <img src="/assets/books/homegoing.jpg" alt="Homegoing book cover" draggable="false">
-      <span class="personality-popover">Homegoing · <span class="rating-stars" aria-label="4 out of 5 stars">★★★★☆</span></span>
-    </a>
-
-    <a class="personality-token personality-token--hamming taste-token" href="https://www.goodreads.com/book/show/53503835-the-art-of-doing-science-and-engineering" target="_blank" rel="noopener" aria-label="The Art of Doing Science and Engineering, rated four out of five. Open on Goodreads or drag to move." title="Open on Goodreads or drag to move">
-      <img src="/assets/books/hamming.jpg" alt="The Art of Doing Science and Engineering book cover" draggable="false">
-      <span class="personality-popover">The Art of Doing Science and Engineering · <span class="rating-stars" aria-label="4 out of 5 stars">★★★★☆</span></span>
-    </a>
-
-    {% for film in letterboxd %}
-    <a class="personality-token personality-token--letterboxd-{{ loop.index }} taste-token" href="{{ film.link }}" target="_blank" rel="noopener" aria-label="Recent Letterboxd watch: {{ film.title }}, rated {{ film.rating or 'unrated' }} out of five. Open review on Letterboxd or drag to move." title="Open review on Letterboxd or drag to move">
-      <img src="{{ film.poster }}" alt="{{ film.title }} poster" draggable="false" referrerpolicy="no-referrer">
-      <span class="personality-popover">{{ film.title }} · <span class="rating-stars" aria-label="{{ film.rating or 'Unrated' }} out of 5 stars">{{ film.ratingLabel }}</span></span>
-    </a>
-    {% endfor %}
-
-    <a class="personality-token personality-token--strava" href="https://strava.app.link/FR8Tjeckx6b" target="_blank" rel="noopener" aria-label="Caleb’s 5 kilometre personal best: 24 minutes 23 seconds. Open on Strava or drag to move." title="Open on Strava or drag to move">
-      <img src="/assets/strava/sub-25-5k-pb.webp" alt="Strava activity showing Caleb’s 5 kilometre personal best of 24 minutes 23 seconds" draggable="false">
-      <span class="personality-popover">5K PB · 24:23</span>
-    </a>
   </div>
 </section>
 
@@ -93,12 +69,6 @@
           </div>
         </div>
 
-        <div class="research-project">
-          <span class="research-project-type">AI Safety Research Project</span>
-          <div class="research-project-details">
-            <a href="https://github.com/Calebagoha123/em-probing" target="_blank" rel="noopener">Residual-Stream Monitoring of Emergent Misalignment</a>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -106,7 +76,7 @@
       <h3>Industry</h3>
       <p class="industry-paragraph">
         <img src="/assets/logos/ja-worldwide.webp" alt="JA Worldwide" class="industry-logo industry-logo--ja">
-        Software/Product Engineer (Contract) (Present)
+        Software/Product Engineer (Contract) (Sept–Nov 2026)
         <img src="/assets/logos/stichting-de-noordzee.png" alt="Stichting De Noordzee" class="industry-logo">
         Modelling and Simulation (Thesis Co-op) (Feb — May 2025)
         <img src="/assets/logos/sigra.jpg" alt="Sigra" class="industry-logo">
@@ -117,7 +87,5 @@
     </div>
   </div>
 </section>
-
-{% include "project-windows.njk" %}
 
 <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
